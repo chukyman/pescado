@@ -119,7 +119,7 @@
   <ItemGroup>
     <Folder Include="MDI\Formularios\" />
     <Folder Include="MDI\Imagenes\" />
-    <Folder Include="MDI\Modulos\" />
+    <Folder Include="MDI\Modulo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
