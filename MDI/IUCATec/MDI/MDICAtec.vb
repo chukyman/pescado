@@ -98,7 +98,17 @@ Public Class MDICAtec
 
 #Region "Eventos"
 
-   
+    ''' <summary>
+    ''' Evento de click en la opcion Asignar/ Profesor a grupo
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks>Diego Salas Arce</remarks>
+    Private Sub tspProfesorAGrupo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tspProfesorAGrupo.Click
+        Dim frmAsigProfAGrupo As New frmAsignarProfesorXGrupo
+        frmAsigProfAGrupo.MdiParent = Me
+        frmAsigProfAGrupo.Show()
+    End Sub
 
 #End Region
 
@@ -108,4 +118,5 @@ Public Class MDICAtec
 
 
  
+    
 End Class

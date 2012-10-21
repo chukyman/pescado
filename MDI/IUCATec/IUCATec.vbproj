@@ -72,6 +72,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MDI\Formularios\frmAsignarProfesorXGrupo.Designer.vb">
+      <DependentUpon>frmAsignarProfesorXGrupo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\frmAsignarProfesorXGrupo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI\MDICAtec.Designer.vb">
       <DependentUpon>MDICAtec.vb</DependentUpon>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MDI\Formularios\frmAsignarProfesorXGrupo.resx">
+      <DependentUpon>frmAsignarProfesorXGrupo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI\MDICAtec.resx">
       <DependentUpon>MDICAtec.vb</DependentUpon>
     </EmbeddedResource>
@@ -117,7 +126,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MDI\Formularios\" />
     <Folder Include="MDI\Imagenes\" />
     <Folder Include="MDI\Modulo\" />
   </ItemGroup>

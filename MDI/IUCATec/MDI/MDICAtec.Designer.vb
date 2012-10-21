@@ -122,7 +122,7 @@ Partial Class MDICAtec
         '
         'tspMantenimiento
         '
-        Me.tspMantenimiento.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tspUsuarios, Me.tspCursos, Me.tspCarreras, Me.tspGrupos})
+        Me.tspMantenimiento.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tspUsuarios, Me.tspCursos, Me.tspGrupos, Me.tspCarreras})
         Me.tspMantenimiento.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspMantenimiento.Name = "tspMantenimiento"
         Me.tspMantenimiento.Size = New System.Drawing.Size(161, 29)
@@ -169,7 +169,7 @@ Partial Class MDICAtec
         Me.tspProfesorAGrupo.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspProfesorAGrupo.Name = "tspProfesorAGrupo"
         Me.tspProfesorAGrupo.Size = New System.Drawing.Size(281, 26)
-        Me.tspProfesorAGrupo.Text = "Profesor a grupo y foro"
+        Me.tspProfesorAGrupo.Text = "Profesor a grupo"
         '
         'tspEstudianteACarrera
         '
