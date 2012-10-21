@@ -110,6 +110,18 @@ Public Class MDICAtec
         frmAsigProfAGrupo.Show()
     End Sub
 
+    ''' <summary>
+    ''' Evento de click en la opcion del muenu Usuarios
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks>Roberto Cordero Quiros</remarks>
+    Private Sub tspUsuarios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tspUsuarios.Click
+        Dim vloFrmMantenimientoUsuario As New frmMantenimientoUsuario
+        vloFrmMantenimientoUsuario.MdiParent = Me
+        vloFrmMantenimientoUsuario.Show()
+    End Sub
+
 #End Region
 
 
@@ -118,5 +130,5 @@ Public Class MDICAtec
 
 
  
-    
+  
 End Class

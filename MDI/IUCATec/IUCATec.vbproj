@@ -49,6 +49,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlesLeafSoft">
+      <HintPath>bin\Debug\ControlesLeafSoft.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -78,6 +81,18 @@
     <Compile Include="MDI\Formularios\frmAsignarProfesorXGrupo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.Designer.vb">
+      <DependentUpon>frmBuscarUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Usuarios\frmMantenimientoUsuario.Designer.vb">
+      <DependentUpon>frmMantenimientoUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Usuarios\frmMantenimientoUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI\MDICAtec.Designer.vb">
       <DependentUpon>MDICAtec.vb</DependentUpon>
     </Compile>
@@ -103,6 +118,12 @@
   <ItemGroup>
     <EmbeddedResource Include="MDI\Formularios\frmAsignarProfesorXGrupo.resx">
       <DependentUpon>frmAsignarProfesorXGrupo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.resx">
+      <DependentUpon>frmBuscarUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Usuarios\frmMantenimientoUsuario.resx">
+      <DependentUpon>frmMantenimientoUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\MDICAtec.resx">
       <DependentUpon>MDICAtec.vb</DependentUpon>

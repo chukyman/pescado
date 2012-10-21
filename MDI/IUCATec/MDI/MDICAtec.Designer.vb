@@ -36,8 +36,8 @@ Partial Class MDICAtec
         Me.tspMantenimiento = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspUsuarios = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspCursos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tspCarreras = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspGrupos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tspCarreras = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspAsignaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspProfesorAGrupo = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspEstudianteACarrera = New System.Windows.Forms.ToolStripMenuItem()
@@ -142,19 +142,19 @@ Partial Class MDICAtec
         Me.tspCursos.Size = New System.Drawing.Size(152, 26)
         Me.tspCursos.Text = "Cursos"
         '
-        'tspCarreras
-        '
-        Me.tspCarreras.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tspCarreras.Name = "tspCarreras"
-        Me.tspCarreras.Size = New System.Drawing.Size(152, 26)
-        Me.tspCarreras.Text = "Carreras"
-        '
         'tspGrupos
         '
         Me.tspGrupos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspGrupos.Name = "tspGrupos"
         Me.tspGrupos.Size = New System.Drawing.Size(152, 26)
         Me.tspGrupos.Text = "Grupos"
+        '
+        'tspCarreras
+        '
+        Me.tspCarreras.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tspCarreras.Name = "tspCarreras"
+        Me.tspCarreras.Size = New System.Drawing.Size(152, 26)
+        Me.tspCarreras.Text = "Carreras"
         '
         'tspAsignaciones
         '
