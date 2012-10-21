@@ -23,19 +23,19 @@ Partial Class frmBuscarCurso
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.grpBusqCursos = New System.Windows.Forms.GroupBox()
-        Me.txtBuscCursoNombre = New System.Windows.Forms.TextBox()
+        Me.txtBuscCursoCodigo = New ControlesLeafSoft.rcTextBox()
         Me.lblNombreCurso = New System.Windows.Forms.Label()
         Me.btnBuscarCursoNombre = New System.Windows.Forms.Button()
-        Me.txtBuscCursoCodigo = New System.Windows.Forms.TextBox()
         Me.btnBuscarCursoCodigo = New System.Windows.Forms.Button()
         Me.lblCodigoCurso = New System.Windows.Forms.Label()
         Me.lblValidaCriterioCodigo = New System.Windows.Forms.Label()
         Me.lblValidaCriterioNombre = New System.Windows.Forms.Label()
         Me.grpListCursos = New System.Windows.Forms.GroupBox()
         Me.lblListadoCursos = New System.Windows.Forms.Label()
-        Me.cboCursos = New System.Windows.Forms.ComboBox()
         Me.btnBuscarListCurso = New System.Windows.Forms.Button()
+        Me.cboCursos = New System.Windows.Forms.ComboBox()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.txtBuscCursoNombre = New ControlesLeafSoft.rcTextBox()
         Me.grpBusqCursos.SuspendLayout()
         Me.grpListCursos.SuspendLayout()
         Me.SuspendLayout()
@@ -43,9 +43,9 @@ Partial Class frmBuscarCurso
         'grpBusqCursos
         '
         Me.grpBusqCursos.Controls.Add(Me.txtBuscCursoNombre)
+        Me.grpBusqCursos.Controls.Add(Me.txtBuscCursoCodigo)
         Me.grpBusqCursos.Controls.Add(Me.lblNombreCurso)
         Me.grpBusqCursos.Controls.Add(Me.btnBuscarCursoNombre)
-        Me.grpBusqCursos.Controls.Add(Me.txtBuscCursoCodigo)
         Me.grpBusqCursos.Controls.Add(Me.btnBuscarCursoCodigo)
         Me.grpBusqCursos.Controls.Add(Me.lblCodigoCurso)
         Me.grpBusqCursos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -56,13 +56,13 @@ Partial Class frmBuscarCurso
         Me.grpBusqCursos.TabStop = False
         Me.grpBusqCursos.Text = "Búsqueda"
         '
-        'txtBuscCursoNombre
+        'txtBuscCursoCodigo
         '
-        Me.txtBuscCursoNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscCursoNombre.Location = New System.Drawing.Point(87, 111)
-        Me.txtBuscCursoNombre.Name = "txtBuscCursoNombre"
-        Me.txtBuscCursoNombre.Size = New System.Drawing.Size(161, 26)
-        Me.txtBuscCursoNombre.TabIndex = 9
+        Me.txtBuscCursoCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBuscCursoCodigo.Location = New System.Drawing.Point(87, 37)
+        Me.txtBuscCursoCodigo.Name = "txtBuscCursoCodigo"
+        Me.txtBuscCursoCodigo.Size = New System.Drawing.Size(161, 26)
+        Me.txtBuscCursoCodigo.TabIndex = 16
         '
         'lblNombreCurso
         '
@@ -85,14 +85,6 @@ Partial Class frmBuscarCurso
         Me.btnBuscarCursoNombre.TabIndex = 12
         Me.btnBuscarCursoNombre.Text = "Buscar"
         Me.btnBuscarCursoNombre.UseVisualStyleBackColor = False
-        '
-        'txtBuscCursoCodigo
-        '
-        Me.txtBuscCursoCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscCursoCodigo.Location = New System.Drawing.Point(87, 35)
-        Me.txtBuscCursoCodigo.Name = "txtBuscCursoCodigo"
-        Me.txtBuscCursoCodigo.Size = New System.Drawing.Size(161, 26)
-        Me.txtBuscCursoCodigo.TabIndex = 2
         '
         'btnBuscarCursoCodigo
         '
@@ -159,17 +151,6 @@ Partial Class frmBuscarCurso
         Me.lblListadoCursos.TabIndex = 3
         Me.lblListadoCursos.Text = "Cursos"
         '
-        'cboCursos
-        '
-        Me.cboCursos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboCursos.FormattingEnabled = True
-        Me.cboCursos.Items.AddRange(New Object() {"Día Martes Jueves- Programación I", "Noche Lunes Miércoles- Programación I", "Noche Lunes Miércoles Jueves- Proyecto de Ing II"})
-        Me.cboCursos.Location = New System.Drawing.Point(80, 43)
-        Me.cboCursos.Name = "cboCursos"
-        Me.cboCursos.Size = New System.Drawing.Size(239, 28)
-        Me.cboCursos.TabIndex = 4
-        Me.cboCursos.Text = "--Seleccione--"
-        '
         'btnBuscarListCurso
         '
         Me.btnBuscarListCurso.BackColor = System.Drawing.SystemColors.ControlDarkDark
@@ -182,6 +163,17 @@ Partial Class frmBuscarCurso
         Me.btnBuscarListCurso.Text = "Guardar"
         Me.btnBuscarListCurso.UseVisualStyleBackColor = False
         '
+        'cboCursos
+        '
+        Me.cboCursos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCursos.FormattingEnabled = True
+        Me.cboCursos.Items.AddRange(New Object() {"Día Martes Jueves- Programación I", "Noche Lunes Miércoles- Programación I", "Noche Lunes Miércoles Jueves- Proyecto de Ing II"})
+        Me.cboCursos.Location = New System.Drawing.Point(80, 43)
+        Me.cboCursos.Name = "cboCursos"
+        Me.cboCursos.Size = New System.Drawing.Size(239, 28)
+        Me.cboCursos.TabIndex = 4
+        Me.cboCursos.Text = "--Seleccione--"
+        '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.SystemColors.ControlDarkDark
@@ -193,6 +185,14 @@ Partial Class frmBuscarCurso
         Me.btnSalir.TabIndex = 14
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = False
+        '
+        'txtBuscCursoNombre
+        '
+        Me.txtBuscCursoNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBuscCursoNombre.Location = New System.Drawing.Point(87, 111)
+        Me.txtBuscCursoNombre.Name = "txtBuscCursoNombre"
+        Me.txtBuscCursoNombre.Size = New System.Drawing.Size(161, 26)
+        Me.txtBuscCursoNombre.TabIndex = 15
         '
         'frmBuscarCurso
         '
@@ -216,9 +216,7 @@ Partial Class frmBuscarCurso
 
     End Sub
     Friend WithEvents grpBusqCursos As System.Windows.Forms.GroupBox
-    Friend WithEvents txtBuscCursoCodigo As System.Windows.Forms.TextBox
     Friend WithEvents lblCodigoCurso As System.Windows.Forms.Label
-    Friend WithEvents txtBuscCursoNombre As System.Windows.Forms.TextBox
     Friend WithEvents lblNombreCurso As System.Windows.Forms.Label
     Friend WithEvents lblValidaCriterioCodigo As System.Windows.Forms.Label
     Friend WithEvents lblValidaCriterioNombre As System.Windows.Forms.Label
@@ -229,4 +227,6 @@ Partial Class frmBuscarCurso
     Friend WithEvents btnBuscarCursoNombre As System.Windows.Forms.Button
     Friend WithEvents btnBuscarListCurso As System.Windows.Forms.Button
     Friend WithEvents btnSalir As System.Windows.Forms.Button
+    Friend WithEvents txtBuscCursoNombre As ControlesLeafSoft.rcTextBox
+    Friend WithEvents txtBuscCursoCodigo As ControlesLeafSoft.rcTextBox
 End Class

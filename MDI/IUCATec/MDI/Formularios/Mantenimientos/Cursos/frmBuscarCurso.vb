@@ -65,7 +65,7 @@
         vlcMensaje = "Debe ingresar el nombre del curso"
         If Trim(txtBuscCursoNombre.Text) = String.Empty Then
             MessageBox.Show(vlcMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txtBuscCursoNombre.Focus()
+            txtBuscCursoCodigo.Focus()
         End If
     End Sub
 
@@ -109,6 +109,5 @@
 #Region "Funciones"
 
 #End Region
-
     
 End Class

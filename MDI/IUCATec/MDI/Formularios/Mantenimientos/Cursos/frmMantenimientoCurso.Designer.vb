@@ -35,9 +35,9 @@ Partial Class frmMantenimientoCurso
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.pnlDatos = New System.Windows.Forms.Panel()
         Me.gpbDatosUsuarios = New System.Windows.Forms.GroupBox()
+        Me.txtNombre = New ControlesLeafSoft.rcTextBox()
+        Me.txtCodigo = New ControlesLeafSoft.rcTextBox()
         Me.lblValidaCodigo = New System.Windows.Forms.Label()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
-        Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblApellido1 = New System.Windows.Forms.Label()
         Me.lblCedula = New System.Windows.Forms.Label()
@@ -193,9 +193,9 @@ Partial Class frmMantenimientoCurso
         '
         'gpbDatosUsuarios
         '
-        Me.gpbDatosUsuarios.Controls.Add(Me.lblValidaCodigo)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtNombre)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtCodigo)
+        Me.gpbDatosUsuarios.Controls.Add(Me.lblValidaCodigo)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblNombre)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblApellido1)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblCedula)
@@ -210,6 +210,22 @@ Partial Class frmMantenimientoCurso
         Me.gpbDatosUsuarios.TabStop = False
         Me.gpbDatosUsuarios.Text = "Datos Usuarios"
         '
+        'txtNombre
+        '
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombre.Location = New System.Drawing.Point(136, 97)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(124, 26)
+        Me.txtNombre.TabIndex = 23
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodigo.Location = New System.Drawing.Point(136, 65)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(124, 26)
+        Me.txtCodigo.TabIndex = 22
+        '
         'lblValidaCodigo
         '
         Me.lblValidaCodigo.AutoSize = True
@@ -218,22 +234,6 @@ Partial Class frmMantenimientoCurso
         Me.lblValidaCodigo.Size = New System.Drawing.Size(96, 13)
         Me.lblValidaCodigo.TabIndex = 21
         Me.lblValidaCodigo.Text = "* Digite Nombre"
-        '
-        'txtNombre
-        '
-        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(136, 98)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(124, 26)
-        Me.txtNombre.TabIndex = 20
-        '
-        'txtCodigo
-        '
-        Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.Location = New System.Drawing.Point(136, 64)
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(124, 26)
-        Me.txtCodigo.TabIndex = 19
         '
         'lblNombre
         '
@@ -333,7 +333,7 @@ Partial Class frmMantenimientoCurso
     Friend WithEvents lblValidaCarrera As System.Windows.Forms.Label
     Friend WithEvents lblValidaNombre As System.Windows.Forms.Label
     Friend WithEvents cboCarrera As System.Windows.Forms.ComboBox
-    Friend WithEvents txtNombre As System.Windows.Forms.TextBox
     Friend WithEvents lblValidaCodigo As System.Windows.Forms.Label
-    Friend WithEvents txtCodigo As System.Windows.Forms.TextBox
+    Friend WithEvents txtNombre As ControlesLeafSoft.rcTextBox
+    Friend WithEvents txtCodigo As ControlesLeafSoft.rcTextBox
 End Class
