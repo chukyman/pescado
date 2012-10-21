@@ -152,4 +152,10 @@ Public Class MDICAtec
         Dim vloFfrmListarDirectorAcad As New frmListarDirectorAcad
         vloFfrmListarDirectorAcad.Show()
     End Sub
+
+    Private Sub tspCursos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tspCursos.Click
+        Dim vloFrmMantenimientoCursos As New frmMantenimientoCurso
+        vloFrmMantenimientoCursos.MdiParent = Me
+        vloFrmMantenimientoCursos.Show()
+    End Sub
 End Class

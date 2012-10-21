@@ -46,6 +46,7 @@ Partial Class MDICAtec
         Me.tspEstudianteAForo = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspReportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListarCarrerasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListarDirectoresAcademicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspAyuda = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
@@ -55,7 +56,6 @@ Partial Class MDICAtec
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ListarDirectoresAcademicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -213,8 +213,14 @@ Partial Class MDICAtec
         '
         Me.ListarCarrerasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.25!)
         Me.ListarCarrerasToolStripMenuItem.Name = "ListarCarrerasToolStripMenuItem"
-        Me.ListarCarrerasToolStripMenuItem.Size = New System.Drawing.Size(190, 28)
+        Me.ListarCarrerasToolStripMenuItem.Size = New System.Drawing.Size(326, 30)
         Me.ListarCarrerasToolStripMenuItem.Text = "Listar Carreras"
+        '
+        'ListarDirectoresAcademicosToolStripMenuItem
+        '
+        Me.ListarDirectoresAcademicosToolStripMenuItem.Name = "ListarDirectoresAcademicosToolStripMenuItem"
+        Me.ListarDirectoresAcademicosToolStripMenuItem.Size = New System.Drawing.Size(326, 30)
+        Me.ListarDirectoresAcademicosToolStripMenuItem.Text = "Listar Directores Academicos"
         '
         'tspAyuda
         '
@@ -276,12 +282,6 @@ Partial Class MDICAtec
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(42, 17)
         Me.ToolStripStatusLabel.Text = "Estado"
-        '
-        'ListarDirectoresAcademicosToolStripMenuItem
-        '
-        Me.ListarDirectoresAcademicosToolStripMenuItem.Name = "ListarDirectoresAcademicosToolStripMenuItem"
-        Me.ListarDirectoresAcademicosToolStripMenuItem.Size = New System.Drawing.Size(326, 30)
-        Me.ListarDirectoresAcademicosToolStripMenuItem.Text = "Listar Directores Academicos"
         '
         'MDICAtec
         '
