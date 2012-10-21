@@ -131,4 +131,8 @@ Public Class MDICAtec
 
  
   
+    Private Sub ListarCarrerasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListarCarrerasToolStripMenuItem.Click
+        Dim vloFrmListarCarreras As New frmListarCarreras
+        vloFrmListarCarreras.Show()
+    End Sub
 End Class

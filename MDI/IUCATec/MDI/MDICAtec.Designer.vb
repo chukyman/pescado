@@ -54,6 +54,7 @@ Partial Class MDICAtec
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ListarCarrerasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -201,6 +202,7 @@ Partial Class MDICAtec
         '
         'tspReportes
         '
+        Me.tspReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListarCarrerasToolStripMenuItem})
         Me.tspReportes.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspReportes.Name = "tspReportes"
         Me.tspReportes.Size = New System.Drawing.Size(98, 29)
@@ -267,6 +269,13 @@ Partial Class MDICAtec
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(42, 17)
         Me.ToolStripStatusLabel.Text = "Estado"
         '
+        'ListarCarrerasToolStripMenuItem
+        '
+        Me.ListarCarrerasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.25!)
+        Me.ListarCarrerasToolStripMenuItem.Name = "ListarCarrerasToolStripMenuItem"
+        Me.ListarCarrerasToolStripMenuItem.Size = New System.Drawing.Size(190, 28)
+        Me.ListarCarrerasToolStripMenuItem.Text = "Listar Carreras"
+        '
         'MDICAtec
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -317,5 +326,6 @@ Partial Class MDICAtec
     Friend WithEvents tspCambiarContraseña As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tspEstudianteACarrera As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tspEstudianteAForo As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListarCarrerasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
