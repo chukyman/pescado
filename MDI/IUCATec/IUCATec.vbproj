@@ -49,6 +49,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlesIULeafSoft">
+      <HintPath>..\..\..\..\Visual Studio 2010\Projects\InterfazGrafica_Proyecto2\InterfazGrafica_Proyecto2\bin\Debug\ControlesIULeafSoft.dll</HintPath>
+    </Reference>
     <Reference Include="ControlesLeafSoft">
       <HintPath>bin\Debug\ControlesLeafSoft.dll</HintPath>
     </Reference>
@@ -210,6 +213,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MDI\Formularios\Mantenimientos\Cursos\" />
     <Folder Include="MDI\Imagenes\" />
     <Folder Include="MDI\Modulo\" />
   </ItemGroup>
