@@ -343,7 +343,7 @@ Partial Class frmMantenimientoUsuario
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(84, 37)
         Me.btnModificar.TabIndex = 4
-        Me.btnModificar.Text = "Modifcar"
+        Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = False
         '
         'btnDeshacer

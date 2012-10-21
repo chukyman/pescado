@@ -75,10 +75,28 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MDI\Formularios\frmAsignarProfesorXGrupo.Designer.vb">
+    <Compile Include="MDI\Formularios\Asignaciones\frmAsignarEstudianteXCarrera.Designer.vb">
+      <DependentUpon>frmAsignarEstudianteXCarrera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Asignaciones\frmAsignarEstudianteXCarrera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\Formularios\Asignaciones\frmAsignarProfesorXGrupo.Designer.vb">
       <DependentUpon>frmAsignarProfesorXGrupo.vb</DependentUpon>
     </Compile>
-    <Compile Include="MDI\Formularios\frmAsignarProfesorXGrupo.vb">
+    <Compile Include="MDI\Formularios\Asignaciones\frmAsignarProfesorXGrupo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Carreras\frmBuscarCarrera.Designer.vb">
+      <DependentUpon>frmBuscarCarrera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Carreras\frmBuscarCarrera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Carreras\frmMantenimientoCarrera.Designer.vb">
+      <DependentUpon>frmMantenimientoCarrera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Carreras\frmMantenimientoCarrera.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.Designer.vb">
@@ -97,6 +115,12 @@
       <DependentUpon>frmListarCarreras.vb</DependentUpon>
     </Compile>
     <Compile Include="MDI\Formularios\Reportes\frmListarCarreras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\Formularios\Reportes\frmListarDirectorAcad.Designer.vb">
+      <DependentUpon>frmListarDirectorAcad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Reportes\frmListarDirectorAcad.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\MDICAtec.Designer.vb">
@@ -122,8 +146,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MDI\Formularios\frmAsignarProfesorXGrupo.resx">
+    <EmbeddedResource Include="MDI\Formularios\Asignaciones\frmAsignarEstudianteXCarrera.resx">
+      <DependentUpon>frmAsignarEstudianteXCarrera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Asignaciones\frmAsignarProfesorXGrupo.resx">
       <DependentUpon>frmAsignarProfesorXGrupo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Carreras\frmBuscarCarrera.resx">
+      <DependentUpon>frmBuscarCarrera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Carreras\frmMantenimientoCarrera.resx">
+      <DependentUpon>frmMantenimientoCarrera.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.resx">
       <DependentUpon>frmBuscarUsuario.vb</DependentUpon>
@@ -133,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Reportes\frmListarCarreras.resx">
       <DependentUpon>frmListarCarreras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Reportes\frmListarDirectorAcad.resx">
+      <DependentUpon>frmListarDirectorAcad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\MDICAtec.resx">
       <DependentUpon>MDICAtec.vb</DependentUpon>

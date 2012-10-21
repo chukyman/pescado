@@ -135,4 +135,21 @@ Public Class MDICAtec
         Dim vloFrmListarCarreras As New frmListarCarreras
         vloFrmListarCarreras.Show()
     End Sub
+
+    Private Sub tspCarreras_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tspCarreras.Click
+        Dim vloFrmMantenimientoCarrera As New frmMantenimientoCarrera
+        vloFrmMantenimientoCarrera.MdiParent = Me
+        vloFrmMantenimientoCarrera.Show()
+    End Sub
+
+    Private Sub tspEstudianteACarrera_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tspEstudianteACarrera.Click
+        Dim vloFrmAsignarEstudianteXCarrera As New frmAsignarEstudianteXCarrera
+        vloFrmAsignarEstudianteXCarrera.MdiParent = Me
+        vloFrmAsignarEstudianteXCarrera.Show()
+    End Sub
+
+    Private Sub ListarDirectoresAcademicosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListarDirectoresAcademicosToolStripMenuItem.Click
+        Dim vloFfrmListarDirectorAcad As New frmListarDirectorAcad
+        vloFfrmListarDirectorAcad.Show()
+    End Sub
 End Class
