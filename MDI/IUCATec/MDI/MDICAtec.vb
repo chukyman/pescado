@@ -158,4 +158,10 @@ Public Class MDICAtec
         vloFrmMantenimientoCursos.MdiParent = Me
         vloFrmMantenimientoCursos.Show()
     End Sub
+
+    Private Sub tspGrupos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tspGrupos.Click
+        Dim vloFrmMantenimientoGrupos As New frmMantenimientoGrupo
+        vloFrmMantenimientoGrupos.MdiParent = Me
+        vloFrmMantenimientoGrupos.Show()
+    End Sub
 End Class

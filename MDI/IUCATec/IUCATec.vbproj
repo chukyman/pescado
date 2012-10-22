@@ -114,6 +114,18 @@
     <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.Designer.vb">
+      <DependentUpon>frmBuscarGrupo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmMantenimientoGrupo.Designer.vb">
+      <DependentUpon>frmMantenimientoGrupo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmMantenimientoGrupo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.Designer.vb">
       <DependentUpon>frmBuscarUsuario.vb</DependentUpon>
     </Compile>
@@ -178,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.resx">
       <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.resx">
+      <DependentUpon>frmBuscarGrupo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Grupos\frmMantenimientoGrupo.resx">
+      <DependentUpon>frmMantenimientoGrupo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.resx">
       <DependentUpon>frmBuscarUsuario.vb</DependentUpon>
