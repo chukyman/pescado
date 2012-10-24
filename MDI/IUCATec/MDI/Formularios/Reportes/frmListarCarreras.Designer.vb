@@ -28,13 +28,13 @@ Partial Class frmListarCarreras
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.gpbBusqueda = New System.Windows.Forms.GroupBox()
-        Me.grdBuscarUsuarios = New System.Windows.Forms.DataGridView()
+        Me.grdListarCarreras = New System.Windows.Forms.DataGridView()
         Me.pnlContenedorTitulo = New System.Windows.Forms.Panel()
         Me.lblTituloBC = New System.Windows.Forms.Label()
         Me.tlpContenedorBuscar.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.gpbBusqueda.SuspendLayout()
-        CType(Me.grdBuscarUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdListarCarreras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedorTitulo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -86,7 +86,7 @@ Partial Class frmListarCarreras
         '
         'gpbBusqueda
         '
-        Me.gpbBusqueda.Controls.Add(Me.grdBuscarUsuarios)
+        Me.gpbBusqueda.Controls.Add(Me.grdListarCarreras)
         Me.gpbBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gpbBusqueda.Location = New System.Drawing.Point(18, 18)
         Me.gpbBusqueda.Name = "gpbBusqueda"
@@ -95,15 +95,15 @@ Partial Class frmListarCarreras
         Me.gpbBusqueda.TabStop = False
         Me.gpbBusqueda.Text = "Lista"
         '
-        'grdBuscarUsuarios
+        'grdListarCarreras
         '
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver
-        Me.grdBuscarUsuarios.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.grdBuscarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdBuscarUsuarios.Location = New System.Drawing.Point(7, 20)
-        Me.grdBuscarUsuarios.Name = "grdBuscarUsuarios"
-        Me.grdBuscarUsuarios.Size = New System.Drawing.Size(613, 200)
-        Me.grdBuscarUsuarios.TabIndex = 0
+        Me.grdListarCarreras.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.grdListarCarreras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdListarCarreras.Location = New System.Drawing.Point(7, 20)
+        Me.grdListarCarreras.Name = "grdListarCarreras"
+        Me.grdListarCarreras.Size = New System.Drawing.Size(613, 200)
+        Me.grdListarCarreras.TabIndex = 0
         '
         'pnlContenedorTitulo
         '
@@ -130,11 +130,12 @@ Partial Class frmListarCarreras
         Me.ClientSize = New System.Drawing.Size(675, 443)
         Me.Controls.Add(Me.tlpContenedorBuscar)
         Me.Name = "frmListarCarreras"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmListarCarreras"
         Me.tlpContenedorBuscar.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.gpbBusqueda.ResumeLayout(False)
-        CType(Me.grdBuscarUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdListarCarreras, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlContenedorTitulo.ResumeLayout(False)
         Me.pnlContenedorTitulo.PerformLayout()
         Me.ResumeLayout(False)
@@ -145,7 +146,7 @@ Partial Class frmListarCarreras
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents btnSalir As System.Windows.Forms.Button
     Friend WithEvents gpbBusqueda As System.Windows.Forms.GroupBox
-    Friend WithEvents grdBuscarUsuarios As System.Windows.Forms.DataGridView
+    Friend WithEvents grdListarCarreras As System.Windows.Forms.DataGridView
     Friend WithEvents pnlContenedorTitulo As System.Windows.Forms.Panel
     Friend WithEvents lblTituloBC As System.Windows.Forms.Label
 End Class

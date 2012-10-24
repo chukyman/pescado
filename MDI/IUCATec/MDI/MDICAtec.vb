@@ -10,6 +10,16 @@ Public Class MDICAtec
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
+    Private Sub MDICAtec_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
         ' Cree una nueva instancia del formulario secundario.
         Dim ChildForm As New System.Windows.Forms.Form
@@ -66,13 +76,6 @@ Public Class MDICAtec
     End Sub
 
     Private m_ChildFormNumber As Integer
-
-
-  
-
-
-
-
 
 #Region "Atributos"
 
@@ -136,13 +139,6 @@ Public Class MDICAtec
     End Sub
 
 #End Region
-
-
-
-
-
-
- 
   
     Private Sub ListarCarrerasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListarCarrerasToolStripMenuItem.Click
         Dim vloFrmListarCarreras As New frmListarCarreras
@@ -178,9 +174,13 @@ Public Class MDICAtec
         vloFrmMantenimientoGrupos.Show()
     End Sub
 
-    Private Sub MDICAtec_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+    Private Sub ListarCursosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListarCursosToolStripMenuItem.Click
+        Dim vloFrmListarCursos As New frmListarCursos
+        vloFrmListarCursos.ShowDialog()
     End Sub
 
- 
+    Private Sub ListarGruposToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListarGruposToolStripMenuItem.Click
+        Dim vloFrmListarGrupos As New frmListarGrupos
+        vloFrmListarGrupos.ShowDialog()
+    End Sub
 End Class

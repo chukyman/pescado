@@ -150,10 +150,22 @@
     <Compile Include="MDI\Formularios\Reportes\frmListarCarreras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MDI\Formularios\Reportes\frmListarCursos.Designer.vb">
+      <DependentUpon>frmListarCursos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Reportes\frmListarCursos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI\Formularios\Reportes\frmListarDirectorAcad.Designer.vb">
       <DependentUpon>frmListarDirectorAcad.vb</DependentUpon>
     </Compile>
     <Compile Include="MDI\Formularios\Reportes\frmListarDirectorAcad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\Formularios\Reportes\frmListarGrupos.Designer.vb">
+      <DependentUpon>frmListarGrupos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Reportes\frmListarGrupos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\MDICAtec.Designer.vb">
@@ -215,8 +227,14 @@
     <EmbeddedResource Include="MDI\Formularios\Reportes\frmListarCarreras.resx">
       <DependentUpon>frmListarCarreras.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Reportes\frmListarCursos.resx">
+      <DependentUpon>frmListarCursos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Reportes\frmListarDirectorAcad.resx">
       <DependentUpon>frmListarDirectorAcad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Reportes\frmListarGrupos.resx">
+      <DependentUpon>frmListarGrupos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\MDICAtec.resx">
       <DependentUpon>MDICAtec.vb</DependentUpon>

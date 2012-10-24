@@ -123,13 +123,14 @@ Partial Class frmListarDirectorAcad
         Me.pnlContenedorTitulo.Size = New System.Drawing.Size(666, 37)
         Me.pnlContenedorTitulo.TabIndex = 22
         '
-        'ListarCarreras
+        'frmListarDirectorAcad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(675, 443)
         Me.Controls.Add(Me.tlpContenedorBuscar)
-        Me.Name = "ListarCarreras"
+        Me.Name = "frmListarDirectorAcad"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Listar Director Academico"
         Me.gpbBusqueda.ResumeLayout(False)
         CType(Me.grdBuscarUsuarios, System.ComponentModel.ISupportInitialize).EndInit()

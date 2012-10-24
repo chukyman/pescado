@@ -59,6 +59,8 @@ Partial Class MDICAtec
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ListarCursosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListarGruposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -137,28 +139,28 @@ Partial Class MDICAtec
         '
         Me.tspUsuarios.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspUsuarios.Name = "tspUsuarios"
-        Me.tspUsuarios.Size = New System.Drawing.Size(152, 26)
+        Me.tspUsuarios.Size = New System.Drawing.Size(143, 26)
         Me.tspUsuarios.Text = "Usuarios"
         '
         'tspCursos
         '
         Me.tspCursos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspCursos.Name = "tspCursos"
-        Me.tspCursos.Size = New System.Drawing.Size(152, 26)
+        Me.tspCursos.Size = New System.Drawing.Size(143, 26)
         Me.tspCursos.Text = "Cursos"
         '
         'tspGrupos
         '
         Me.tspGrupos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspGrupos.Name = "tspGrupos"
-        Me.tspGrupos.Size = New System.Drawing.Size(152, 26)
+        Me.tspGrupos.Size = New System.Drawing.Size(143, 26)
         Me.tspGrupos.Text = "Grupos"
         '
         'tspCarreras
         '
         Me.tspCarreras.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspCarreras.Name = "tspCarreras"
-        Me.tspCarreras.Size = New System.Drawing.Size(152, 26)
+        Me.tspCarreras.Size = New System.Drawing.Size(143, 26)
         Me.tspCarreras.Text = "Carreras"
         '
         'tspCargas
@@ -166,7 +168,7 @@ Partial Class MDICAtec
         Me.tspCargas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tspCargaEstudiante, Me.tspCargaCursos})
         Me.tspCargas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspCargas.Name = "tspCargas"
-        Me.tspCargas.Size = New System.Drawing.Size(152, 26)
+        Me.tspCargas.Size = New System.Drawing.Size(143, 26)
         Me.tspCargas.Text = "Cargas"
         '
         'tspCargaEstudiante
@@ -226,7 +228,7 @@ Partial Class MDICAtec
         '
         'tspReportes
         '
-        Me.tspReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListarCarrerasToolStripMenuItem, Me.ListarDirectoresAcademicosToolStripMenuItem})
+        Me.tspReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListarCarrerasToolStripMenuItem, Me.ListarCursosToolStripMenuItem, Me.ListarGruposToolStripMenuItem, Me.ListarDirectoresAcademicosToolStripMenuItem})
         Me.tspReportes.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspReportes.Name = "tspReportes"
         Me.tspReportes.Size = New System.Drawing.Size(98, 29)
@@ -306,6 +308,18 @@ Partial Class MDICAtec
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(42, 17)
         Me.ToolStripStatusLabel.Text = "Estado"
         '
+        'ListarCursosToolStripMenuItem
+        '
+        Me.ListarCursosToolStripMenuItem.Name = "ListarCursosToolStripMenuItem"
+        Me.ListarCursosToolStripMenuItem.Size = New System.Drawing.Size(326, 30)
+        Me.ListarCursosToolStripMenuItem.Text = "Listar Cursos"
+        '
+        'ListarGruposToolStripMenuItem
+        '
+        Me.ListarGruposToolStripMenuItem.Name = "ListarGruposToolStripMenuItem"
+        Me.ListarGruposToolStripMenuItem.Size = New System.Drawing.Size(326, 30)
+        Me.ListarGruposToolStripMenuItem.Text = "Listar Grupos"
+        '
         'MDICAtec
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -361,5 +375,7 @@ Partial Class MDICAtec
     Friend WithEvents tspCargas As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tspCargaEstudiante As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tspCargaCursos As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListarCursosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListarGruposToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
