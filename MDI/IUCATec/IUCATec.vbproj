@@ -108,6 +108,12 @@
     <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmBuscarCurso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmCargarCursos.Designer.vb">
+      <DependentUpon>frmCargarCursos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmCargarCursos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.Designer.vb">
       <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmBuscarCurso.resx">
       <DependentUpon>frmBuscarCurso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmCargarCursos.resx">
+      <DependentUpon>frmCargarCursos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.resx">
       <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>

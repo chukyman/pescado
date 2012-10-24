@@ -122,6 +122,19 @@ Public Class MDICAtec
         vloFrmMantenimientoUsuario.Show()
     End Sub
 
+    ''' <summary>
+    ''' Evento de click en la opcion del muenu Cargar Curos.
+    ''' Esta pantalla abre un archivo de excel con los datos de los cursos.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks>Roberto Cordero Quirós</remarks>
+    Private Sub tspCargaCursos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tspCargaCursos.Click
+        Dim vloFrmCargarCursos As New frmCargarCursos
+        vloFrmCargarCursos.MdiParent = Me
+        vloFrmCargarCursos.Show()
+    End Sub
+
 #End Region
 
 
@@ -164,4 +177,10 @@ Public Class MDICAtec
         vloFrmMantenimientoGrupos.MdiParent = Me
         vloFrmMantenimientoGrupos.Show()
     End Sub
+
+    Private Sub MDICAtec_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+
+ 
 End Class

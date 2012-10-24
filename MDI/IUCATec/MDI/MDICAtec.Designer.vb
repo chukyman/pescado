@@ -38,6 +38,9 @@ Partial Class MDICAtec
         Me.tspCursos = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspGrupos = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspCarreras = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tspCargas = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tspCargaEstudiante = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tspCargaCursos = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspAsignaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspProfesorAGrupo = New System.Windows.Forms.ToolStripMenuItem()
         Me.tspEstudianteACarrera = New System.Windows.Forms.ToolStripMenuItem()
@@ -124,7 +127,7 @@ Partial Class MDICAtec
         '
         'tspMantenimiento
         '
-        Me.tspMantenimiento.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tspUsuarios, Me.tspCursos, Me.tspGrupos, Me.tspCarreras})
+        Me.tspMantenimiento.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tspUsuarios, Me.tspCursos, Me.tspGrupos, Me.tspCarreras, Me.tspCargas})
         Me.tspMantenimiento.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tspMantenimiento.Name = "tspMantenimiento"
         Me.tspMantenimiento.Size = New System.Drawing.Size(161, 29)
@@ -157,6 +160,26 @@ Partial Class MDICAtec
         Me.tspCarreras.Name = "tspCarreras"
         Me.tspCarreras.Size = New System.Drawing.Size(152, 26)
         Me.tspCarreras.Text = "Carreras"
+        '
+        'tspCargas
+        '
+        Me.tspCargas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tspCargaEstudiante, Me.tspCargaCursos})
+        Me.tspCargas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tspCargas.Name = "tspCargas"
+        Me.tspCargas.Size = New System.Drawing.Size(152, 26)
+        Me.tspCargas.Text = "Cargas"
+        '
+        'tspCargaEstudiante
+        '
+        Me.tspCargaEstudiante.Name = "tspCargaEstudiante"
+        Me.tspCargaEstudiante.Size = New System.Drawing.Size(152, 26)
+        Me.tspCargaEstudiante.Text = "Estudiante"
+        '
+        'tspCargaCursos
+        '
+        Me.tspCargaCursos.Name = "tspCargaCursos"
+        Me.tspCargaCursos.Size = New System.Drawing.Size(152, 26)
+        Me.tspCargaCursos.Text = "Cursos"
         '
         'tspAsignaciones
         '
@@ -335,5 +358,8 @@ Partial Class MDICAtec
     Friend WithEvents tspEstudianteAForo As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListarCarrerasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListarDirectoresAcademicosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents tspCargas As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents tspCargaEstudiante As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents tspCargaCursos As System.Windows.Forms.ToolStripMenuItem
 
 End Class
