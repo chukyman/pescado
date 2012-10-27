@@ -25,6 +25,9 @@ Partial Class frmMantenimientoGrupo
         Me.tlpContenedorPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.pnlDatos = New System.Windows.Forms.Panel()
+        Me.lblValidaCantEst = New System.Windows.Forms.Label()
+        Me.txtCantEstudiantes = New ControlesLeafSoft.rcTextBox()
+        Me.lblCantidadEstudiantes = New System.Windows.Forms.Label()
         Me.cboCursos = New System.Windows.Forms.ComboBox()
         Me.txtDescripcion = New ControlesLeafSoft.rcTextBox()
         Me.txtHorario = New ControlesLeafSoft.rcTextBox()
@@ -81,6 +84,9 @@ Partial Class frmMantenimientoGrupo
         '
         'pnlDatos
         '
+        Me.pnlDatos.Controls.Add(Me.lblValidaCantEst)
+        Me.pnlDatos.Controls.Add(Me.txtCantEstudiantes)
+        Me.pnlDatos.Controls.Add(Me.lblCantidadEstudiantes)
         Me.pnlDatos.Controls.Add(Me.cboCursos)
         Me.pnlDatos.Controls.Add(Me.txtDescripcion)
         Me.pnlDatos.Controls.Add(Me.txtHorario)
@@ -97,6 +103,34 @@ Partial Class frmMantenimientoGrupo
         Me.pnlDatos.Name = "pnlDatos"
         Me.pnlDatos.Size = New System.Drawing.Size(793, 321)
         Me.pnlDatos.TabIndex = 9
+        '
+        'lblValidaCantEst
+        '
+        Me.lblValidaCantEst.AutoSize = True
+        Me.lblValidaCantEst.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblValidaCantEst.Location = New System.Drawing.Point(398, 166)
+        Me.lblValidaCantEst.Name = "lblValidaCantEst"
+        Me.lblValidaCantEst.Size = New System.Drawing.Size(99, 13)
+        Me.lblValidaCantEst.TabIndex = 33
+        Me.lblValidaCantEst.Text = "*Digite Cantidad"
+        '
+        'txtCantEstudiantes
+        '
+        Me.txtCantEstudiantes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCantEstudiantes.Location = New System.Drawing.Point(233, 159)
+        Me.txtCantEstudiantes.Name = "txtCantEstudiantes"
+        Me.txtCantEstudiantes.Size = New System.Drawing.Size(121, 26)
+        Me.txtCantEstudiantes.TabIndex = 32
+        '
+        'lblCantidadEstudiantes
+        '
+        Me.lblCantidadEstudiantes.AutoSize = True
+        Me.lblCantidadEstudiantes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCantidadEstudiantes.Location = New System.Drawing.Point(16, 159)
+        Me.lblCantidadEstudiantes.Name = "lblCantidadEstudiantes"
+        Me.lblCantidadEstudiantes.Size = New System.Drawing.Size(210, 20)
+        Me.lblCantidadEstudiantes.TabIndex = 31
+        Me.lblCantidadEstudiantes.Text = "Cantidad de estudiantes:"
         '
         'cboCursos
         '
@@ -372,4 +406,7 @@ Partial Class frmMantenimientoGrupo
     Friend WithEvents btnDeshacer As System.Windows.Forms.Button
     Friend WithEvents btnEliminar As System.Windows.Forms.Button
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
+    Friend WithEvents lblValidaCantEst As System.Windows.Forms.Label
+    Friend WithEvents txtCantEstudiantes As ControlesLeafSoft.rcTextBox
+    Friend WithEvents lblCantidadEstudiantes As System.Windows.Forms.Label
 End Class

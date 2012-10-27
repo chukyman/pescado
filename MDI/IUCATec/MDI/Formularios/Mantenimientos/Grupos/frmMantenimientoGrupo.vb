@@ -44,13 +44,15 @@
             Select Case (pvnOpcion)
                 'Si Case es -1.
                 Case CAMPOS.NOCAMPOS
+
                     'Segun el valor del parametro booleando los muestra o no.
                     lblValidaCurso.Visible = pvbMostrar
                     lblValidaNombre.Visible = pvbMostrar
                     lblValidaHorario.Visible = pvbMostrar
                     lblValidaDescripcion.Visible = pvbMostrar
-                    vlbEsValida = pvbMostrar
+                    lblValidaCantEst.Visible = pvbMostrar
 
+                    vlbEsValida = pvbMostrar
                     vlbEsValida = pvbMostrar
 
                 Case CAMPOS.CURSO
@@ -86,6 +88,15 @@
                         lblValidaDescripcion.Visible = pvbMostrar
                         vlbEsValida = pvbMostrar
                     End If
+
+                Case CAMPOS.CANTIDADEST
+                    If pvbMostrar = True Then
+                        lblValidaCantEst.Visible = pvbMostrar
+                    Else
+                        lblValidaCantEst.Visible = pvbMostrar
+                        vlbEsValida = pvbMostrar
+                    End If
+
             End Select
 
             Return vlbEsValida
@@ -129,13 +140,22 @@
             Else
                 FbMostrarValidaciones(False, CAMPOS.HORARIO)
             End If
-
+            ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             If Trim(txtDescripcion.Text) = String.Empty Then
                 FbMostrarValidaciones(True, CAMPOS.DESCRIPCION)
                 vlbValidado = False
             Else
                 FbMostrarValidaciones(False, CAMPOS.DESCRIPCION)
             End If
+
+            ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            If Trim(txtCantEstudiantes.Text) = String.Empty Then
+                FbMostrarValidaciones(True, CAMPOS.CANTIDADEST)
+                vlbValidado = False
+            Else
+                FbMostrarValidaciones(False, CAMPOS.CANTIDADEST)
+            End If
+
             'Retorna si esta validado, si retorna false es porq no esta validado
             Return vlbValidado
             'Si produce Error
@@ -161,6 +181,8 @@
             txtNombre.Text() = String.Empty
             txtHorario.Text() = String.Empty
             txtDescripcion.Text() = String.Empty
+            txtCantEstudiantes.Text() = String.Empty
+
             'Si produce Error
         Catch ex As Exception
             'Lanza Error
@@ -255,6 +277,8 @@
             txtNombre.Enabled = pvbBloquear
             txtHorario.Enabled = pvbBloquear
             txtDescripcion.Enabled = pvbBloquear
+            txtCantEstudiantes.Enabled = pvbBloquear
+
             'Si produce Error
         Catch ex As Exception
             'Lanza Error
@@ -297,6 +321,7 @@
         NOMBRE = 1
         HORARIO = 2
         DESCRIPCION = 3
+        CANTIDADEST = 4
     End Enum
 #End Region
 
@@ -304,7 +329,8 @@
 
 
 #End Region
-    
+
+
     ''' <summary>
     ''' 
     ''' </summary>
@@ -376,6 +402,24 @@
             Else
                 'Oculta el label
                 FbMostrarValidaciones(False, CAMPOS.DESCRIPCION)
+            End If
+
+            'Si produce Error
+        Catch ex As Exception
+            'Lanza Error
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub txtCantEstudiantes_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtCantEstudiantes.KeyUp
+        Try
+            'Si el campo  es vacio
+            If Trim(txtCantEstudiantes.Text) = String.Empty Then
+                'Manda a mostrar el label
+                FbMostrarValidaciones(True, CAMPOS.CANTIDADEST)
+            Else
+                'Oculta el label
+                FbMostrarValidaciones(False, CAMPOS.CANTIDADEST)
             End If
 
             'Si produce Error
@@ -475,4 +519,7 @@
         PLimpiarCampos()
         PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
     End Sub
+
+    
+    
 End Class
