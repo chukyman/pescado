@@ -25,8 +25,6 @@ Partial Class frmMantenimientoCarrera
         Me.tlpContenedorPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.gpbDatosUsuarios = New System.Windows.Forms.GroupBox()
-        Me.txtNombre = New ControlesLeafSoft.rcTextBox()
-        Me.txtCodigo = New ControlesLeafSoft.rcTextBox()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblApellido1 = New System.Windows.Forms.Label()
         Me.lblValidaNombre = New System.Windows.Forms.Label()
@@ -40,6 +38,11 @@ Partial Class frmMantenimientoCarrera
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.pnlContenedorTitulo = New System.Windows.Forms.Panel()
         Me.lblTituloMU = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cboDA = New System.Windows.Forms.ComboBox()
+        Me.lblValidaDA = New System.Windows.Forms.Label()
+        Me.txtCodigo = New ControlesLeafSoft.rcTextBox()
+        Me.txtNombre = New ControlesLeafSoft.rcTextBox()
         Me.tlpContenedorPrincipal.SuspendLayout()
         Me.pnlContenedor.SuspendLayout()
         Me.gpbDatosUsuarios.SuspendLayout()
@@ -76,6 +79,9 @@ Partial Class frmMantenimientoCarrera
         '
         Me.gpbDatosUsuarios.Controls.Add(Me.txtNombre)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtCodigo)
+        Me.gpbDatosUsuarios.Controls.Add(Me.lblValidaDA)
+        Me.gpbDatosUsuarios.Controls.Add(Me.cboDA)
+        Me.gpbDatosUsuarios.Controls.Add(Me.Label1)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblNombre)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblApellido1)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblValidaNombre)
@@ -87,22 +93,6 @@ Partial Class frmMantenimientoCarrera
         Me.gpbDatosUsuarios.TabIndex = 20
         Me.gpbDatosUsuarios.TabStop = False
         Me.gpbDatosUsuarios.Text = "Datos Usuarios"
-        '
-        'txtNombre
-        '
-        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(164, 98)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(124, 26)
-        Me.txtNombre.TabIndex = 23
-        '
-        'txtCodigo
-        '
-        Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.Location = New System.Drawing.Point(164, 53)
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(124, 26)
-        Me.txtCodigo.TabIndex = 22
         '
         'lblNombre
         '
@@ -127,7 +117,7 @@ Partial Class frmMantenimientoCarrera
         'lblValidaNombre
         '
         Me.lblValidaNombre.AutoSize = True
-        Me.lblValidaNombre.Location = New System.Drawing.Point(310, 109)
+        Me.lblValidaNombre.Location = New System.Drawing.Point(325, 106)
         Me.lblValidaNombre.Name = "lblValidaNombre"
         Me.lblValidaNombre.Size = New System.Drawing.Size(96, 13)
         Me.lblValidaNombre.TabIndex = 16
@@ -136,7 +126,7 @@ Partial Class frmMantenimientoCarrera
         'lblValidaCodigo
         '
         Me.lblValidaCodigo.AutoSize = True
-        Me.lblValidaCodigo.Location = New System.Drawing.Point(310, 53)
+        Me.lblValidaCodigo.Location = New System.Drawing.Point(325, 58)
         Me.lblValidaCodigo.Name = "lblValidaCodigo"
         Me.lblValidaCodigo.Size = New System.Drawing.Size(92, 13)
         Me.lblValidaCodigo.TabIndex = 15
@@ -248,6 +238,50 @@ Partial Class frmMantenimientoCarrera
         Me.lblTituloMU.TabIndex = 21
         Me.lblTituloMU.Text = "Manteniento Carreras"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(36, 152)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(80, 24)
+        Me.Label1.TabIndex = 24
+        Me.Label1.Text = "Director:"
+        '
+        'cboDA
+        '
+        Me.cboDA.FormattingEnabled = True
+        Me.cboDA.Items.AddRange(New Object() {"Director 1", "Director 2", "Directora 3", "Directora 4"})
+        Me.cboDA.Location = New System.Drawing.Point(164, 152)
+        Me.cboDA.Name = "cboDA"
+        Me.cboDA.Size = New System.Drawing.Size(124, 21)
+        Me.cboDA.TabIndex = 25
+        '
+        'lblValidaDA
+        '
+        Me.lblValidaDA.AutoSize = True
+        Me.lblValidaDA.Location = New System.Drawing.Point(330, 152)
+        Me.lblValidaDA.Name = "lblValidaDA"
+        Me.lblValidaDA.Size = New System.Drawing.Size(197, 13)
+        Me.lblValidaDA.TabIndex = 26
+        Me.lblValidaDA.Text = "*Selecione el Director Academico"
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodigo.Location = New System.Drawing.Point(164, 50)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(124, 26)
+        Me.txtCodigo.TabIndex = 27
+        '
+        'txtNombre
+        '
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombre.Location = New System.Drawing.Point(164, 100)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(124, 26)
+        Me.txtNombre.TabIndex = 28
+        '
         'frmMantenimientoCarrera
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -280,10 +314,13 @@ Partial Class frmMantenimientoCarrera
     Friend WithEvents lblTituloMU As System.Windows.Forms.Label
     Friend WithEvents pnlContenedor As System.Windows.Forms.Panel
     Friend WithEvents gpbDatosUsuarios As System.Windows.Forms.GroupBox
-    Friend WithEvents txtNombre As ControlesLeafSoft.rcTextBox
-    Friend WithEvents txtCodigo As ControlesLeafSoft.rcTextBox
     Friend WithEvents lblNombre As System.Windows.Forms.Label
     Friend WithEvents lblApellido1 As System.Windows.Forms.Label
     Friend WithEvents lblValidaNombre As System.Windows.Forms.Label
     Friend WithEvents lblValidaCodigo As System.Windows.Forms.Label
+    Friend WithEvents cboDA As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblValidaDA As System.Windows.Forms.Label
+    Friend WithEvents txtNombre As ControlesLeafSoft.rcTextBox
+    Friend WithEvents txtCodigo As ControlesLeafSoft.rcTextBox
 End Class

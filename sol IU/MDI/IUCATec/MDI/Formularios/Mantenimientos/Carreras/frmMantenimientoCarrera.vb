@@ -1,6 +1,8 @@
 ﻿'Fecha: 20/10/2012
 'Desarrollado: Julio Moreira
 
+Imports LN.Gestores
+
 Public Class frmMantenimientoCarrera
 
 
@@ -48,7 +50,7 @@ Public Class frmMantenimientoCarrera
         Try
             txtCodigo.Enabled = pvbBloquear
             txtNombre.Enabled = pvbBloquear
-
+            cboDA.Enabled = pvbBloquear
 
             'Si produce Error
         Catch ex As Exception
@@ -246,7 +248,7 @@ Public Class frmMantenimientoCarrera
 
 
 
-    Private Sub txtCodigo_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtCodigo.KeyUp
+    Private Sub txtCodigo_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs)
         'En caso de error
         Try
             'Si el campo  es vacio
@@ -265,7 +267,7 @@ Public Class frmMantenimientoCarrera
         End Try
     End Sub
 
-    Private Sub txtNombre_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNombre.KeyUp
+    Private Sub txtNombre_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs)
         'En caso de error
         Try
             'Si el campo  es vacio
@@ -351,6 +353,12 @@ Public Class frmMantenimientoCarrera
         ElseIf vlcNombre = "" Then
             MsgBox("Debe ingresar el nombre de la Carrera")
             txtNombre.Focus()
+
+            '
+            ' ElseIf cboDA = String.Empty Then
+            '    MsgBox("Debe escoger el director de la Carrera")
+            '  End If
+
 
         Else
             MsgBox("El Registro fue Exitoso")
