@@ -53,7 +53,7 @@
       <HintPath>..\..\..\..\Visual Studio 2010\Projects\InterfazGrafica_Proyecto2\InterfazGrafica_Proyecto2\bin\Debug\ControlesIULeafSoft.dll</HintPath>
     </Reference>
     <Reference Include="ControlesLeafSoft">
-      <HintPath>bin\Debug\ControlesLeafSoft.dll</HintPath>
+      <HintPath>..\..\ControlesLeafSoft.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -118,12 +118,6 @@
       <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
     </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.Designer.vb">
-      <DependentUpon>frmBuscarGrupo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmMantenimientoGrupo.Designer.vb">
@@ -212,9 +206,6 @@
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.resx">
       <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.resx">
-      <DependentUpon>frmBuscarGrupo.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Grupos\frmMantenimientoGrupo.resx">
       <DependentUpon>frmMantenimientoGrupo.vb</DependentUpon>
     </EmbeddedResource>
@@ -258,11 +249,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Debug\" />
     <Folder Include="MDI\Imagenes\" />
     <Folder Include="MDI\Modulo\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\ControlesLeafSoft.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
