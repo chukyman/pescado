@@ -49,6 +49,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AccesoDatos">
+      <HintPath>..\..\..\sol LN\LN\bin\Debug\AccesoDatos.dll</HintPath>
+    </Reference>
     <Reference Include="ControlesIULeafSoft">
       <HintPath>..\..\..\..\Visual Studio 2010\Projects\InterfazGrafica_Proyecto2\InterfazGrafica_Proyecto2\bin\Debug\ControlesIULeafSoft.dll</HintPath>
     </Reference>

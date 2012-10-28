@@ -684,7 +684,7 @@ Public Class frmMantenimientoUsuario
         Dim vlcApellido1 As String = txtApellido1.Text
         Dim vlcApellido2 As String = txtApellido2.Text
         Dim vlcCorreo As String = txtCorreoEletronico.Text
-        Dim vlnTipoRol As Integer = cboTipoRol.SelectedValue
+        Dim vlnTipoRol As Integer = 1
         Dim vlbGenero As Char
 
         If chkF.Checked = True Then
