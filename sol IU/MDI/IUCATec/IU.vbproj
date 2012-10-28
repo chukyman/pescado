@@ -96,6 +96,7 @@
     <Compile Include="MDI\Formularios\Asignaciones\frmAsignarProfesorXGrupo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MDI\Formularios\Interfaces\frmInterfaceBuscarModificarEliminar.vb" />
     <Compile Include="MDI\Formularios\Mantenimientos\Carreras\frmBuscarCarrera.Designer.vb">
       <DependentUpon>frmBuscarCarrera.vb</DependentUpon>
     </Compile>

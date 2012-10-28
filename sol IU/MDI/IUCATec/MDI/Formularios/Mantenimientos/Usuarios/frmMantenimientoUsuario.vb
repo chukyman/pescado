@@ -1,10 +1,83 @@
 ﻿'Fecha: 17/10/2012
 'Desarrollador: Roberto Cordero Quiros.
-
-
 Imports LN.Gestores
 
 Public Class frmMantenimientoUsuario
+    Implements frmInterfaceBuscarModificarEliminar
+
+    '* IMPORTANTE DEBEN DE PONER EN EL GRID DEL FORMULARIO BUSCAR LA PROPIEDAD
+    ' propiedad SelectionMode y ponerlo en FullRowSelect de lo contrario no les fucan.
+
+
+    'Compañeras se agrego una nueva carpeta que contiene una clase interface, 
+    'Sirve para lleva a cabo el proceso de selecionar uno o varios registros de un grid.
+    'Si quieren ver como funciona delen debugear desde este metodo btnBuscar_Click,
+    'Y pongan cuidado como se manipula los datos, si existen otras maneras, pero 
+    'si tienen alguna mas facil implementen otra.
+
+    ''' <summary>
+    ''' Evento del boton Buscar
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
+
+        'Declaro una variable formulario del tipo buscar usuario
+        Dim vloFrmBuscarUsuarios As New frmBuscarUsuario()
+
+        'Establece cual es el padre del formulario
+        vloFrmBuscarUsuarios.MdiParent = Me.MdiParent
+
+        'Invoca al Abrir del formulario padre, y le pasa la interface
+        vloFrmBuscarUsuarios.AlAbrir = CType(Me, frmInterfaceBuscarModificarEliminar)
+        'vloFrmBuscarUsuarios.Owner = Me
+
+        'Abre Formulario
+        vloFrmBuscarUsuarios.Show()
+
+        PBloquearDesBloquearCamposTxt(True)
+        'Cambia el estado del formulario a busqueda
+        PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
+    End Sub
+
+    ''' <summary>
+    ''' Funcion de que implementa de la clase frmInterfaceBuscarModificarEliminar
+    ''' Se Implementa en este caso un metodo que recibe un datatable con los registros
+    ''' Cargados del formulario Hijo
+    ''' Estos registros son extraidos por el nombre de sus columnas ( ver el metodo "FdtCargarDataTable")
+    ''' </summary>
+    ''' <param name="dataTableParam">datatable con los registros selecionados del grid</param>
+    ''' <returns>Valor Boleano</returns>
+    ''' <remarks>Roberto Cordero Q</remarks>
+    Public Function FbCargarDataGrid(ByVal dataTableParam As DataTable) As Boolean Implements frmInterfaceBuscarModificarEliminar.FbCargarDataGrid
+        'Declaro y instancion la fila, para eso pregunto pro la ultima fila del datatable
+        'Existen otras maneras.
+        Dim vlrFila As DataRow = dataTableParam.Rows(dataTableParam.Rows.Count - 1)
+
+        'Asigno Valores.
+        txtCedula.Text = CStr(vlrFila("Cedula"))
+        txtNombre.Text = CStr(vlrFila("Nombre"))
+        txtApellido1.Text = CStr(vlrFila("Apellido1"))
+        txtApellido2.Text = CStr(vlrFila("Apellido2"))
+        txtCorreoEletronico.Text = CStr(vlrFila("Correo"))
+
+        'Truco para un check
+        If chkM.Text = CStr(vlrFila("Genero")) Then
+            chkM.Checked = True
+        Else
+            chkF.Checked = True
+
+        End If
+        'Pensar como manipular el idRol
+
+        'CStr(row("IdRol"))
+        txtCedula.Enabled = False
+
+        Return True
+
+    End Function
+
 
 #Region "Atributos"
 
@@ -19,40 +92,7 @@ Public Class frmMantenimientoUsuario
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
     End Sub
 
-    Sub New(ByVal pvcCedula As String, ByVal pvcNombre As String, ByVal pvcApellido1 As String, ByVal pvcApellido2 As String,
-                        ByVal pvcCorreo As String, ByVal pvcGnero As Char, ByVal pvnIdRol As Integer)
-
-        ' Llamada necesaria para el diseñador.
-        InitializeComponent()
-
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-
-        PLlenarCampos(pvcCedula, pvcNombre, pvcApellido1, pvcApellido2,
-                       pvcCorreo, pvcGnero, pvnIdRol)
-
-    End Sub
-
-    Public Sub PLlenarCampos(ByVal pvcCedula As String, ByVal pvcNombre As String, ByVal pvcApellido1 As String, ByVal pvcApellido2 As String,
-                        ByVal pvcCorreo As String, ByVal pvcGnero As Char, ByVal pvnIdRol As Integer)
-        txtCedula.Text = pvcCedula
-        txtNombre.Text = pvcNombre
-        txtApellido1.Text = pvcApellido1
-        txtApellido2.Text = pvcApellido2
-        txtCorreoEletronico.Text = pvcCorreo
-
-        If pvcGnero = "M" Then
-            chkM.Checked = True
-        Else
-            chkF.Checked = True
-        End If
-
-        'Tengo q pensar en el combo.
-
-
-    End Sub
-
 #End Region
-
 
 #Region "Constantes"
     ''' <summary>
@@ -474,32 +514,6 @@ Public Class frmMantenimientoUsuario
 #End Region
 
     ''' <summary>
-    ''' Evento del boton Buscar
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
-        ''Declaro una variable formulario del tipo buscar usuario
-        'Dim vloFrmBuscarUsuarios As New frmBuscarUsuario(Me)
-        ''Abre el formulario
-        'vloFrmBuscarUsuarios.Show()
-
-        Dim vloFrmBuscarUsuarios As New frmBuscarUsuario(Me)
-
-        vloFrmBuscarUsuarios.MdiParent = Me.MdiParent
-
-        'vloFrmBuscarUsuarios.Owner = Me
-
-        vloFrmBuscarUsuarios.Show()
-
-
-        PBloquearDesBloquearCamposTxt(True)
-        'Cambia el estado del formulario a busqueda
-        PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
-    End Sub
-
-    ''' <summary>
     ''' Evento del boton nuevo
     ''' Al hacer nuevo la idea, es dejar el formulario apto para registrar un usuario
     ''' </summary>
@@ -508,13 +522,10 @@ Public Class frmMantenimientoUsuario
     ''' <remarks>By:Roberto Cordero Quiros</remarks>
     Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
         Try
-
             'Desbloquea los campos de texto
             PBloquearDesBloquearCamposTxt(True)
             'Se le hace focus a la llave primaria
             txtCedula.Focus()
-
-
 
             'Cambia el estado del formulario a insercion
             PCambiarEstadoFormlarios(ESTADO_MENU.INSERCION)
@@ -533,7 +544,7 @@ Public Class frmMantenimientoUsuario
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
         If FbValidarCamposTotal() = True Then
 
-         
+
             PRegistrarUsuario()
 
             PCambiarEstadoFormlarios(ESTADO_MENU.GUARDAR)
@@ -566,9 +577,9 @@ Public Class frmMantenimientoUsuario
         Dim vlcMensaje
         vlcMensaje = "Desesa borrar el usuario con numero de cédula: " & txtCedula.Text & _
             "y nombre: " & txtNombre.Text
-        Dim button As DialogResult = MessageBox.Show(vlcMensaje, "Usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+        Dim button As DialogResult = MessageBox.Show(vlcMensaje, "Usuario: ", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
         If button = DialogResult.Yes Then
-            MessageBox.Show("Se valida la información y se almacena")
+            MessageBox.Show("Se Elimino el Regritro")
             PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
         Else
             MessageBox.Show("No se elimino")
@@ -601,7 +612,6 @@ Public Class frmMantenimientoUsuario
             Else
                 MessageBox.Show("No se Modifico")
             End If
-
 
         Else
             MsgBox("Digite los campos indicados")
@@ -678,6 +688,10 @@ Public Class frmMantenimientoUsuario
         End Try
     End Function
 
+    ''' <summary>
+    ''' Procedimiento para Registrar Usuario a la Base de datos.
+    ''' </summary>
+    ''' <remarks></remarks>
     Public Sub PRegistrarUsuario()
         Dim vlcCedula As String = txtCedula.Text
         Dim vlcNombre As String = txtNombre.Text
@@ -693,18 +707,9 @@ Public Class frmMantenimientoUsuario
             vlbGenero = chkM.Text
         End If
 
-
         GestorUsuario.registrarUsuario(vlcCedula, vlcNombre, vlcApellido1, _
                                        vlcApellido2, vlcCorreo, vlbGenero, vlnTipoRol)
 
-
-
     End Sub
 
-
-
-
-    Private Sub tlpContenedorPrincipal_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles tlpContenedorPrincipal.Paint
-
-    End Sub
 End Class
