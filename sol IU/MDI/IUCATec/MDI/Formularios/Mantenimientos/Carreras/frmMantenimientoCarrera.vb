@@ -240,7 +240,8 @@ Public Class frmMantenimientoCarrera
     Private Sub frmMantenimientoCarrera_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
         PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
-
+        PBloquearDesBloquearCamposTxt(False)
+        FMostrarValidaciones(False, CAMPOS.NOCAMPOS)
     End Sub
 
 
