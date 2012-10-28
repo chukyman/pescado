@@ -24,6 +24,10 @@ Partial Class frmMantenimientoUsuario
     Private Sub InitializeComponent()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.gpbDatosUsuarios = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.txtCorreoEletronico = New ControlesLeafSoft.rcTextBox()
+        Me.lblValidaCorreoEletronico = New System.Windows.Forms.Label()
+        Me.lblCorreo = New System.Windows.Forms.Label()
         Me.txtApellido2 = New ControlesLeafSoft.rcTextBox()
         Me.txtApellido1 = New ControlesLeafSoft.rcTextBox()
         Me.txtNombre = New ControlesLeafSoft.rcTextBox()
@@ -65,11 +69,15 @@ Partial Class frmMantenimientoUsuario
         Me.pnlContenedor.Controls.Add(Me.gpbDatosUsuarios)
         Me.pnlContenedor.Location = New System.Drawing.Point(3, 106)
         Me.pnlContenedor.Name = "pnlContenedor"
-        Me.pnlContenedor.Size = New System.Drawing.Size(786, 470)
+        Me.pnlContenedor.Size = New System.Drawing.Size(567, 470)
         Me.pnlContenedor.TabIndex = 6
         '
         'gpbDatosUsuarios
         '
+        Me.gpbDatosUsuarios.Controls.Add(Me.DateTimePicker1)
+        Me.gpbDatosUsuarios.Controls.Add(Me.txtCorreoEletronico)
+        Me.gpbDatosUsuarios.Controls.Add(Me.lblValidaCorreoEletronico)
+        Me.gpbDatosUsuarios.Controls.Add(Me.lblCorreo)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtApellido2)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtApellido1)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtNombre)
@@ -90,17 +98,51 @@ Partial Class frmMantenimientoUsuario
         Me.gpbDatosUsuarios.Controls.Add(Me.chkM)
         Me.gpbDatosUsuarios.Controls.Add(Me.cboTipoRol)
         Me.gpbDatosUsuarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gpbDatosUsuarios.Location = New System.Drawing.Point(3, 3)
+        Me.gpbDatosUsuarios.Location = New System.Drawing.Point(35, 8)
         Me.gpbDatosUsuarios.Name = "gpbDatosUsuarios"
-        Me.gpbDatosUsuarios.Size = New System.Drawing.Size(498, 391)
+        Me.gpbDatosUsuarios.Size = New System.Drawing.Size(471, 391)
         Me.gpbDatosUsuarios.TabIndex = 20
         Me.gpbDatosUsuarios.TabStop = False
         Me.gpbDatosUsuarios.Text = "Datos Usuarios"
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(198, 351)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 28
+        '
+        'txtCorreoEletronico
+        '
+        Me.txtCorreoEletronico.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCorreoEletronico.Location = New System.Drawing.Point(188, 181)
+        Me.txtCorreoEletronico.Name = "txtCorreoEletronico"
+        Me.txtCorreoEletronico.Size = New System.Drawing.Size(124, 26)
+        Me.txtCorreoEletronico.TabIndex = 27
+        '
+        'lblValidaCorreoEletronico
+        '
+        Me.lblValidaCorreoEletronico.AutoSize = True
+        Me.lblValidaCorreoEletronico.Location = New System.Drawing.Point(318, 186)
+        Me.lblValidaCorreoEletronico.Name = "lblValidaCorreoEletronico"
+        Me.lblValidaCorreoEletronico.Size = New System.Drawing.Size(151, 13)
+        Me.lblValidaCorreoEletronico.TabIndex = 26
+        Me.lblValidaCorreoEletronico.Text = "* Digite Correo Eletrónico"
+        '
+        'lblCorreo
+        '
+        Me.lblCorreo.AutoSize = True
+        Me.lblCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCorreo.Location = New System.Drawing.Point(6, 181)
+        Me.lblCorreo.Name = "lblCorreo"
+        Me.lblCorreo.Size = New System.Drawing.Size(163, 24)
+        Me.lblCorreo.TabIndex = 25
+        Me.lblCorreo.Text = "Correo Eletrónico:"
+        '
         'txtApellido2
         '
         Me.txtApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtApellido2.Location = New System.Drawing.Point(208, 187)
+        Me.txtApellido2.Location = New System.Drawing.Point(188, 144)
         Me.txtApellido2.Name = "txtApellido2"
         Me.txtApellido2.Size = New System.Drawing.Size(124, 26)
         Me.txtApellido2.TabIndex = 24
@@ -108,7 +150,7 @@ Partial Class frmMantenimientoUsuario
         'txtApellido1
         '
         Me.txtApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtApellido1.Location = New System.Drawing.Point(208, 144)
+        Me.txtApellido1.Location = New System.Drawing.Point(188, 108)
         Me.txtApellido1.Name = "txtApellido1"
         Me.txtApellido1.Size = New System.Drawing.Size(124, 26)
         Me.txtApellido1.TabIndex = 23
@@ -116,7 +158,7 @@ Partial Class frmMantenimientoUsuario
         'txtNombre
         '
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(208, 100)
+        Me.txtNombre.Location = New System.Drawing.Point(188, 76)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(124, 26)
         Me.txtNombre.TabIndex = 22
@@ -124,7 +166,7 @@ Partial Class frmMantenimientoUsuario
         'txtCedula
         '
         Me.txtCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCedula.Location = New System.Drawing.Point(208, 55)
+        Me.txtCedula.Location = New System.Drawing.Point(188, 40)
         Me.txtCedula.Name = "txtCedula"
         Me.txtCedula.Size = New System.Drawing.Size(124, 26)
         Me.txtCedula.TabIndex = 21
@@ -132,7 +174,7 @@ Partial Class frmMantenimientoUsuario
         'lblValidaGeneros
         '
         Me.lblValidaGeneros.AutoSize = True
-        Me.lblValidaGeneros.Location = New System.Drawing.Point(340, 234)
+        Me.lblValidaGeneros.Location = New System.Drawing.Point(320, 220)
         Me.lblValidaGeneros.Name = "lblValidaGeneros"
         Me.lblValidaGeneros.Size = New System.Drawing.Size(94, 13)
         Me.lblValidaGeneros.TabIndex = 20
@@ -142,7 +184,7 @@ Partial Class frmMantenimientoUsuario
         '
         Me.lblNombre.AutoSize = True
         Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre.Location = New System.Drawing.Point(26, 102)
+        Me.lblNombre.Location = New System.Drawing.Point(6, 78)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(84, 24)
         Me.lblNombre.TabIndex = 2
@@ -151,7 +193,7 @@ Partial Class frmMantenimientoUsuario
         'lblValidaTipoRol
         '
         Me.lblValidaTipoRol.AutoSize = True
-        Me.lblValidaTipoRol.Location = New System.Drawing.Point(340, 275)
+        Me.lblValidaTipoRol.Location = New System.Drawing.Point(320, 253)
         Me.lblValidaTipoRol.Name = "lblValidaTipoRol"
         Me.lblValidaTipoRol.Size = New System.Drawing.Size(120, 13)
         Me.lblValidaTipoRol.TabIndex = 19
@@ -161,7 +203,7 @@ Partial Class frmMantenimientoUsuario
         '
         Me.lblApellido1.AutoSize = True
         Me.lblApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido1.Location = New System.Drawing.Point(26, 147)
+        Me.lblApellido1.Location = New System.Drawing.Point(6, 111)
         Me.lblApellido1.Name = "lblApellido1"
         Me.lblApellido1.Size = New System.Drawing.Size(144, 24)
         Me.lblApellido1.TabIndex = 3
@@ -170,7 +212,7 @@ Partial Class frmMantenimientoUsuario
         'lblValidaCedula
         '
         Me.lblValidaCedula.AutoSize = True
-        Me.lblValidaCedula.Location = New System.Drawing.Point(340, 63)
+        Me.lblValidaCedula.Location = New System.Drawing.Point(320, 48)
         Me.lblValidaCedula.Name = "lblValidaCedula"
         Me.lblValidaCedula.Size = New System.Drawing.Size(92, 13)
         Me.lblValidaCedula.TabIndex = 18
@@ -180,7 +222,7 @@ Partial Class frmMantenimientoUsuario
         '
         Me.lblApellido2.AutoSize = True
         Me.lblApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido2.Location = New System.Drawing.Point(26, 189)
+        Me.lblApellido2.Location = New System.Drawing.Point(6, 144)
         Me.lblApellido2.Name = "lblApellido2"
         Me.lblApellido2.Size = New System.Drawing.Size(167, 24)
         Me.lblApellido2.TabIndex = 4
@@ -189,7 +231,7 @@ Partial Class frmMantenimientoUsuario
         'lblValidaApellido2
         '
         Me.lblValidaApellido2.AutoSize = True
-        Me.lblValidaApellido2.Location = New System.Drawing.Point(338, 192)
+        Me.lblValidaApellido2.Location = New System.Drawing.Point(318, 149)
         Me.lblValidaApellido2.Name = "lblValidaApellido2"
         Me.lblValidaApellido2.Size = New System.Drawing.Size(152, 13)
         Me.lblValidaApellido2.TabIndex = 17
@@ -199,7 +241,7 @@ Partial Class frmMantenimientoUsuario
         '
         Me.lblCedula.AutoSize = True
         Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(26, 60)
+        Me.lblCedula.Location = New System.Drawing.Point(6, 45)
         Me.lblCedula.Name = "lblCedula"
         Me.lblCedula.Size = New System.Drawing.Size(75, 24)
         Me.lblCedula.TabIndex = 1
@@ -208,7 +250,7 @@ Partial Class frmMantenimientoUsuario
         'lblValidaApellido
         '
         Me.lblValidaApellido.AutoSize = True
-        Me.lblValidaApellido.Location = New System.Drawing.Point(340, 150)
+        Me.lblValidaApellido.Location = New System.Drawing.Point(320, 114)
         Me.lblValidaApellido.Name = "lblValidaApellido"
         Me.lblValidaApellido.Size = New System.Drawing.Size(137, 13)
         Me.lblValidaApellido.TabIndex = 16
@@ -218,7 +260,7 @@ Partial Class frmMantenimientoUsuario
         '
         Me.lblGenero.AutoSize = True
         Me.lblGenero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGenero.Location = New System.Drawing.Point(26, 231)
+        Me.lblGenero.Location = New System.Drawing.Point(6, 217)
         Me.lblGenero.Name = "lblGenero"
         Me.lblGenero.Size = New System.Drawing.Size(79, 24)
         Me.lblGenero.TabIndex = 5
@@ -227,7 +269,7 @@ Partial Class frmMantenimientoUsuario
         'lblValidaNombre
         '
         Me.lblValidaNombre.AutoSize = True
-        Me.lblValidaNombre.Location = New System.Drawing.Point(338, 105)
+        Me.lblValidaNombre.Location = New System.Drawing.Point(318, 81)
         Me.lblValidaNombre.Name = "lblValidaNombre"
         Me.lblValidaNombre.Size = New System.Drawing.Size(96, 13)
         Me.lblValidaNombre.TabIndex = 15
@@ -237,7 +279,7 @@ Partial Class frmMantenimientoUsuario
         '
         Me.lblTipoRol.AutoSize = True
         Me.lblTipoRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoRol.Location = New System.Drawing.Point(26, 272)
+        Me.lblTipoRol.Location = New System.Drawing.Point(6, 250)
         Me.lblTipoRol.Name = "lblTipoRol"
         Me.lblTipoRol.Size = New System.Drawing.Size(91, 24)
         Me.lblTipoRol.TabIndex = 0
@@ -247,7 +289,7 @@ Partial Class frmMantenimientoUsuario
         '
         Me.chkF.AutoSize = True
         Me.chkF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkF.Location = New System.Drawing.Point(280, 233)
+        Me.chkF.Location = New System.Drawing.Point(260, 219)
         Me.chkF.Name = "chkF"
         Me.chkF.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.chkF.Size = New System.Drawing.Size(35, 20)
@@ -259,7 +301,7 @@ Partial Class frmMantenimientoUsuario
         '
         Me.chkM.AutoSize = True
         Me.chkM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkM.Location = New System.Drawing.Point(220, 233)
+        Me.chkM.Location = New System.Drawing.Point(200, 219)
         Me.chkM.Name = "chkM"
         Me.chkM.Size = New System.Drawing.Size(38, 20)
         Me.chkM.TabIndex = 13
@@ -271,7 +313,7 @@ Partial Class frmMantenimientoUsuario
         Me.cboTipoRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTipoRol.FormattingEnabled = True
         Me.cboTipoRol.Items.AddRange(New Object() {"Profesor", "Director Academico"})
-        Me.cboTipoRol.Location = New System.Drawing.Point(208, 268)
+        Me.cboTipoRol.Location = New System.Drawing.Point(188, 246)
         Me.cboTipoRol.Name = "cboTipoRol"
         Me.cboTipoRol.Size = New System.Drawing.Size(124, 28)
         Me.cboTipoRol.TabIndex = 0
@@ -343,7 +385,7 @@ Partial Class frmMantenimientoUsuario
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(84, 37)
         Me.btnModificar.TabIndex = 4
-        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.Text = "Modifcar"
         Me.btnModificar.UseVisualStyleBackColor = False
         '
         'btnDeshacer
@@ -384,24 +426,26 @@ Partial Class frmMantenimientoUsuario
         '
         'tlpContenedorPrincipal
         '
+        Me.tlpContenedorPrincipal.BackColor = System.Drawing.SystemColors.Control
         Me.tlpContenedorPrincipal.ColumnCount = 1
         Me.tlpContenedorPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpContenedorPrincipal.Controls.Add(Me.pnlContenedor, 0, 2)
         Me.tlpContenedorPrincipal.Controls.Add(Me.gpbControles, 0, 1)
         Me.tlpContenedorPrincipal.Controls.Add(Me.pnlContenedorTitulo, 0, 0)
+        Me.tlpContenedorPrincipal.Controls.Add(Me.pnlContenedor, 0, 2)
         Me.tlpContenedorPrincipal.Location = New System.Drawing.Point(-1, 2)
         Me.tlpContenedorPrincipal.Name = "tlpContenedorPrincipal"
         Me.tlpContenedorPrincipal.RowCount = 3
         Me.tlpContenedorPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
         Me.tlpContenedorPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
         Me.tlpContenedorPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpContenedorPrincipal.Size = New System.Drawing.Size(798, 586)
+        Me.tlpContenedorPrincipal.Size = New System.Drawing.Size(804, 598)
         Me.tlpContenedorPrincipal.TabIndex = 7
         '
         'frmMantenimientoUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.CornflowerBlue
         Me.ClientSize = New System.Drawing.Size(800, 600)
         Me.Controls.Add(Me.tlpContenedorPrincipal)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -449,4 +493,8 @@ Partial Class frmMantenimientoUsuario
     Friend WithEvents txtApellido2 As ControlesLeafSoft.rcTextBox
     Friend WithEvents txtApellido1 As ControlesLeafSoft.rcTextBox
     Friend WithEvents txtNombre As ControlesLeafSoft.rcTextBox
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtCorreoEletronico As ControlesLeafSoft.rcTextBox
+    Friend WithEvents lblValidaCorreoEletronico As System.Windows.Forms.Label
+    Friend WithEvents lblCorreo As System.Windows.Forms.Label
 End Class

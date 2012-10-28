@@ -1,5 +1,9 @@
 ﻿'Fecha: 17/10/2012
 'Desarrollador: Roberto Cordero Quiros.
+
+
+Imports LN.Gestores
+
 Public Class frmMantenimientoUsuario
 
 #Region "Atributos"
@@ -456,6 +460,8 @@ Public Class frmMantenimientoUsuario
             'Se le hace focus a la llave primaria
             txtCedula.Focus()
 
+
+
             'Cambia el estado del formulario a insercion
             PCambiarEstadoFormlarios(ESTADO_MENU.INSERCION)
 
@@ -473,8 +479,12 @@ Public Class frmMantenimientoUsuario
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
         If FbValidarCamposTotal() = True Then
 
-            PLimpiarCampos()
+         
+            PRegistrarUsuario()
+
             PCambiarEstadoFormlarios(ESTADO_MENU.GUARDAR)
+
+            PLimpiarCampos()
 
         Else
             MsgBox("Digite los campos indicados")
@@ -499,8 +509,18 @@ Public Class frmMantenimientoUsuario
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
+        Dim vlcMensaje
+        vlcMensaje = "Desesa borrar el usuario con numero de cédula: " & txtCedula.Text & _
+            "y nombre: " & txtNombre.Text
+        Dim button As DialogResult = MessageBox.Show(vlcMensaje, "Usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+        If button = DialogResult.Yes Then
+            MessageBox.Show("Se valida la información y se almacena")
+            PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
+        Else
+            MessageBox.Show("No se elimino")
+        End If
 
-        PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
+
     End Sub
 
     ''' <summary>
@@ -516,7 +536,19 @@ Public Class frmMantenimientoUsuario
             PLimpiarCampos()
             PCambiarEstadoFormlarios(ESTADO_MENU.EDICION)
 
-            txtCedula.Enabled = True
+
+            Dim vlcMensaje
+            vlcMensaje = "Desesa Modificar el usuario con numero de cédula: " & txtCedula.Text & _
+                "y nombre: " & txtNombre.Text
+            Dim button As DialogResult = MessageBox.Show(vlcMensaje, "Usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+            If button = DialogResult.Yes Then
+                MessageBox.Show("Se valida la información y se almacena")
+                PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
+            Else
+                MessageBox.Show("No se Modifico")
+            End If
+
+
         Else
             MsgBox("Digite los campos indicados")
         End If
@@ -592,8 +624,30 @@ Public Class frmMantenimientoUsuario
         End Try
     End Function
 
+    Public Sub PRegistrarUsuario()
+        Dim vlcCedula As String = txtCedula.Text
+        Dim vlcNombre As String = txtNombre.Text
+        Dim vlcApellido1 As String = txtApellido1.Text
+        Dim vlcApellido2 As String = txtApellido2.Text
+        Dim vlcCorreo As String = txtCorreoEletronico.Text
+        Dim vlnTipoRol As Integer = cboTipoRol.SelectedValue
+        Dim vlbGenero As Char
+
+        If chkF.Checked = True Then
+            vlbGenero = chkF.Text
+        Else
+            vlbGenero = chkM.Text
+        End If
+
+
+        GestorUsuario.registrarUsuario(vlcCedula, vlcNombre, vlcApellido1, _
+                                       vlcApellido2, vlcCorreo, vlbGenero, vlnTipoRol)
 
 
 
-    
+    End Sub
+
+
+
+
 End Class

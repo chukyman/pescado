@@ -53,7 +53,10 @@
       <HintPath>..\..\..\..\Visual Studio 2010\Projects\InterfazGrafica_Proyecto2\InterfazGrafica_Proyecto2\bin\Debug\ControlesIULeafSoft.dll</HintPath>
     </Reference>
     <Reference Include="ControlesLeafSoft">
-      <HintPath>..\..\ControlesLeafSoft.dll</HintPath>
+      <HintPath>..\..\..\ControlesLeafSoft.dll</HintPath>
+    </Reference>
+    <Reference Include="LN">
+      <HintPath>..\..\..\sol LN\LN\bin\Debug\LN.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
