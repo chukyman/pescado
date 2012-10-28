@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+//Paquetes Usados
 using LN.Persistente;
 using LN.Clases;
+using LN.Estructuras;
 
 
 namespace LN.Gestores
@@ -25,6 +27,22 @@ namespace LN.Gestores
             //
             objUsuarioPersistente.insertarUsuario(objUsuario);
         }
+
+
+        public static List<StrUsuario> listarUsuario()
+        {
+            try
+            {
+                UsuarioPersistente objUsuarioPersistente = new UsuarioPersistente();
+                List<StrUsuario> listado = objUsuarioPersistente.listarUsuarios();
+                return listado;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
 
     }
 }

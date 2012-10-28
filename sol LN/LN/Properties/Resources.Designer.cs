@@ -77,5 +77,14 @@ namespace LN.Properties {
                 return ResourceManager.GetString("PAListarGrupoXCurso", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a PA_listar_usuarios.
+        /// </summary>
+        internal static string PAListarUsuarios {
+            get {
+                return ResourceManager.GetString("PAListarUsuarios", resourceCulture);
+            }
+        }
     }
 }

@@ -11,6 +11,49 @@ Public Class frmMantenimientoUsuario
 
 #End Region
 
+#Region "Constructor"
+
+    Sub New()
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+    End Sub
+
+    Sub New(ByVal pvcCedula As String, ByVal pvcNombre As String, ByVal pvcApellido1 As String, ByVal pvcApellido2 As String,
+                        ByVal pvcCorreo As String, ByVal pvcGnero As Char, ByVal pvnIdRol As Integer)
+
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+        PLlenarCampos(pvcCedula, pvcNombre, pvcApellido1, pvcApellido2,
+                       pvcCorreo, pvcGnero, pvnIdRol)
+
+    End Sub
+
+    Public Sub PLlenarCampos(ByVal pvcCedula As String, ByVal pvcNombre As String, ByVal pvcApellido1 As String, ByVal pvcApellido2 As String,
+                        ByVal pvcCorreo As String, ByVal pvcGnero As Char, ByVal pvnIdRol As Integer)
+        txtCedula.Text = pvcCedula
+        txtNombre.Text = pvcNombre
+        txtApellido1.Text = pvcApellido1
+        txtApellido2.Text = pvcApellido2
+        txtCorreoEletronico.Text = pvcCorreo
+
+        If pvcGnero = "M" Then
+            chkM.Checked = True
+        Else
+            chkF.Checked = True
+        End If
+
+        'Tengo q pensar en el combo.
+
+
+    End Sub
+
+#End Region
+
+
 #Region "Constantes"
     ''' <summary>
     ''' Enumerador que sirve para manejar los diferentes estados del formulario principal
@@ -62,6 +105,8 @@ Public Class frmMantenimientoUsuario
             txtCedula.Text() = String.Empty
             txtApellido1.Text = String.Empty
             txtApellido2.Text() = String.Empty
+
+            txtCorreoEletronico.Text = String.Empty
             '   cboTipoRol.Text = String.Empty
             'Si produce Error
         Catch ex As Exception
@@ -435,10 +480,19 @@ Public Class frmMantenimientoUsuario
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
-        'Declaro una variable formulario del tipo buscar usuario
-        Dim vloFrmBuscarUsuarios As New frmBuscarUsuario
-        'Abre el formulario
-        vloFrmBuscarUsuarios.ShowDialog()
+        ''Declaro una variable formulario del tipo buscar usuario
+        'Dim vloFrmBuscarUsuarios As New frmBuscarUsuario(Me)
+        ''Abre el formulario
+        'vloFrmBuscarUsuarios.Show()
+
+        Dim vloFrmBuscarUsuarios As New frmBuscarUsuario(Me)
+
+        vloFrmBuscarUsuarios.MdiParent = Me.MdiParent
+
+        'vloFrmBuscarUsuarios.Owner = Me
+
+        vloFrmBuscarUsuarios.Show()
+
 
         PBloquearDesBloquearCamposTxt(True)
         'Cambia el estado del formulario a busqueda
@@ -650,4 +704,7 @@ Public Class frmMantenimientoUsuario
 
 
 
+    Private Sub tlpContenedorPrincipal_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles tlpContenedorPrincipal.Paint
+
+    End Sub
 End Class

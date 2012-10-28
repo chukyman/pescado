@@ -148,5 +148,35 @@ namespace AccesoDatos
             return cmd.ExecuteReader();
         }
 
+
+        /// <summary>
+        /// Prueba listar Roberto
+        /// </summary>
+        /// <param name="pSQL"></param>
+        /// <returns></returns>
+        public SqlDataReader ejecutarSPListar(String pSQL)
+        {
+            SqlCommand cmd;
+            SqlConnection conexion= getConection();
+            //Se crea el comando
+            cmd=  new SqlCommand();
+            cmd.Connection = conexion;
+
+            //Se indica el tipo del commandty a procedimiento almacenado
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.CommandText = pSQL;
+
+            //si la conexión no está abierta, se abre
+            if (cmd.Connection.State == System.Data.ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+
+            return cmd.ExecuteReader();
+        }
+
+  
+
     }
 }

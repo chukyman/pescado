@@ -22,7 +22,7 @@ Partial Class frmBuscarUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlContenedorTitulo = New System.Windows.Forms.Panel()
         Me.lblTituloBU = New System.Windows.Forms.Label()
         Me.grpFiltros = New System.Windows.Forms.GroupBox()
@@ -125,11 +125,12 @@ Partial Class frmBuscarUsuario
         '
         'grdBuscarUsuarios
         '
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver
-        Me.grdBuscarUsuarios.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver
+        Me.grdBuscarUsuarios.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdBuscarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdBuscarUsuarios.Location = New System.Drawing.Point(7, 20)
         Me.grdBuscarUsuarios.Name = "grdBuscarUsuarios"
+        Me.grdBuscarUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grdBuscarUsuarios.Size = New System.Drawing.Size(613, 200)
         Me.grdBuscarUsuarios.TabIndex = 0
         '

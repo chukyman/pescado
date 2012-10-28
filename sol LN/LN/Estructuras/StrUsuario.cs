@@ -5,13 +5,12 @@ using System.Text;
 
 namespace LN.Estructuras
 {
-    class StrUsuario
-    {
+ 
         /// <summary>
         /// Clase Estructura Usuario
         /// </summary>
         /// <remarks>LeafSoft Roberto Cordero</remarks>
-        class Usuario
+       public class StrUsuario
         {
 
             #region "Atributos"
@@ -23,6 +22,7 @@ namespace LN.Estructuras
             private string _correo;
             private string _genero;
             private string _idRol;
+            private string _pnombreRol;
             #endregion
 
             #region "constructores"
@@ -30,7 +30,7 @@ namespace LN.Estructuras
             /// <summary>
             /// Constructor de la clase Usaurio
             /// </summary>
-            public Usuario() { }
+            public StrUsuario() { }
 
             /// <summary>
             /// Construtor que no recibe el id rol
@@ -41,7 +41,7 @@ namespace LN.Estructuras
             /// <param name="papellido2">Segundo apellido</param>
             /// <param name="pcorreo">Correo Eletronico</param>
             /// <param name="pgnero">Genero del usuario</param>
-            public Usuario(string pcedula, string pnombre, string papellido1,
+            public StrUsuario(string pcedula, string pnombre, string papellido1,
                            string papellido2, string pcorreo, string pgnero)
             {
                 Cedula = pcedula;
@@ -62,7 +62,7 @@ namespace LN.Estructuras
             /// <param name="pcorreo">Correo Electronico</param>
             /// <param name="pgnero">Fenero</param>
             /// <param name="pidRol">Identificador del Rol</param>
-            public Usuario(string pcedula, string pnombre, string papellido1, string papellido2,
+            public StrUsuario(string pcedula, string pnombre, string papellido1, string papellido2,
                            string pcorreo, string pgnero, string pidRol)
             {
                 Cedula = pcedula;
@@ -74,9 +74,33 @@ namespace LN.Estructuras
                 IdRol = pidRol;
             }
 
+            public StrUsuario(string pidRol, string pnombre,   string papellido1, string papellido2,
+                              string pcedula, string pcorreo, string pgnero, string pnombreRol)
+            {
+                IdRol = pidRol;
+                Nombre = pnombre;
+                Apellido1 = papellido1;
+                Apellido2 = papellido2;
+                Cedula = pcedula;
+                Correo = pcorreo;
+                Genero = pgnero;
+                NombreRol = pnombreRol;
+            }
+
+
             #endregion
 
             #region "Set/Get"
+
+
+            /// <summary>
+            /// Obtiene y Establece el rol del usuario (Roles= "" , "" , "" ,"" ,"") 
+            /// </summary>
+            public string IdRol
+            {
+                get { return _idRol; }
+                set { _idRol = value; }
+            }
 
             /// <summary>
             /// Obtiene y Establece la cèdula
@@ -133,16 +157,17 @@ namespace LN.Estructuras
             }
 
             /// <summary>
-            /// Obtiene y Establece el rol del usuario (Roles= "" , "" , "" ,"" ,"") 
+            /// 
             /// </summary>
-            public string IdRol
+            public string NombreRol
             {
-                get { return _idRol; }
-                set { _idRol = value; }
+                get { return _pnombreRol; }
+                set { _pnombreRol = value; }
             }
+
+      
 
             #endregion
 
         }
     }
-}
