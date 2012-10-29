@@ -39,10 +39,12 @@ Public Class frmMantenimientoCarrera
         'Asigno Valores.
 
 
-        cboDA.Text = CStr(vlrFila("Director Id"))
+
         txtCodigo.Text = CStr(vlrFila("Codigo"))
         txtNombre.Text = CStr(vlrFila("Nombre"))
-
+        '*****************************************************************************
+        'TENGO QUE VER COMO PASO EL ID DEL DIRECTOR
+        '*****************************************************************************
 
         Return True
 

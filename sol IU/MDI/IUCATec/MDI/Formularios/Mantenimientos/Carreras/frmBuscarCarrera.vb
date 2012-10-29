@@ -34,7 +34,7 @@ Public Class frmBuscarCarrera
 
     End Sub
 
-    Private Sub frmBuscarCarrera_load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load, grdBuscarCarreras.DataSourceChanged
+    Private Sub frmBuscarCarrera_load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'En caso de error
         Try
             ' Lista todos las carerras de la base de datos
@@ -74,10 +74,10 @@ Public Class frmBuscarCarrera
             Dim row As DataRow = vldtTablaDatos.NewRow()
             'Para la fila 0, de la columna (nombre de columna q construimos) asigne el item
             'del grid, donde su columa (nombre de columana), y su fila, indice pasado por parametros
-            row("Id") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.IDCARRERA, pvnIndex).Value
+
             row("Codigo") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.CODIGO, pvnIndex).Value
             row("Nombre") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.NOMBRE, pvnIndex).Value
-            row("Id Director") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.IDDIRECTOR, pvnIndex).Value
+
 
 
             'Agrege al datatable ese registro
