@@ -3,38 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-//PAQUETES QUE UTILIZA
-using LN.Clases;
+//Paquetes Usados
 using LN.Persistente;
+using LN.Clases;
+using LN.Estructuras;
+
 
 namespace LN.Gestores
 {
     public class GestorCarrera
     {
 
-        //================================================================================
-        // Metodo Agregar Carrera
-        //
-        //================================================================================
-
-        public static void agregarCarrera(String pcodigo, String pnombre, int pid_director_academico)
+        public static void registrarCarrera(string pcodigo, string pnombre, int pid_director_academico)
         {
 
-            try
-            {
+            //Creacion y Instancia del objeto Carrera persistente
+            CarreraPersistente objCarreraPersistente = new CarreraPersistente();
+            //Creacion del objeto Carrera
+            Carrera objCarrera;
+            //Instanciación del objeto Carrera con los valores que me pasan por parámetros.
+            objCarrera = new Carrera(pcodigo, pnombre, pid_director_academico);
 
-                //Creacion del objeto Carrera con los parametros
-                Carrera objcarrera = new Carrera(pcodigo, pnombre, pid_director_academico);
-                //Creacion y Instancia del objeto Usuario persistente
-                CarreraPersistente carreraPer = new CarreraPersistente();
-                carreraPer.insertCarrera(objcarrera);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            //
+            objCarreraPersistente.insertarCarrera(objCarrera);
+
 
         }
-    }
 
+
+
+
+
+
+
+
+
+    }
 }

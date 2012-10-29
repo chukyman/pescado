@@ -713,4 +713,7 @@ Public Class frmMantenimientoUsuario
     End Sub
 
 
+    Private Sub gpbControles_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles gpbControles.Enter
+
+    End Sub
 End Class

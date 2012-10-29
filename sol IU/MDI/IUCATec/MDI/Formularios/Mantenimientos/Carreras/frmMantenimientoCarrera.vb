@@ -3,6 +3,7 @@
 
 Imports LN.Gestores
 
+
 Public Class frmMantenimientoCarrera
 
 
@@ -42,6 +43,7 @@ Public Class frmMantenimientoCarrera
         NOCAMPOS = -1
         CODIGO = 0
         NOMBRE = 1
+        DA = 2
     End Enum
 
 
@@ -76,6 +78,7 @@ Public Class frmMantenimientoCarrera
 
             txtCodigo.Text() = String.Empty
             txtNombre.Text() = String.Empty
+            cboDA.Text = String.Empty
             'Si produce Error
         Catch ex As Exception
             'Lanza Error
@@ -180,7 +183,7 @@ Public Class frmMantenimientoCarrera
     ''' <param name="pvnOpcion"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Function FMostrarValidaciones(ByVal pvbMostrar As Boolean, ByVal pvnOpcion As Integer) As Boolean
+    Function FbMostrarValidaciones(ByVal pvbMostrar As Boolean, ByVal pvnOpcion As Integer) As Boolean
         'Declaro el valor a retonar en verdadero.
         Dim vlbEsValida As Boolean = True
 
@@ -190,11 +193,14 @@ Public Class frmMantenimientoCarrera
             Select Case (pvnOpcion)
                 'Si Case es -1.
                 Case CAMPOS.NOCAMPOS
+
                     'Segun el valor del parametro booleando los muestra o no.
                     lblValidaCodigo.Visible = pvbMostrar
                     lblValidaNombre.Visible = pvbMostrar
-                    vlbEsValida = pvbMostrar
+                    lblValidaDA.Visible = pvbMostrar
+                    
 
+                    vlbEsValida = pvbMostrar
                     vlbEsValida = pvbMostrar
 
                 Case CAMPOS.CODIGO
@@ -215,6 +221,14 @@ Public Class frmMantenimientoCarrera
                         vlbEsValida = pvbMostrar
                     End If
 
+                Case CAMPOS.DA
+                    If pvbMostrar = True Then
+                        lblValidaDA.Visible = pvbMostrar
+                    Else
+                        lblValidaDA.Visible = pvbMostrar
+                        vlbEsValida = pvbMostrar
+                    End If
+
 
             End Select
 
@@ -225,7 +239,6 @@ Public Class frmMantenimientoCarrera
             Throw ex
         End Try
     End Function
-
 
 
 #End Region
@@ -243,7 +256,8 @@ Public Class frmMantenimientoCarrera
         Me.WindowState = FormWindowState.Maximized
         PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
         PBloquearDesBloquearCamposTxt(False)
-        FMostrarValidaciones(False, CAMPOS.NOCAMPOS)
+
+
     End Sub
 
 
@@ -254,10 +268,10 @@ Public Class frmMantenimientoCarrera
             'Si el campo  es vacio
             If Trim(txtCodigo.Text) = String.Empty Then
                 'Manda a mostrar el label
-                FMostrarValidaciones(True, CAMPOS.CODIGO)
+                FbMostrarValidaciones(True, CAMPOS.CODIGO)
             Else
                 'Oculta el label
-                FMostrarValidaciones(False, CAMPOS.CODIGO)
+                FbMostrarValidaciones(False, CAMPOS.CODIGO)
             End If
 
             'Si produce Error
@@ -267,16 +281,24 @@ Public Class frmMantenimientoCarrera
         End Try
     End Sub
 
+
+
+    Private Sub txtCodigo_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+
+
     Private Sub txtNombre_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs)
         'En caso de error
         Try
             'Si el campo  es vacio
             If Trim(txtNombre.Text) = String.Empty Then
                 'Manda a mostrar el label
-                FMostrarValidaciones(True, CAMPOS.NOMBRE)
+                FbMostrarValidaciones(True, CAMPOS.NOMBRE)
             Else
                 'Oculta el label
-                FMostrarValidaciones(False, CAMPOS.NOMBRE)
+                FbMostrarValidaciones(False, CAMPOS.NOMBRE)
             End If
 
             'Si produce Error
@@ -304,22 +326,11 @@ Public Class frmMantenimientoCarrera
         PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
     End Sub
 
-    Private Sub tlpContenedorPrincipal_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles tlpContenedorPrincipal.Paint
-
-    End Sub
-
-
-    Private Sub gpbDatosUsuarios_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles gpbDatosUsuarios.Enter
-
-    End Sub
 
     Private Sub btnDeshacer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeshacer.Click
         PLimpiarCampos()
         PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
     End Sub
-
-
-
 
 
 
@@ -334,6 +345,7 @@ Public Class frmMantenimientoCarrera
             'Cambia el estado del formulario a insercion
             PCambiarEstadoFormlarios(ESTADO_MENU.INSERCION)
 
+            FbMostrarValidaciones(True, CAMPOS.CODIGO)
 
 
         Catch ex As Exception
@@ -354,8 +366,8 @@ Public Class frmMantenimientoCarrera
             MsgBox("Debe ingresar el nombre de la Carrera")
             txtNombre.Focus()
 
-            '
-            ' ElseIf cboDA = String.Empty Then
+
+            'ElseIf cboDA = String.Empty Then
             '    MsgBox("Debe escoger el director de la Carrera")
             '  End If
 
@@ -365,8 +377,24 @@ Public Class frmMantenimientoCarrera
 
         End If
 
+        PRegistrarCarrera()
         PLimpiarCampos()
         PCambiarEstadoFormlarios(ESTADO_MENU.GUARDAR)
 
+
     End Sub
+
+
+    Public Sub PRegistrarCarrera()
+
+        Dim vlcCodigo As String = txtCodigo.Text
+        Dim vlcNombre As String = txtNombre.Text
+        Dim vlnDA As Integer = cboDA.SelectedIndex
+       
+        GestorCarrera.registrarCarrera(vlcCodigo, vlcNombre, vlnDA)
+
+    End Sub
+
+
+
 End Class
