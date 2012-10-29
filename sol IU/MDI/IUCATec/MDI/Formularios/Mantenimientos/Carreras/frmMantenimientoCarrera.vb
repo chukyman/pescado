@@ -5,6 +5,56 @@ Imports LN.Gestores
 
 
 Public Class frmMantenimientoCarrera
+    Implements frmInterfaceBuscarModificarEliminar
+
+
+
+
+
+
+    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
+        'Declaro una variable formulario del tipo buscar usuario
+        Dim vloFrmBuscarCarreras As New frmBuscarCarrera()
+
+        'Establece cual es el padre del formulario
+        vloFrmBuscarCarreras.MdiParent = Me.MdiParent
+
+        'Invoca al Abrir del formulario padre, y le pasa la interface
+        vloFrmBuscarCarreras.AlAbrir = CType(Me, frmInterfaceBuscarModificarEliminar)
+        'vloFrmBuscarUsuarios.Owner = Me
+
+        'Abre Formulario
+        vloFrmBuscarCarreras.Show()
+
+        PBloquearDesBloquearCamposTxt(True)
+        'Cambia el estado del formulario a busqueda
+        PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
+    End Sub
+
+    Public Function FbCargarDataGrid(ByVal dataTableParam As DataTable) As Boolean Implements frmInterfaceBuscarModificarEliminar.FbCargarDataGrid
+        'Declaro y instancion la fila, para eso pregunto pro la ultima fila del datatable
+        'Existen otras maneras.
+        Dim vlrFila As DataRow = dataTableParam.Rows(dataTableParam.Rows.Count - 1)
+
+        'Asigno Valores.
+
+
+        cboDA.Text = CStr(vlrFila("Director Id"))
+        txtCodigo.Text = CStr(vlrFila("Codigo"))
+        txtNombre.Text = CStr(vlrFila("Nombre"))
+
+
+        Return True
+
+    End Function
+
+
+    Sub New()
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+    End Sub
+
 
 
 
@@ -313,20 +363,6 @@ Public Class frmMantenimientoCarrera
 
 
 
-
-
-    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
-        'Declaro una variable formulario del tipo buscar usuario
-        Dim vloFrmBuscarCarrera As New frmBuscarCarrera
-        'Abre el formulario
-        vloFrmBuscarCarrera.ShowDialog()
-
-        PBloquearDesBloquearCamposTxt(True)
-        'Cambia el estado del formulario a busqueda
-        PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
-    End Sub
-
-
     Private Sub btnDeshacer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeshacer.Click
         PLimpiarCampos()
         PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
@@ -394,7 +430,5 @@ Public Class frmMantenimientoCarrera
         GestorCarrera.registrarCarrera(vlcCodigo, vlcNombre, vlnDA)
 
     End Sub
-
-
 
 End Class

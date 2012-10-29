@@ -73,16 +73,25 @@ namespace AccesoDatos
                 }
 
                 cmd.ExecuteNonQuery();
+
+                if (cmd.Connection.State == System.Data.ConnectionState.Closed)
+                {
+                    cmd.Connection.Open();
+                }
+                //Se cierra la conexion
+                cmd.Connection.Open();
+                return cmd.ExecuteReader();
+                
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
-            //Se cierra la conexion
             cmd.Connection.Close();
             //Ejecuta el comando y lo retorna
-            return cmd.ExecuteReader();
-                        
+            
+
+                
         }
 
 

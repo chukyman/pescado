@@ -14,8 +14,6 @@ namespace LN.Clases
             //================================================================================
 
             private int _id_carrera;
-
-
             private string _codigo;
             private string _nombre;
             private int _id_director_academico;
@@ -30,6 +28,8 @@ namespace LN.Clases
 
             public Carrera(int pid_carrera, String pcodigo, String pnombre, int pid_director_academico)
             {
+
+                _id_carrera = pid_carrera;
                 _codigo = pcodigo;
                 _nombre = pnombre;
                 _id_director_academico = pid_director_academico;

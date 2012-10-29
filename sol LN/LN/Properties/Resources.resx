@@ -121,6 +121,10 @@
     <value>PA_buscar_grupo</value>
     <comment>Busca grupo por identificador. Diego Salas</comment>
   </data>
+  <data name="PAListarCarreras" xml:space="preserve">
+    <value>PA_listar_carreras</value>
+    <comment>Lista todas las carreras</comment>
+  </data>
   <data name="PAListarGrupoXCurso" xml:space="preserve">
     <value>PA_listar_grupo_x_curso</value>
     <comment>Lista todos los grupos por curso Diego Salas</comment>

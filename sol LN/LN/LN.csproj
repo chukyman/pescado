@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Clases\Carrera.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Estructuras\StrCarrera.cs" />
     <Compile Include="Estructuras\StrGrupo.cs" />
     <Compile Include="Estructuras\StrUsuario.cs" />
     <Compile Include="Gestores\GestorCarrera.cs" />

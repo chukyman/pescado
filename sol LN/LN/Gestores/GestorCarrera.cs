@@ -32,6 +32,21 @@ namespace LN.Gestores
 
 
 
+        public static List<StrCarrera> listarCarrera()
+        {
+            try
+            {
+                CarreraPersistente objCarreraPersistente = new CarreraPersistente();
+                List<StrCarrera> listado = objCarreraPersistente.listarCarreras();
+                return listado;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
 
 
 
