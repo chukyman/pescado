@@ -126,13 +126,10 @@ Public Class frmBuscarUsuario
             If vloResultadoMensaje = DialogResult.Yes Then
                 PEnviarDatosAFormularioPadre()
             End If
-
         Else
             'No existen datos que selecionar
             MessageBox.Show("No Existen registros para selecionar")
-
         End If
-
         'Se podria Cerarr o no.. Pensarlo
         Me.Close()
     End Sub
@@ -163,4 +160,7 @@ Public Class frmBuscarUsuario
     End Sub
 
   
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Gestores.GestorUsuario.buscarUsuarioCedula(txtCedula.Text)
+    End Sub
 End Class

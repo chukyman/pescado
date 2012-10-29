@@ -127,6 +127,7 @@ Public Class frmMantenimientoUsuario
         NOMBRE = 1
         APELLIDO1 = 2
         APELLIDO2 = 3
+        CORREO = 4
     End Enum
 
 #End Region
@@ -286,6 +287,7 @@ Public Class frmMantenimientoUsuario
                     lblValidaApellido2.Visible = pvbMostrar
                     lblValidaGeneros.Visible = pvbMostrar
                     lblValidaTipoRol.Visible = pvbMostrar
+                    lblValidaCorreoEletronico.Visible = pvbMostrar
                     vlbEsValida = pvbMostrar
 
                     vlbEsValida = pvbMostrar
@@ -322,6 +324,15 @@ Public Class frmMantenimientoUsuario
                         lblValidaApellido2.Visible = pvbMostrar
                     Else
                         lblValidaApellido2.Visible = pvbMostrar
+                        vlbEsValida = pvbMostrar
+                    End If
+
+                Case CAMPOS.CORREO
+
+                    If pvbMostrar = True Then
+                        lblValidaCorreoEletronico.Visible = pvbMostrar
+                    Else
+                        lblValidaCorreoEletronico.Visible = pvbMostrar
                         vlbEsValida = pvbMostrar
                     End If
 
@@ -510,6 +521,20 @@ Public Class frmMantenimientoUsuario
         End If
     End Sub
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub txtCorreoEletronico_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtCorreoEletronico.KeyUp
+        If Trim(txtCorreoEletronico.Text) = String.Empty Then
+            FbMostrarValidaciones(True, CAMPOS.CORREO)
+        Else
+            FbMostrarValidaciones(False, CAMPOS.CORREO)
+        End If
+    End Sub
+
 
 #End Region
 
@@ -536,14 +561,13 @@ Public Class frmMantenimientoUsuario
     End Sub
 
     ''' <summary>
-    ''' 
+    '''  Evento del boton guardar
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
         If FbValidarCamposTotal() = True Then
-
 
             PRegistrarUsuario()
 
@@ -574,13 +598,19 @@ Public Class frmMantenimientoUsuario
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
+        ' Declaran varialbes
+        Dim vlcCedula As String
         Dim vlcMensaje
+        ' Asigna el valor del campo cedula
+        vlcCedula = txtCedula.Text
         vlcMensaje = "Desesa borrar el usuario con numero de cédula: " & txtCedula.Text & _
-            "y nombre: " & txtNombre.Text
+            " y nombre: " & txtNombre.Text
         Dim button As DialogResult = MessageBox.Show(vlcMensaje, "Usuario: ", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
         If button = DialogResult.Yes Then
             MessageBox.Show("Se Elimino el Regritro")
+            GestorUsuario.eliminarUsuario(vlcCedula)
             PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
+            PLimpiarCampos()
         Else
             MessageBox.Show("No se elimino")
         End If
@@ -589,7 +619,7 @@ Public Class frmMantenimientoUsuario
     End Sub
 
     ''' <summary>
-    ''' 
+    '''  Evento del boton Modificar
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
@@ -598,7 +628,22 @@ Public Class frmMantenimientoUsuario
         txtCedula.Enabled = False
         If FbValidarCamposTotal() = True Then
 
-            PLimpiarCampos()
+
+            Dim vlcCedula As String = txtCedula.Text
+            Dim vlcNombre As String = txtNombre.Text
+            Dim vlcApellido1 As String = txtApellido1.Text
+            Dim vlcApellido2 As String = txtApellido2.Text
+            Dim vlcCorreo As String = txtCorreoEletronico.Text
+            Dim vlnTipoRol As Integer = 1
+            Dim vlbGenero As Char
+
+            If chkF.Checked = True Then
+                vlbGenero = chkF.Text
+            Else
+                vlbGenero = chkM.Text
+            End If
+
+
             PCambiarEstadoFormlarios(ESTADO_MENU.EDICION)
 
 
@@ -607,8 +652,11 @@ Public Class frmMantenimientoUsuario
                 "y nombre: " & txtNombre.Text
             Dim button As DialogResult = MessageBox.Show(vlcMensaje, "Usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
             If button = DialogResult.Yes Then
+                GestorUsuario.actualizarUsuario(vlcCedula, vlcNombre, vlcApellido1, _
+                                       vlcApellido2, vlcCorreo, vlbGenero, vlnTipoRol)
                 MessageBox.Show("Se valida la información y se almacena")
-                PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
+                PLimpiarCampos()
+                PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
             Else
                 MessageBox.Show("No se Modifico")
             End If
@@ -657,6 +705,13 @@ Public Class frmMantenimientoUsuario
                 vlbValidado = False
             Else
                 FbMostrarValidaciones(False, CAMPOS.APELLIDO2)
+            End If
+            ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            If Trim(txtCorreoEletronico.Text) = String.Empty Then
+                FbMostrarValidaciones(True, CAMPOS.CORREO)
+                vlbValidado = False
+            Else
+                FbMostrarValidaciones(False, CAMPOS.CORREO)
             End If
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             If cboTipoRol.SelectedItem = String.Empty Then
@@ -713,7 +768,4 @@ Public Class frmMantenimientoUsuario
     End Sub
 
 
-    Private Sub gpbControles_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles gpbControles.Enter
-
-    End Sub
 End Class

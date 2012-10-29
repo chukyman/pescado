@@ -73,25 +73,18 @@ namespace AccesoDatos
                 }
 
                 cmd.ExecuteNonQuery();
-
-                if (cmd.Connection.State == System.Data.ConnectionState.Closed)
-                {
-                    cmd.Connection.Open();
-                }
-                //Se cierra la conexion
-                cmd.Connection.Open();
-                return cmd.ExecuteReader();
-                
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
-            cmd.Connection.Close();
+           
             //Ejecuta el comando y lo retorna
-            
+            return cmd.ExecuteReader();
 
-                
+            //Se cierra la conexion
+           // cmd.Connection.Close();
+                        
         }
 
 
@@ -166,9 +159,9 @@ namespace AccesoDatos
         public SqlDataReader ejecutarSPListar(String pSQL)
         {
             SqlCommand cmd;
-            SqlConnection conexion= getConection();
+            SqlConnection conexion = getConection();
             //Se crea el comando
-            cmd=  new SqlCommand();
+            cmd = new SqlCommand();
             cmd.Connection = conexion;
 
             //Se indica el tipo del commandty a procedimiento almacenado
@@ -185,7 +178,6 @@ namespace AccesoDatos
             return cmd.ExecuteReader();
         }
 
-  
 
     }
 }

@@ -36,6 +36,7 @@ Partial Class frmBuscarUsuario
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tlpContenedorBuscar = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.pnlContenedorTitulo.SuspendLayout()
         Me.grpFiltros.SuspendLayout()
         Me.gpbBusqueda.SuspendLayout()
@@ -64,6 +65,7 @@ Partial Class frmBuscarUsuario
         '
         'grpFiltros
         '
+        Me.grpFiltros.Controls.Add(Me.Button1)
         Me.grpFiltros.Controls.Add(Me.lblNombre)
         Me.grpFiltros.Controls.Add(Me.lblCedula)
         Me.grpFiltros.Controls.Add(Me.txtCedula)
@@ -184,6 +186,15 @@ Partial Class frmBuscarUsuario
         Me.tlpContenedorBuscar.Size = New System.Drawing.Size(672, 437)
         Me.tlpContenedorBuscar.TabIndex = 28
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(286, 14)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmBuscarUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -217,4 +228,5 @@ Partial Class frmBuscarUsuario
     Friend WithEvents btnSalir As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents tlpContenedorBuscar As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
