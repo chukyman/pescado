@@ -29,8 +29,7 @@ namespace LN.Gestores
 
 
         }
-
-
+        
 
         public static List<StrCarrera> listarCarrera()
         {
@@ -46,7 +45,20 @@ namespace LN.Gestores
             }
         }
 
+        public static void actualizarCarrera(string pcodigo, string pnombre, int pid_directoracademico)
+        {
+            Carrera objCarrera = new Carrera(pcodigo, pnombre, pid_directoracademico);
+            CarreraPersistente objCarreraPersistente = new CarreraPersistente();
+            objCarreraPersistente.updateCarrera(objCarrera);
+        }
 
+        public static void eliminarCarrea(int pid_Carrera)
+        {
+
+            CarreraPersistente objCarreraPersistente = new CarreraPersistente();
+            objCarreraPersistente.eliminarCarrera(pid_Carrera);
+
+        }
 
 
 
