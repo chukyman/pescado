@@ -4,6 +4,8 @@ Imports LN.Gestores
 Public Class frmBuscarGrupo
     'Fecha: 21/10/2012
     'Desarrollador: Diego Salas Arce
+
+    Dim vgoListaEstructurasGrupo As List(Of StrGrupo) = GestorGrupo.listarGrupos
 #Region "Eventos"
     ''' <summary>
     ''' Load del formulario buscar grupo
@@ -15,6 +17,7 @@ Public Class frmBuscarGrupo
         txtBuscGrupo.Focus()
         lblValidaCriterio.Visible = False
 
+        'llena el comboBox de grupos al iniciar el formulario
         llenarComboBoxGrupos()
     End Sub
 
@@ -23,12 +26,7 @@ Public Class frmBuscarGrupo
     ''' </summary>
     ''' <remarks>Diego Salas Arce</remarks>
     Private Sub llenarComboBoxGrupos()
-        Dim listaEstructurasGrupo As List(Of StrGrupo)
-        listaEstructurasGrupo = GestorGrupo.listarGrupos
-
-        listaEstructurasGrupo = GestorGrupo.listarGrupos
-
-        For Each StrGrupo In listaEstructurasGrupo
+        For Each StrGrupo In vgoListaEstructurasGrupo
             cboGrupos.Items.Add(StrGrupo.Nombre & "-" & StrGrupo.Horario)
         Next
     End Sub
@@ -58,11 +56,11 @@ Public Class frmBuscarGrupo
             vgcMensaje = "Uno o más campos se encuentran vacíos"
             MessageBox.Show(vgcMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
+            'Obtengo el nombre del grupo digitado por el usuario
+            Dim nombreGrupo As String = txtBuscGrupo.Text()
+            'Obtengo la estructura de grupos haciendo un llamado al gestor
+            Dim str As StrGrupo = GestorGrupo.obtenerGrupoXNombre(nombreGrupo)
 
-            Dim datosGrupo As Array
-            datosGrupo = GestorGrupo.obtenerGrupoXNombre(txtBuscGrupo.Text.ToString)
-            Dim nombre As String = CStr(datosGrupo.GetValue(0))
-            MessageBox.Show("Datos del grupo" + nombre)
         End If
     End Sub
 
@@ -76,6 +74,10 @@ Public Class frmBuscarGrupo
         If cboGrupos.SelectedIndex = -1 Then
             vgcMensaje = "Debe seleccionar una opción"
             MessageBox.Show(vgcMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            
+            Dim posGrupo As Integer = cboGrupos.SelectedIndex
+            Dim str As StrGrupo = vgoListaEstructurasGrupo(posGrupo)
         End If
     End Sub
 

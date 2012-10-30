@@ -520,9 +520,8 @@
         PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
     End Sub
 
-    
-    
-    Private Sub pnlDatos_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnlDatos.Paint
-
+    Public Sub llenarFormularioAlModificar(ByVal pnombre, ByVal phorario, ByVal pdescripcion)
+        txtNombre.Text() = pnombre.ToString()
+        txtHorario.Text() = phorario.ToString()
     End Sub
 End Class

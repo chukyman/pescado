@@ -117,51 +117,53 @@ namespace LN.Persistente
        /// </summary>
        /// <param name="pidGrupo"></param>
        /// <returns>Diego Salas Arce</returns>
-        public Grupo buscarGrupoXNombre(String pnombre)
+        public StrGrupo buscarGrupoXNombre(String pnombre)
         {
             //Creacion del datareader
             SqlDataReader drDatosGrupo;
-            //Creacion del objeto grupo
-            Grupo objGrupo= null;
+            
             //Se crea una lista de parámetros
             List<Parametro> listaParam = new List<Parametro>();
-            
-            //Se crea un objeto parametro 
-            Parametro tmp01 = new Parametro("idgrupo", Convert.ToString(pnombre));
+
+            StrGrupo str = new StrGrupo();
+
+            //Se crea un objeto parametro
+            Parametro tmp01 = new Parametro("Nombre", pnombre);
+
             //Agrego el objParametro a la lista Parametros.
             listaParam.Add(tmp01);
-
+            
             //Llamada al store procedure
             String storeProced = Properties.Resources.PABuscarGrupoXNombre.ToString();
             
             try
             {
+
                 //Ejecuto el procedimiento y retorno los datos del grupos
-                drDatosGrupo = AD.ejecutarProcedimiento(storeProced, listaParam);
+                drDatosGrupo = AD.ejecutarSP_Retorna(storeProced, listaParam);
 
                 if (drDatosGrupo.Read())
                 {
-                    objGrupo = new Grupo(
-                                        drDatosGrupo.GetInt16(0),
-                                        drDatosGrupo.GetString(1).ToString(),
-                                        drDatosGrupo.GetString(2).ToString(),
-                                        drDatosGrupo.GetString(3).ToString(),
-                                        drDatosGrupo.GetInt16(4));
+                    str=(new StrGrupo(drDatosGrupo.GetInt16(0),
+                                      drDatosGrupo.GetString(1).ToString(),
+                                      drDatosGrupo.GetString(2).ToString(),
+                                      drDatosGrupo.GetString(3).ToString(),
+                                      drDatosGrupo.GetInt16(4)));
+                   
                 }
-                drDatosGrupo.Close();
-                return objGrupo;
             }
             catch (Exception e)
             {
                 throw e;
             }
-           
+            return str;
+            drDatosGrupo.Close();
         }
 
        /// <summary>
-       /// 
+       /// Obtiene la lista total de grupos almacenados en el sistema
        /// </summary>
-       /// <returns></returns>
+       /// <returns>List de estructuras de grupos</returns>
         public List<StrGrupo> obtenerListaGrupos()
         {
             StrGrupo estructuraGrupo= new StrGrupo();

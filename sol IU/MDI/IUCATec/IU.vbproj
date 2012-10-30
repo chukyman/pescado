@@ -95,10 +95,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\Formularios\Interfaces\frmInterfaceBuscarModificarEliminar.vb" />
-    <Compile Include="MDI\Formularios\Mantenimientos\Carreras\frmBuscarCarrera.Designer.vb">
+    <Compile Include="MDI\Formularios\Reportes\frmBuscarCarrera.Designer.vb">
       <DependentUpon>frmBuscarCarrera.vb</DependentUpon>
     </Compile>
-    <Compile Include="MDI\Formularios\Mantenimientos\Carreras\frmBuscarCarrera.vb">
+    <Compile Include="MDI\Formularios\Reportes\frmBuscarCarrera.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Carreras\frmMantenimientoCarrera.Designer.vb">
@@ -202,7 +202,7 @@
     <EmbeddedResource Include="MDI\Formularios\Asignaciones\frmAsignarProfesorXGrupo.resx">
       <DependentUpon>frmAsignarProfesorXGrupo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Carreras\frmBuscarCarrera.resx">
+    <EmbeddedResource Include="MDI\Formularios\Reportes\frmBuscarCarrera.resx">
       <DependentUpon>frmBuscarCarrera.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Carreras\frmMantenimientoCarrera.resx">

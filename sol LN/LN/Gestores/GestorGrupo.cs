@@ -57,18 +57,11 @@ namespace LN.Gestores
         /// </summary>
         /// <param name="pidCurso"></param>
         /// <returns></returns>
-        public static Array obtenerGrupoXNombre(String pnombre)
+        public static StrGrupo obtenerGrupoXNombre(String pnombre)
         {
 
-            Grupo objGrupo = (new GrupoPersistente().buscarGrupoXNombre(pnombre));
-
-            String[] datosGrupo = new String[] {objGrupo.Nombre,
-                                                objGrupo.Horario, 
-                                                objGrupo.Descripcion, 
-                                                Convert.ToString(objGrupo.IdCurso)
-                                                };
-
-            return datosGrupo;
+            StrGrupo strG = (new GrupoPersistente().buscarGrupoXNombre(pnombre));
+            return strG;
         }
 
         /// <summary>

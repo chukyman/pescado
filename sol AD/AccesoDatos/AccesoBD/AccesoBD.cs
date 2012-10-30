@@ -83,7 +83,7 @@ namespace AccesoDatos
             return cmd.ExecuteReader();
 
             //Se cierra la conexion
-           // cmd.Connection.Close();
+           cmd.Connection.Close();
                         
         }
 
@@ -122,32 +122,40 @@ namespace AccesoDatos
         }
         
         //Metodo que devuelve resultados en un DataSet
-        public SqlDataReader ejecutarSelect(String pSQL, List<Parametro> parametros)
+        public SqlDataReader ejecutarSP_Retorna(String psp, List<Parametro> pparametros)
         {
             SqlCommand cmd;
             String nombre;
-            SqlConnection conexion= getConection();
+
             //Se crea el comando
-            cmd=  new SqlCommand();
-            cmd.Connection = conexion;
+            cmd = new SqlCommand();
+            SqlConnection conexion= getConection();
 
-            //Se sacan los parámetros
-            foreach (Parametro objParametro in parametros)
+            
+            
+
+            //transformar la colección de parámetros en SqlParameter...
+            foreach (Parametro objParametro in pparametros)
             {
-                nombre = String.Format("@{0}", objParametro.Nombre);
+                nombre = "@" + objParametro.Nombre;
                 cmd.Parameters.AddWithValue(nombre, objParametro.Dato);
-                pSQL = pSQL.Replace(objParametro.Nombre, nombre);
             }
-
-            cmd.CommandText = pSQL;
-
-            //si la conexión no está abierta, se abre
-            if (cmd.Connection.State == System.Data.ConnectionState.Closed)
+            
+            try
             {
+                //se indica que se va a ejecutar un store procedure...
+                cmd.CommandType = CommandType.StoredProcedure;
+                //Se asigna el sp a ejecutar
+                cmd.CommandText = psp;
                 cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
             }
-
+            catch (Exception e)
+            {
+                throw new Exception (e.Message);
+            }
             return cmd.ExecuteReader();
+            cmd.Connection.Close();
         }
 
 
@@ -176,8 +184,7 @@ namespace AccesoDatos
             }
 
             return cmd.ExecuteReader();
+            cmd.Connection.Close();
         }
-
-
     }
 }
