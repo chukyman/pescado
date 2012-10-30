@@ -48,16 +48,19 @@ namespace LN.Gestores
         }
 
 
+        public static void eliminarGrupo()
+        {
 
+        }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pidCurso"></param>
         /// <returns></returns>
-        public Array buscarGrupos(int pidGrupo)
+        public static Array obtenerGrupoXNombre(String pnombre)
         {
 
-            Grupo objGrupo = (new GrupoPersistente().buscarGrupoXId(pidGrupo));
+            Grupo objGrupo = (new GrupoPersistente().buscarGrupoXNombre(pnombre));
 
             String[] datosGrupo = new String[] {objGrupo.Nombre,
                                                 objGrupo.Horario, 
@@ -68,6 +71,10 @@ namespace LN.Gestores
             return datosGrupo;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<StrGrupo> listarGrupos()
         {
 

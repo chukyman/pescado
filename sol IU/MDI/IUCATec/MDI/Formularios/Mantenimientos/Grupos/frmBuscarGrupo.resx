@@ -117,28 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PABuscarCarreraXId" xml:space="preserve">
-    <value>PA_buscar_carrera_x_id</value>
-    <comment>Busca la carrera por ID</comment>
-  </data>
-  <data name="PABuscarGrupoXNombre" xml:space="preserve">
-    <value>PA_BuscarGrupoXNombre</value>
-    <comment>Busca un grupo determinado por el nombre</comment>
-  </data>
-  <data name="PAListarCarreras" xml:space="preserve">
-    <value>PA_listar_carreras</value>
-    <comment>Lista todas las carreras</comment>
-  </data>
-  <data name="PAListarGrupos" xml:space="preserve">
-    <value>PA_listarGrupos</value>
-    <comment>Lista todos los grupos </comment>
-  </data>
-  <data name="PAListarUsuarios" xml:space="preserve">
-    <value>PA_listar_usuarios</value>
-    <comment>Lista todos los usuariso Robert Cordero</comment>
-  </data>
-  <data name="PAlistarUsuariosCedula" xml:space="preserve">
-    <value>PA_listar_Usuarios_Cedula</value>
-    <comment>Lista ussuarios Por la Cedula Roberto</comment>
-  </data>
 </root>

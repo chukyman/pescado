@@ -117,7 +117,7 @@ namespace LN.Persistente
        /// </summary>
        /// <param name="pidGrupo"></param>
        /// <returns>Diego Salas Arce</returns>
-        public Grupo buscarGrupoXId(int pidGrupo)
+        public Grupo buscarGrupoXNombre(String pnombre)
         {
             //Creacion del datareader
             SqlDataReader drDatosGrupo;
@@ -127,12 +127,12 @@ namespace LN.Persistente
             List<Parametro> listaParam = new List<Parametro>();
             
             //Se crea un objeto parametro 
-            Parametro tmp01 = new Parametro("idgrupo", Convert.ToString(pidGrupo));
+            Parametro tmp01 = new Parametro("idgrupo", Convert.ToString(pnombre));
             //Agrego el objParametro a la lista Parametros.
             listaParam.Add(tmp01);
 
             //Llamada al store procedure
-            String storeProced = Properties.Resources.PABuscarGrupo.ToString();
+            String storeProced = Properties.Resources.PABuscarGrupoXNombre.ToString();
             
             try
             {
@@ -142,17 +142,18 @@ namespace LN.Persistente
                 if (drDatosGrupo.Read())
                 {
                     objGrupo = new Grupo(
-                                        drDatosGrupo.GetString(0),
-                                        drDatosGrupo.GetString(1),
-                                        drDatosGrupo.GetString(2),
-                                        drDatosGrupo.GetInt16(3));
+                                        drDatosGrupo.GetInt16(0),
+                                        drDatosGrupo.GetString(1).ToString(),
+                                        drDatosGrupo.GetString(2).ToString(),
+                                        drDatosGrupo.GetString(3).ToString(),
+                                        drDatosGrupo.GetInt16(4));
                 }
                 drDatosGrupo.Close();
                 return objGrupo;
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw e;
             }
            
         }
@@ -169,18 +170,20 @@ namespace LN.Persistente
             try
             {
                 String cmdText;
-                cmdText = Properties.Resources.PAListarCarreras;
+                cmdText = Properties.Resources.PAListarGrupos;
 
                 SqlDataReader reader = AD.ejecutarSPListar(cmdText);
                 //recorror el data reader para ir creando las estructuras y agregarlas a la coleccion
                 while (reader.Read())
                 {
+                    Console.Out.WriteLine(reader.HasRows.ToString()); 
                     listaEstructurasGrupo.Add(new StrGrupo(
-                                                            estructuraGrupo.IdGrupo= reader.GetInt16(0),
-                                                            estructuraGrupo.Nombre= reader.GetString(1),
-                                                            estructuraGrupo.Horario= reader.GetString(2),
-                                                            estructuraGrupo.Descripcion= reader.GetString(3),
-                                                            estructuraGrupo.IdCurso= reader.GetInt16(4)
+                                                     
+                                                            estructuraGrupo.IdGrupo= reader.GetInt32(0),
+                                                            estructuraGrupo.Nombre= reader.GetValue(1).ToString(),
+                                                            estructuraGrupo.Horario= reader.GetValue(2).ToString(),
+                                                            estructuraGrupo.Descripcion= reader.GetValue(3).ToString(),
+                                                            estructuraGrupo.IdCurso= reader.GetInt32(4)
                                                             ));
                 }
                 reader.Close();
@@ -191,53 +194,6 @@ namespace LN.Persistente
             {
                 throw e;
             }
-        }
-
-       /// <summary>
-       /// Obtengo el total de grupos por el codigo del curso
-       /// </summary>
-       /// <returns></returns>
-        public List<Grupo> obtenerlistaGruposXIdCurso(int pidCurso)
-        {
-            //declaro el datareader de lista de grupos
-            SqlDataReader drListaGrupos;
-            //Declaro lista de objetos grupo
-            List<Grupo> listaGrupos = new List<Grupo>();
-
-            //Declaro una lista de parametros
-            List<Parametro> listaParam= new List<Parametro>();
-            //Se crea el objeto parametro y se establecen los datos del objeto
-            Parametro tmp01 = new Parametro("idcurso", Convert.ToString(pidCurso));
-            //Agrego el parametro dentro de la lista
-            listaParam.Add(tmp01);
-
-            try
-            {
-                //invocar el procedimiento almacenado
-                String storeProced = Properties.Resources.PAListarGrupoXCurso;
-                //Ejecuto el procedimiento y retorna un datareader de grupos
-                drListaGrupos= AD.ejecutarProcedimiento(storeProced,listaParam);
-
-                while(drListaGrupos.Read())
-                {
-                    //Creo el objeto y lo agrego a la lista de grupos
-                    listaGrupos.Add(new Grupo(
-                                                drListaGrupos.GetString(0),
-                                                drListaGrupos.GetString(1),
-                                                drListaGrupos.GetString(2),
-                                                drListaGrupos.GetInt16(3)
-                                                ));
-                }
-                //Cierro el datareader
-                drListaGrupos.Close();
-                return listaGrupos;
-                
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-
         }
     }
 }

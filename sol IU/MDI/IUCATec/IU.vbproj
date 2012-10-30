@@ -52,9 +52,6 @@
     <Reference Include="AccesoDatos">
       <HintPath>..\..\..\sol LN\LN\bin\Debug\AccesoDatos.dll</HintPath>
     </Reference>
-    <Reference Include="ControlesIULeafSoft">
-      <HintPath>..\..\..\..\Visual Studio 2010\Projects\InterfazGrafica_Proyecto2\InterfazGrafica_Proyecto2\bin\Debug\ControlesIULeafSoft.dll</HintPath>
-    </Reference>
     <Reference Include="ControlesLeafSoft">
       <HintPath>..\..\..\ControlesLeafSoft.dll</HintPath>
     </Reference>
@@ -126,6 +123,12 @@
       <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
     </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.Designer.vb">
+      <DependentUpon>frmBuscarGrupo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmMantenimientoGrupo.Designer.vb">
@@ -213,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.resx">
       <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.resx">
+      <DependentUpon>frmBuscarGrupo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Grupos\frmMantenimientoGrupo.resx">
       <DependentUpon>frmMantenimientoGrupo.vb</DependentUpon>

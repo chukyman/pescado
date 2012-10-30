@@ -437,13 +437,13 @@
     ''' <remarks></remarks>
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
         ''Declaro una variable formulario del tipo buscar usuario
-        'Dim vloFrmBuscarCurso As New frmBuscarGrupo
+        Dim vloFrmBuscarCurso As New frmBuscarGrupo
         ''Abre el formulario
-        'vloFrmBuscarCurso.ShowDialog()
+        vloFrmBuscarCurso.ShowDialog()
 
-        'PBloquearDesBloquearCamposTxt(True)
+        PBloquearDesBloquearCamposTxt(True)
         ''Cambia el estado del formulario a busqueda
-        'PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
+        PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
     End Sub
 
 

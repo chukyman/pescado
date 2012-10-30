@@ -70,11 +70,11 @@ namespace LN.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a PA_buscar_grupo.
+        ///   Busca una cadena traducida similar a PA_BuscarGrupoXNombre.
         /// </summary>
-        internal static string PABuscarGrupo {
+        internal static string PABuscarGrupoXNombre {
             get {
-                return ResourceManager.GetString("PABuscarGrupo", resourceCulture);
+                return ResourceManager.GetString("PABuscarGrupoXNombre", resourceCulture);
             }
         }
         
@@ -88,11 +88,11 @@ namespace LN.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a PA_listar_grupo_x_curso.
+        ///   Busca una cadena traducida similar a PA_listarGrupos.
         /// </summary>
-        internal static string PAListarGrupoXCurso {
+        internal static string PAListarGrupos {
             get {
-                return ResourceManager.GetString("PAListarGrupoXCurso", resourceCulture);
+                return ResourceManager.GetString("PAListarGrupos", resourceCulture);
             }
         }
         
