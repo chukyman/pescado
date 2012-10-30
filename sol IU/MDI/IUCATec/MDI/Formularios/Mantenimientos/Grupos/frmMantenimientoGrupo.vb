@@ -1,4 +1,5 @@
-﻿Public Class frmMantenimientoGrupo
+﻿Imports LN.Estructuras
+Public Class frmMantenimientoGrupo
     'Fecha: 20/10/2012
     'Desarrollador: Diego Salas Arce
 #Region "Eventos"
@@ -520,8 +521,10 @@
         PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
     End Sub
 
-    Public Sub llenarFormularioAlModificar(ByVal pnombre, ByVal phorario, ByVal pdescripcion)
-        txtNombre.Text() = pnombre.ToString()
-        txtHorario.Text() = phorario.ToString()
+    Public Sub llenarFormularioAlModificar(ByVal pstr As StrGrupo)
+        Dim nombre, horario, descripcion As String
+        nombre = pstr.Nombre
+        horario = pstr.Horario
+        descripcion = pstr.Descripcion
     End Sub
 End Class

@@ -35,58 +35,6 @@ namespace AccesoDatos
             return new SqlConnection(SqlCadena);
         }
 
-        /// <summary>
-        /// Metodo que ejecuta los procedimientos almacenados
-        /// /Metodo que devuelve resultados en un DataSet
-        /// </summary>
-        /// <param name="pstoreProced"></param>
-        /// <param name="pparametros"></param>
-        /// <returns>LeafSoft</returns>
-        public SqlDataReader ejecutarProcedimiento(String pstoreProced, List<Parametro> pparametros)
-        {
-            SqlCommand cmd;
-            String nombre;
-            SqlConnection conexion = getConection();
-
-            //Se crea el comando
-            cmd = new SqlCommand();
-            cmd.Connection = conexion;
-
-            //Se sacan los parámetros
-            foreach (Parametro objParametro in pparametros)
-            {
-                nombre = String.Format("@{0}", objParametro.Nombre);
-                cmd.Parameters.AddWithValue(nombre, objParametro.Dato);
-            }
-
-            try
-            {
-                //Se indica el tipo del commandty a procedimiento almacenado
-                cmd.CommandType = CommandType.StoredProcedure;
-                //Se asigna el store procedure a ejecutar
-                cmd.CommandText = pstoreProced;
-
-                //si la conexión no está abierta, se abre
-                if (cmd.Connection.State == System.Data.ConnectionState.Closed)
-                {
-                    cmd.Connection.Open();
-                }
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-           
-            //Ejecuta el comando y lo retorna
-            return cmd.ExecuteReader();
-
-            //Se cierra la conexion
-           cmd.Connection.Close();
-                        
-        }
-
 
         /// <summary>
         /// Métodos que ejecutan sentencias en la BD
@@ -124,21 +72,19 @@ namespace AccesoDatos
         //Metodo que devuelve resultados en un DataSet
         public SqlDataReader ejecutarSP_Retorna(String psp, List<Parametro> pparametros)
         {
-            SqlCommand cmd;
+            //Se crea y se instancia el sqlcommand
+            SqlCommand cmd= new SqlCommand();
             String nombre;
 
-            //Se crea el comando
-            cmd = new SqlCommand();
+            //Se obtiene la cadena de conexion
             SqlConnection conexion= getConection();
-
-            
-            
 
             //transformar la colección de parámetros en SqlParameter...
             foreach (Parametro objParametro in pparametros)
             {
                 nombre = "@" + objParametro.Nombre;
                 cmd.Parameters.AddWithValue(nombre, objParametro.Dato);
+                psp= psp.Replace(objParametro.Nombre, nombre);
             }
             
             try
@@ -147,15 +93,19 @@ namespace AccesoDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 //Se asigna el sp a ejecutar
                 cmd.CommandText = psp;
-                cmd.Connection.Open();
-                cmd.ExecuteNonQuery();
+                //si la conexión no está abierta, se abre
+                if (cmd.Connection.State == System.Data.ConnectionState.Closed)
+                {
+                    cmd.Connection.Open();
+                }
+                
+                return cmd.ExecuteReader();
+                cmd.Connection.Close();
             }
             catch (Exception e)
             {
                 throw new Exception (e.Message);
             }
-            return cmd.ExecuteReader();
-            cmd.Connection.Close();
         }
 
 
