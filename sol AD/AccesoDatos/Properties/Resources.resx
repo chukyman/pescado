@@ -117,8 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PABuscarGrupo" xml:space="preserve">
-    <value>PA_buscar_grupo</value>
-    <comment>Busca los grupos por ID</comment>
-  </data>
 </root>

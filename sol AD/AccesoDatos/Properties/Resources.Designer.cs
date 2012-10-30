@@ -59,14 +59,5 @@ namespace AccesoDatos.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a PA_buscar_grupo.
-        /// </summary>
-        internal static string PABuscarGrupo {
-            get {
-                return ResourceManager.GetString("PABuscarGrupo", resourceCulture);
-            }
-        }
     }
 }

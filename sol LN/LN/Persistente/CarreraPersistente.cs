@@ -159,7 +159,7 @@ namespace LN.Persistente
                 List<Parametro> parametros = new List<Parametro>();
                 Parametro tmp01 = new Parametro("id_carrera", Convert.ToString(pid_carrera));
                 parametros.Add(tmp01);
-                SqlDataReader reader = AD.ejecutarProcedimiento(cmdText, parametros);
+                SqlDataReader reader = AD.ejecutarSP_Retorna(cmdText, parametros);
 
 
                 while (reader.Read())

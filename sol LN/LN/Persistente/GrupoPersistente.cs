@@ -154,7 +154,7 @@ namespace LN.Persistente
             }
             catch (Exception e)
             {
-                throw e;
+                throw new Exception (e.Message);
             }
             return str;
             drDatosGrupo.Close();

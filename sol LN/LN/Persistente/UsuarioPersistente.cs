@@ -204,7 +204,7 @@ namespace LN.Persistente
              try
              {
                  //Ejecuto el procedimiento y retorno los datos del usuario
-                 drDatosUsuario = AD.ejecutarProcedimiento(storeProced, listaParam);
+                 drDatosUsuario = AD.ejecutarSP_Retorna(storeProced, listaParam);
 
 
 

@@ -72,19 +72,18 @@ namespace AccesoDatos
         //Metodo que devuelve resultados en un DataSet
         public SqlDataReader ejecutarSP_Retorna(String psp, List<Parametro> pparametros)
         {
-            //Se crea y se instancia el sqlcommand
-            SqlCommand cmd= new SqlCommand();
+            SqlCommand cmd;
             String nombre;
-
-            //Se obtiene la cadena de conexion
-            SqlConnection conexion= getConection();
+            SqlConnection conexion = getConection();
+            //Se crea el comando
+            cmd = new SqlCommand();
+            cmd.Connection = conexion;
 
             //transformar la colección de parámetros en SqlParameter...
             foreach (Parametro objParametro in pparametros)
             {
                 nombre = "@" + objParametro.Nombre;
                 cmd.Parameters.AddWithValue(nombre, objParametro.Dato);
-                psp= psp.Replace(objParametro.Nombre, nombre);
             }
             
             try
@@ -93,19 +92,14 @@ namespace AccesoDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 //Se asigna el sp a ejecutar
                 cmd.CommandText = psp;
-                //si la conexión no está abierta, se abre
-                if (cmd.Connection.State == System.Data.ConnectionState.Closed)
-                {
-                    cmd.Connection.Open();
-                }
+                cmd.Connection.Open();
                 
-                return cmd.ExecuteReader();
-                cmd.Connection.Close();
             }
             catch (Exception e)
             {
-                throw new Exception (e.Message);
+                throw e;
             }
+            return cmd.ExecuteReader();
         }
 
 

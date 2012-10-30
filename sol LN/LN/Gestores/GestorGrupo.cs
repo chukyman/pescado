@@ -59,8 +59,9 @@ namespace LN.Gestores
         /// <returns></returns>
         public static StrGrupo obtenerGrupoXNombre(String pnombre)
         {
+            GrupoPersistente grupoP = new GrupoPersistente();
+            StrGrupo strG = grupoP.buscarGrupoXNombre(pnombre);
 
-            StrGrupo strG = (new GrupoPersistente().buscarGrupoXNombre(pnombre));
             return strG;
         }
 
