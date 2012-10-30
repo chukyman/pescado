@@ -33,7 +33,7 @@ namespace LN.Clases
                 _codigo = pcodigo;
                 _nombre = pnombre;
                 _id_director_academico = pid_director_academico;
-                // setlistaCursoso(null);
+                // setlistaCursos(null);
 
             }
 

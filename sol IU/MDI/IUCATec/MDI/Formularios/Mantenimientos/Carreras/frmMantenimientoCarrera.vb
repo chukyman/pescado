@@ -2,11 +2,11 @@
 'Desarrollado: Julio Moreira
 
 Imports LN.Gestores
+Imports LN.Estructuras
 
 
 Public Class frmMantenimientoCarrera
     Implements frmInterfaceBuscarModificarEliminar
-
 
 
 
@@ -252,8 +252,7 @@ Public Class frmMantenimientoCarrera
                     lblValidaDA.Visible = pvbMostrar
                     
 
-                    vlbEsValida = pvbMostrar
-                    vlbEsValida = pvbMostrar
+                 
 
                 Case CAMPOS.CODIGO
                     'Si muestra porque es verdadero.
@@ -307,42 +306,57 @@ Public Class frmMantenimientoCarrera
     Private Sub frmMantenimientoCarrera_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
         PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
+        FbMostrarValidaciones(False, CAMPOS.NOCAMPOS)
         PBloquearDesBloquearCamposTxt(False)
+        llenarComboBoxDA()
 
+    End Sub
 
+    Private Sub llenarComboBoxDA()
+
+        Dim listaEstructurasUsuario As List(Of StrUsuario)
+        listaEstructurasUsuario = GestorUsuario.listarUsuario
+        For Each StrUsuario In listaEstructurasUsuario
+
+            If StrUsuario.NombreRol = "Director Academico" Then
+                cboDA.Items.Add(StrUsuario.Nombre + " " + StrUsuario.Apellido1)
+
+            End If
+        Next
     End Sub
 
 
 
-    Private Sub txtCodigo_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs)
-        'En caso de error
+
+
+
+
+
+
+
+
+#End Region
+
+
+    Private Sub cboDA_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboDA.KeyUp
         Try
-            'Si el campo  es vacio
-            If Trim(txtCodigo.Text) = String.Empty Then
-                'Manda a mostrar el label
-                FbMostrarValidaciones(True, CAMPOS.CODIGO)
+            'Si el campo es vacío
+            If cboDA.SelectedIndex = -1 Then
+                'Muestra el label
+                FbMostrarValidaciones(True, CAMPOS.DA)
             Else
                 'Oculta el label
-                FbMostrarValidaciones(False, CAMPOS.CODIGO)
+                FbMostrarValidaciones(False, CAMPOS.DA)
             End If
-
-            'Si produce Error
+            'Si produce error
         Catch ex As Exception
-            'Lanza Error
+            'Lanza el error
             Throw ex
         End Try
     End Sub
 
 
-
-    Private Sub txtCodigo_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-
-
-    Private Sub txtNombre_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs)
-        'En caso de error
+    Private Sub txtNombre_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNombre.KeyUp
         Try
             'Si el campo  es vacio
             If Trim(txtNombre.Text) = String.Empty Then
@@ -360,8 +374,24 @@ Public Class frmMantenimientoCarrera
         End Try
     End Sub
 
-#End Region
 
+    Private Sub txtCodigo_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtCodigo.KeyUp
+        Try
+            'Si el campo  es vacio
+            If Trim(txtCodigo.Text) = String.Empty Then
+                'Manda a mostrar el label
+                FbMostrarValidaciones(True, CAMPOS.CODIGO)
+            Else
+                'Oculta el label
+                FbMostrarValidaciones(False, CAMPOS.CODIGO)
+            End If
+
+            'Si produce Error
+        Catch ex As Exception
+            'Lanza Error
+            Throw ex
+        End Try
+    End Sub
 
 
 
@@ -405,15 +435,14 @@ Public Class frmMantenimientoCarrera
             txtNombre.Focus()
 
 
-            'ElseIf cboDA = String.Empty Then
-            '    MsgBox("Debe escoger el director de la Carrera")
-            '  End If
-
-
-        Else
-            MsgBox("El Registro fue Exitoso")
-
+        ElseIf cboDA.SelectedIndex = -1 Then
+            MsgBox("Debe escoger el director de la Carrera")
         End If
+
+
+
+        MsgBox("El Registro fue Exitoso")
+
 
         PRegistrarCarrera()
         PLimpiarCampos()
@@ -427,10 +456,37 @@ Public Class frmMantenimientoCarrera
 
         Dim vlcCodigo As String = txtCodigo.Text
         Dim vlcNombre As String = txtNombre.Text
-        Dim vlnDA As Integer = cboDA.SelectedIndex
-       
+        Dim vlnNombre As String = cboDA.Text
+
+
+        Dim fin As Integer
+        fin = InStr(vlnNombre, " ")
+
+
+        Dim nombre As String
+        nombre = Mid(vlnNombre, 1, fin)
+
+        Dim vlnDA As Integer
+
+        Dim listaEstructurasUsuario As List(Of StrUsuario)
+        listaEstructurasUsuario = GestorUsuario.listarUsuario
+        For Each StrUsuario In listaEstructurasUsuario
+
+            While StrUsuario.Nombre = nombre
+
+                vlnDA = StrUsuario.IdRol
+
+
+            End While
+
+
+
+        Next
+        MsgBox(vlnDA)
         GestorCarrera.registrarCarrera(vlcCodigo, vlcNombre, vlnDA)
 
+
     End Sub
+
 
 End Class
