@@ -122,7 +122,7 @@ Partial Class frmMantenimientoCarrera
         'cboDA
         '
         Me.cboDA.FormattingEnabled = True
-        Me.cboDA.Items.AddRange(New Object() {"Director 1", "Director 2", "Directora 3", "Directora 4"})
+        Me.cboDA.Items.AddRange(New Object() {"Maria Eugenia Ucros", "Andrea Spinach", "Pablo Monestel", "Director 1", "Director 2", "Director 3"})
         Me.cboDA.Location = New System.Drawing.Point(164, 152)
         Me.cboDA.Name = "cboDA"
         Me.cboDA.Size = New System.Drawing.Size(124, 21)

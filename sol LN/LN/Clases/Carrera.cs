@@ -56,6 +56,7 @@ namespace LN.Clases
             public int Id_carrera
             {
                 get { return _id_carrera; }
+                set { _id_carrera= value; }
             }
 
 

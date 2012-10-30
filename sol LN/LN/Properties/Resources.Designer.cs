@@ -61,6 +61,15 @@ namespace LN.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a PA_buscar_carrera_x_id.
+        /// </summary>
+        internal static string PABuscarCarreraXId {
+            get {
+                return ResourceManager.GetString("PABuscarCarreraXId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a PA_buscar_grupo.
         /// </summary>
         internal static string PABuscarGrupo {

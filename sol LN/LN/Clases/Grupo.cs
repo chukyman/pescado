@@ -7,7 +7,9 @@ namespace LN.Clases
 {
     public class Grupo
     {
-        //Atributos
+        //================================================================================
+        // Atributos 
+        //================================================================================
         private int _idGrupo;
         private String _nombre;
         private String _horario;
@@ -16,7 +18,10 @@ namespace LN.Clases
 
         //private List<Foro> listaForos;
 
-        //Constructor
+
+        //================================================================================
+        // Constructores
+        //================================================================================
         public Grupo(String pnombre, String phorario, String pdescripcion, int pidCurso)
         {
             Nombre = pnombre;
@@ -25,6 +30,10 @@ namespace LN.Clases
             IdCurso = pidCurso;
         }
 
+
+        //================================================================================
+        // Get &  Set
+        //================================================================================
         public Grupo(int pidGrupo, String pnombre, String phorario, String pdescripcion, int pidCurso)
         {
             IdGrupo = pidGrupo;

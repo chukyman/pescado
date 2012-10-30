@@ -26,9 +26,11 @@ namespace LN.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        public string Setting {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mssql08.sys10.hostasp.net;Initial Catalog=CRBIT;Persist Security Info" +
+            "=True;User ID=crbit;Password=pescado2012")]
+        public string CadenaConexionCrbit {
             get {
-                return ((string)(this["Setting"]));
+                return ((string)(this["CadenaConexionCrbit"]));
             }
         }
     }

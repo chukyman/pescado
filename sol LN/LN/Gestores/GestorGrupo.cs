@@ -6,7 +6,7 @@ using System.Text;
 //PAQUETES QUE UTILIZA
 using LN.Clases;
 using LN.Persistente;
-
+using LN.Estructuras;
 
 namespace LN.Gestores
 {
@@ -68,21 +68,21 @@ namespace LN.Gestores
             return datosGrupo;
         }
 
-        //public List<Array> obtenerListaGruposXCurso(int pidCurso)
-        //{
-        //    List<Array> datosListaGrupos = new List<Array>();
-        //    List<Grupo> listaGrupos = (new GrupoPersistente().obtenerlistaGruposXIdCurso(pidCurso));
+        public static List<StrGrupo> listarGrupos()
+        {
 
-
-        //    for (int i = 0; i < listaGrupos.Count; i++)
-        //    {
-
-        //        String[] datosGrupo = new String[] {objGrupo.Nombre,
-        //                                        objGrupo.Horario, 
-        //                                        objGrupo.Descripcion, 
-        //                                        Convert.ToString(objGrupo.IdCurso)
-        //                                        };
-        //    }
-        //}
+            try
+            {
+                List<StrGrupo> listadoGrupos = new List<StrGrupo>();
+                GrupoPersistente grupoPersistente = new GrupoPersistente();
+                listadoGrupos = grupoPersistente.obtenerListaGrupos();
+                return listadoGrupos;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            
+        }
     }
 }

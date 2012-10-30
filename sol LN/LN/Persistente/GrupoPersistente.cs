@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using AccesoDatos;
 using System.Data.SqlClient;
-
+using LN.Estructuras;
 //PAQUETES QUE UTILIZA
 using LN.Clases;
 
@@ -157,13 +157,41 @@ namespace LN.Persistente
            
         }
 
-        //public List<Grupo> obtenerListaGrupos()
-        //{
-        //    //declaro el datareader de lista de grupos
-        //    SqlDataReader drListaGrupos;
-        //    //Declaro lista de objetos grupo
-        //    List<Grupo> listaGrupos = new List<Grupo>();
-        //}
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <returns></returns>
+        public List<StrGrupo> obtenerListaGrupos()
+        {
+            StrGrupo estructuraGrupo= new StrGrupo();
+            List<StrGrupo> listaEstructurasGrupo = new List<StrGrupo>();
+
+            try
+            {
+                String cmdText;
+                cmdText = Properties.Resources.PAListarCarreras;
+
+                SqlDataReader reader = AD.ejecutarSPListar(cmdText);
+                //recorror el data reader para ir creando las estructuras y agregarlas a la coleccion
+                while (reader.Read())
+                {
+                    listaEstructurasGrupo.Add(new StrGrupo(
+                                                            estructuraGrupo.IdGrupo= reader.GetInt16(0),
+                                                            estructuraGrupo.Nombre= reader.GetString(1),
+                                                            estructuraGrupo.Horario= reader.GetString(2),
+                                                            estructuraGrupo.Descripcion= reader.GetString(3),
+                                                            estructuraGrupo.IdCurso= reader.GetInt16(4)
+                                                            ));
+                }
+                reader.Close();
+
+                return listaEstructurasGrupo;
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+        }
 
        /// <summary>
        /// Obtengo el total de grupos por el codigo del curso

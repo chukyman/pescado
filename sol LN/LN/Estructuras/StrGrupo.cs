@@ -5,21 +5,35 @@ using System.Text;
 
 namespace LN.Estructuras
 {
-    public class StrGrupo
+    public struct StrGrupo
     {
 
-        //Atributos
+        //================================================================================
+        // Atributos 
+        //================================================================================
+        private int _idGrupo;
         private String _nombre;
         private String _horario;
         private String _descripcion;
-        private String _nombreGrupo;
+        private int _idCurso;
 
-        public StrGrupo(String pnombre, String phorario, String pdescripcion, String pnombreCurso)
+
+        //================================================================================
+        // Constructores
+        //================================================================================
+        public StrGrupo(int pidGrupo, String pnombre, String phorario, String pdescripcion, int pidCurso)
         {
-            Nombre = pnombre;
-            Horario = phorario;
-            Descripcion = pdescripcion;
-            NombreGrupo = pnombreCurso;
+            _idGrupo = pidGrupo;
+            _nombre = pnombre;
+            _horario = phorario;
+            _descripcion = pdescripcion;
+            _idCurso = pidCurso;
+        }
+
+        public int IdGrupo
+        {
+            get { return _idGrupo; }
+            set { _idGrupo = value; }
         }
 
         public String Nombre
@@ -40,10 +54,10 @@ namespace LN.Estructuras
             set { _descripcion = value; }
         }
 
-        public String NombreGrupo
+        public int IdCurso
         {
-            get { return _nombreGrupo; }
-            set { _nombreGrupo = value; }
+            get { return _idCurso; }
+            set { _idCurso = value; }
         }
     }
 }
