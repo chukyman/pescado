@@ -1,6 +1,14 @@
-﻿Public Class frmAsignarProfesorXGrupo
+﻿Imports LN.Estructuras
+Imports LN.Gestores
+
+Public Class frmAsignarProfesorXGrupo
     'Fecha: 20/10/2012
     'Desarrollador: Diego Salas Arce
+
+    'Lista de profesores
+    Dim vgolistaProfesores As List(Of StrUsuario) = GestorUsuario.listarProfesores
+    'Lista de grupos
+    Dim vgolistaGrupos As List(Of StrGrupo) = GestorGrupo.listarGrupos
 #Region "Eventos"
 
     ''' <summary>
@@ -13,6 +21,8 @@
         Me.WindowState = FormWindowState.Maximized
         btnAsignar.Enabled = False
         btnRemover.Enabled = False
+        llenarListaProfesores()
+        llenarListaGrupos()
     End Sub
 
     ''' <summary>
@@ -61,6 +71,7 @@
 
 #Region "Constantes"
 
+
 #End Region
 
 #Region "Atributos"
@@ -68,7 +79,26 @@
 #End Region
 
 #Region "Procedimientos"
+    ''' <summary>
+    ''' Llena la lista de profesores
+    ''' </summary>
+    ''' <remarks>Diego Salas Arce</remarks>
+    Private Sub llenarListaProfesores()
 
+        For Each StrUsuario In vgolistaProfesores
+            ltsProfesores.Items.Add(StrUsuario.Nombre & " " & StrUsuario.Apellido1)
+        Next
+    End Sub
+
+    ''' <summary>
+    ''' Llena la lista de grupos
+    ''' </summary>
+    ''' <remarks>Diego Salas Arce</remarks>
+    Private Sub llenarListaGrupos()
+        For Each StrGrupo In vgolistaGrupos
+            ltsGrupos.Items.Add(StrGrupo.Nombre & " " & StrGrupo.Horario)
+        Next
+    End Sub
 #End Region
 
 #Region "Funciones"

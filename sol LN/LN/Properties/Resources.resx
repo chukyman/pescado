@@ -123,7 +123,7 @@
   </data>
   <data name="PABuscarGrupoXNombre" xml:space="preserve">
     <value>PA_BuscarGrupoXNombre</value>
-    <comment>Busca un grupo determinado por el nombre</comment>
+    <comment>Busca un grupo determinado por el nombre Diego Salas</comment>
   </data>
   <data name="PABuscarUsuarioXNombre" xml:space="preserve">
     <value>PA_buscar_usuario_x_nombre</value>
@@ -134,8 +134,12 @@
     <comment>Lista todas las carreras</comment>
   </data>
   <data name="PAListarGrupos" xml:space="preserve">
-    <value>PA_listarGrupos</value>
-    <comment>Lista todos los grupos </comment>
+    <value>PA_listar_grupos</value>
+    <comment>Lista todos los grupos DiegoSalas</comment>
+  </data>
+  <data name="PAListarProfesores" xml:space="preserve">
+    <value>PA_listar_profesores</value>
+    <comment>Lista los profesores DiegoSalas</comment>
   </data>
   <data name="PAListarUsuarios" xml:space="preserve">
     <value>PA_listar_usuarios</value>

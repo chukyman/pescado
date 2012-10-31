@@ -107,7 +107,6 @@ Partial Class frmAsignarProfesorXGrupo
         '
         Me.ltsGrupos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ltsGrupos.FormattingEnabled = True
-        Me.ltsGrupos.Items.AddRange(New Object() {"Diurno Martes, Jueves", "Nocturno Lunes, Miércoles"})
         Me.ltsGrupos.Location = New System.Drawing.Point(18, 19)
         Me.ltsGrupos.Name = "ltsGrupos"
         Me.ltsGrupos.Size = New System.Drawing.Size(167, 199)
@@ -117,7 +116,6 @@ Partial Class frmAsignarProfesorXGrupo
         '
         Me.ltsProfesores.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ltsProfesores.FormattingEnabled = True
-        Me.ltsProfesores.Items.AddRange(New Object() {"Antonio Luna", "Álvaro Cordero", "Marisol Núñez"})
         Me.ltsProfesores.Location = New System.Drawing.Point(6, 19)
         Me.ltsProfesores.Name = "ltsProfesores"
         Me.ltsProfesores.Size = New System.Drawing.Size(148, 199)
