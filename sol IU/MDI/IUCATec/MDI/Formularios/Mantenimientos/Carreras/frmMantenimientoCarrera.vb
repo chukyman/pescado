@@ -458,32 +458,29 @@ Public Class frmMantenimientoCarrera
         Dim vlcNombre As String = txtNombre.Text
         Dim vlnNombre As String = cboDA.Text
 
-
-        Dim fin As Integer
-        fin = InStr(vlnNombre, " ")
-
-
-        Dim nombre As String
-        nombre = Mid(vlnNombre, 1, fin)
-
-        Dim vlnDA As Integer
+        ' GestorCarrera.registrarCarrera(vlcCodigo, vlcNombre, 6)
 
         Dim listaEstructurasUsuario As List(Of StrUsuario)
         listaEstructurasUsuario = GestorUsuario.listarUsuario
         For Each StrUsuario In listaEstructurasUsuario
 
-            While StrUsuario.Nombre = nombre
+            Dim fin As Integer
+            fin = InStr(vlnNombre, " ")
 
-                vlnDA = StrUsuario.IdRol
 
+            Dim nombre As String
+            nombre = Mid(vlnNombre, 1, fin)
 
-            End While
+            If StrUsuario.Nombre = nombre Then
+                MsgBox("aqui esta menso")
+
+            End If
 
 
 
         Next
-        MsgBox(vlnDA)
-        GestorCarrera.registrarCarrera(vlcCodigo, vlcNombre, vlnDA)
+
+
 
 
     End Sub

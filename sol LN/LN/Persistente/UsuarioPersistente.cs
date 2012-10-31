@@ -220,7 +220,8 @@ namespace LN.Persistente
                                          drDatosUsuario.GetString(4).ToString(),
                                          drDatosUsuario.GetString(5).ToString(),
                                          drDatosUsuario.GetString(6).ToString(),
-                                         drDatosUsuario.GetString(7).ToString());
+                                         drDatosUsuario.GetString(7).ToString()
+                                         );
                  }
                 
                  return objStrUsuario;
@@ -232,6 +233,23 @@ namespace LN.Persistente
              }
 
          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         

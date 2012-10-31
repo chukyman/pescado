@@ -125,6 +125,10 @@
     <value>PA_BuscarGrupoXNombre</value>
     <comment>Busca un grupo determinado por el nombre</comment>
   </data>
+  <data name="PABuscarUsuarioXNombre" xml:space="preserve">
+    <value>PA_buscar_usuario_x_nombre</value>
+    <comment>Busca un usuario por nombre  Julio Moreira</comment>
+  </data>
   <data name="PAListarCarreras" xml:space="preserve">
     <value>PA_listar_carreras</value>
     <comment>Lista todas las carreras</comment>
