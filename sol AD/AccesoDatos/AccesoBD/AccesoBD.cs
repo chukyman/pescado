@@ -14,9 +14,7 @@ namespace AccesoDatos
         //Atributos del objeto
         private String _sqlCadena = "";
 
-        /// <summary>
-        /// Cadena de caracteres que contiene el String de conexion
-        /// </summary>
+        //Cadena de caracteres que contiene el String de conexion
         public String SqlCadena
         {
             get 
@@ -30,10 +28,8 @@ namespace AccesoDatos
             }
         }
 
-        /// <summary>
-        /// Método que abre la conexión con la configuración dada
-        /// </summary>
-        /// <returns></returns>
+        //método que abre una conexión con la 
+        //configuración dada
         public SqlConnection getConection()
         {
             return new SqlConnection(SqlCadena);
@@ -41,12 +37,12 @@ namespace AccesoDatos
 
 
         /// <summary>
-        /// Método que ejecuta sentencias como insert, update y delete.
-        /// No devuelve resultados
+        /// Métodos que ejecutan sentencias en la BD
+        /// método que no devuelve resultados
         /// </summary>
         /// <param name="psqlCadena"></param>
         /// <param name="parametros"></param>
-        public void ejecutarSQL_NoRetorna(String psqlCadena, List<Parametro> parametros)
+        public void ejecutarSQL(String psqlCadena, List<Parametro> parametros)
         {
             SqlCommand cmd;
             String nombre;
@@ -73,25 +69,14 @@ namespace AccesoDatos
             cmd.Connection.Close();
         }
         
-        /// <summary>
-        /// Método que ejecuta un procedimiento almacenado con parámetros 
-        /// </summary>
-        /// <param name="psp"></param>
-        /// <param name="pparametros"></param>
-        /// <returns>DataReader</returns>
+        //Metodo que devuelve resultados en un DataSet
         public SqlDataReader ejecutarSP_Retorna(String psp, List<Parametro> pparametros)
         {
-            //Se crea el command
             SqlCommand cmd;
             String nombre;
-            
-            //Llama al metodo getConection para asi traer la cadena de conexion.
             SqlConnection conexion = getConection();
-            
-            //Se instancia el command
+            //Se crea el comando
             cmd = new SqlCommand();
-            
-            //Al command se le asigna la cadena de conexion que retorna el método getConection()
             cmd.Connection = conexion;
 
             //transformar la colección de parámetros en SqlParameter...
@@ -105,45 +90,30 @@ namespace AccesoDatos
             {
                 //se indica que se va a ejecutar un store procedure...
                 cmd.CommandType = CommandType.StoredProcedure;
-
                 //Se asigna el sp a ejecutar
                 cmd.CommandText = psp;
-
-                //si la conexión no está abierta, se abre
-                if (cmd.Connection.State == System.Data.ConnectionState.Closed)
-                {
-                    cmd.Connection.Open();
-                }
+                cmd.Connection.Open();
                 
             }
             catch (Exception e)
             {
                 throw e;
             }
-            //ejecuta el command y lo retorna en forma de DataReader
             return cmd.ExecuteReader();
-            //Cierra la conexion
-            cmd.Connection.Close();
         }
 
 
         /// <summary>
-        /// Ejecuta un procedimiento almacenado sin parámetros
+        /// Prueba listar Roberto
         /// </summary>
         /// <param name="pSQL"></param>
-        /// <returns>DataReader</returns>
+        /// <returns></returns>
         public SqlDataReader ejecutarSPListar(String pSQL)
         {
-            //Se crea el command
             SqlCommand cmd;
-
-            //Llama al metodo getConection para asi traer la cadena de conexion.
             SqlConnection conexion = getConection();
-
-            //Se instancia el command
+            //Se crea el comando
             cmd = new SqlCommand();
-
-            //Al command se le asigna la cadena de conexion que retorna el método getConection()
             cmd.Connection = conexion;
 
             //Se indica el tipo del commandty a procedimiento almacenado
