@@ -122,7 +122,7 @@
     <comment>Busca la carrera por ID</comment>
   </data>
   <data name="PABuscarGrupoXNombre" xml:space="preserve">
-    <value>PA_BuscarGrupoXNombre</value>
+    <value>PA_buscar_grupo_x_nombre</value>
     <comment>Busca un grupo determinado por el nombre Diego Salas</comment>
   </data>
   <data name="PABuscarUsuarioXNombre" xml:space="preserve">

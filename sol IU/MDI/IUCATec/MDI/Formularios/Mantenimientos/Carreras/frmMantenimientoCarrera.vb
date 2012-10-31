@@ -9,9 +9,6 @@ Public Class frmMantenimientoCarrera
     Implements frmInterfaceBuscarModificarEliminar
 
 
-
-
-
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
         'Declaro una variable formulario del tipo buscar usuario
         Dim vloFrmBuscarCarreras As New frmBuscarCarrera()

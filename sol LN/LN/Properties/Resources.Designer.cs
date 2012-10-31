@@ -70,7 +70,7 @@ namespace LN.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a PA_BuscarGrupoXNombre.
+        ///   Busca una cadena traducida similar a PA_buscar_grupo_x_nombre.
         /// </summary>
         internal static string PABuscarGrupoXNombre {
             get {

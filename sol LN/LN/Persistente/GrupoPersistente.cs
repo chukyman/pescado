@@ -150,7 +150,8 @@ namespace LN.Persistente
                                         drDatosGrupo.GetValue(1).ToString(),
                                         drDatosGrupo.GetValue(2).ToString(),
                                         drDatosGrupo.GetValue(3).ToString(),
-                                        drDatosGrupo.GetInt32(4)
+                                        drDatosGrupo.GetInt32(4),
+                                        drDatosGrupo.GetValue(5).ToString()
                                         ));
                 }
             }
@@ -187,7 +188,8 @@ namespace LN.Persistente
                                                             estructuraGrupo.Nombre= reader.GetValue(1).ToString(),
                                                             estructuraGrupo.Horario= reader.GetValue(2).ToString(),
                                                             estructuraGrupo.Descripcion= reader.GetValue(3).ToString(),
-                                                            estructuraGrupo.IdCurso= reader.GetInt32(4)
+                                                            estructuraGrupo.CantEstudiantes = reader.GetInt32(4),
+                                                            estructuraGrupo.NomCurso= reader.GetValue(5).ToString()
                                                             ));
                 }
                 reader.Close();

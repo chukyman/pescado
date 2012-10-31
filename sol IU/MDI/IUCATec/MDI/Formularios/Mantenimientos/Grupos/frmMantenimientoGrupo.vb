@@ -22,7 +22,194 @@ Public Class frmMantenimientoGrupo
         End Try
     End Sub
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks>Diego Salas Arce</remarks>
+    Private Sub cboCursos_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboCursos.KeyUp
+        Try
+            'Si el campo es vacío
+            If cboCursos.SelectedIndex = -1 Then
+                'Muestra el label
+                FbMostrarValidaciones(True, CAMPOS.CURSO)
+            Else
+                'Oculta el label
+                FbMostrarValidaciones(False, CAMPOS.CURSO)
+            End If
+            'Si produce error
+        Catch ex As Exception
+            'Lanza el error
+            Throw ex
+        End Try
+    End Sub
 
+
+    Private Sub txtNombre_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNombre.KeyUp
+        Try
+            'Si el campo  es vacio
+            If Trim(txtNombre.Text) = String.Empty Then
+                'Manda a mostrar el label
+                FbMostrarValidaciones(True, CAMPOS.NOMBRE)
+            Else
+                'Oculta el label
+                FbMostrarValidaciones(False, CAMPOS.NOMBRE)
+            End If
+
+            'Si produce Error
+        Catch ex As Exception
+            'Lanza Error
+            Throw ex
+        End Try
+    End Sub
+
+
+    Private Sub txtHorario_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtHorario.KeyUp
+        Try
+            'Si el campo  es vacio
+            If Trim(txtHorario.Text) = String.Empty Then
+                'Manda a mostrar el label
+                FbMostrarValidaciones(True, CAMPOS.HORARIO)
+            Else
+                'Oculta el label
+                FbMostrarValidaciones(False, CAMPOS.HORARIO)
+            End If
+
+            'Si produce Error
+        Catch ex As Exception
+            'Lanza Error
+            Throw ex
+        End Try
+    End Sub
+
+
+    Private Sub txtDescripcion_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtDescripcion.KeyUp
+        Try
+            'Si el campo  es vacio
+            If Trim(txtDescripcion.Text) = String.Empty Then
+                'Manda a mostrar el label
+                FbMostrarValidaciones(True, CAMPOS.DESCRIPCION)
+            Else
+                'Oculta el label
+                FbMostrarValidaciones(False, CAMPOS.DESCRIPCION)
+            End If
+
+            'Si produce Error
+        Catch ex As Exception
+            'Lanza Error
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub txtCantEstudiantes_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtCantEstudiantes.KeyUp
+        Try
+            'Si el campo  es vacio
+            If Trim(txtCantEstudiantes.Text) = String.Empty Then
+                'Manda a mostrar el label
+                FbMostrarValidaciones(True, CAMPOS.CANTIDADEST)
+            Else
+                'Oculta el label
+                FbMostrarValidaciones(False, CAMPOS.CANTIDADEST)
+            End If
+
+            'Si produce Error
+        Catch ex As Exception
+            'Lanza Error
+            Throw ex
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Evento del boton Buscar
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
+        ''Declaro una variable formulario del tipo buscar usuario
+        Dim vloFrmBuscarCurso As New frmBuscarGrupo
+        ''Abre el formulario
+        vloFrmBuscarCurso.ShowDialog()
+
+        PBloquearDesBloquearCamposTxt(True)
+        ''Cambia el estado del formulario a busqueda
+        PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
+    End Sub
+
+
+    ''' <summary>
+    ''' Evento del boton nuevo
+    ''' Al hacer nuevo la idea, es dejar el formulario apto para registrar un curso
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks>Diego Salas Arce</remarks>
+    Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
+        Try
+
+            'Desbloquea los campos de texto
+            PBloquearDesBloquearCamposTxt(True)
+            'Se le hace focus a la llave primaria
+            cboCursos.Focus()
+
+            'Cambia el estado del formulario a insercion
+            PCambiarEstadoFormlarios(ESTADO_MENU.INSERCION)
+
+        Catch ex As Exception
+            'Invoca mensaje de error
+        End Try
+    End Sub
+
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
+        If FbValidarCamposTotal() = True Then
+
+            PLimpiarCampos()
+            PCambiarEstadoFormlarios(ESTADO_MENU.GUARDAR)
+
+        Else
+            MsgBox("Digite los campos indicados")
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Evento del boton eliminar
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
+
+        PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
+    End Sub
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub btnModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificar.Click
+        If FbValidarCamposTotal() = True Then
+
+            PLimpiarCampos()
+            PCambiarEstadoFormlarios(ESTADO_MENU.EDICION)
+        Else
+            MsgBox("Digite los campos indicados")
+        End If
+    End Sub
+
+    Private Sub btnDeshacer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeshacer.Click
+        PLimpiarCampos()
+        PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
+    End Sub
 
 #End Region
 
@@ -288,6 +475,18 @@ Public Class frmMantenimientoGrupo
 
     End Sub
 
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="pstr"></param>
+    ''' <remarks></remarks>
+    Public Sub llenarFormularioAlModificar(ByVal pstr As StrGrupo)
+        Dim nombre, horario, descripcion As String
+        nombre = pstr.Nombre
+        horario = pstr.Horario
+        descripcion = pstr.Descripcion
+    End Sub
 #End Region
 
 #Region "Constantes"
@@ -332,199 +531,6 @@ Public Class frmMantenimientoGrupo
 #End Region
 
 
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks>Diego Salas Arce</remarks>
-    Private Sub cboCursos_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboCursos.KeyUp
-        Try
-            'Si el campo es vacío
-            If cboCursos.SelectedIndex = -1 Then
-                'Muestra el label
-                FbMostrarValidaciones(True, CAMPOS.CURSO)
-            Else
-                'Oculta el label
-                FbMostrarValidaciones(False, CAMPOS.CURSO)
-            End If
-            'Si produce error
-        Catch ex As Exception
-            'Lanza el error
-            Throw ex
-        End Try
-    End Sub
-
-
-    Private Sub txtNombre_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNombre.KeyUp
-        Try
-            'Si el campo  es vacio
-            If Trim(txtNombre.Text) = String.Empty Then
-                'Manda a mostrar el label
-                FbMostrarValidaciones(True, CAMPOS.NOMBRE)
-            Else
-                'Oculta el label
-                FbMostrarValidaciones(False, CAMPOS.NOMBRE)
-            End If
-
-            'Si produce Error
-        Catch ex As Exception
-            'Lanza Error
-            Throw ex
-        End Try
-    End Sub
-
-
-    Private Sub txtHorario_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtHorario.KeyUp
-        Try
-            'Si el campo  es vacio
-            If Trim(txtHorario.Text) = String.Empty Then
-                'Manda a mostrar el label
-                FbMostrarValidaciones(True, CAMPOS.HORARIO)
-            Else
-                'Oculta el label
-                FbMostrarValidaciones(False, CAMPOS.HORARIO)
-            End If
-
-            'Si produce Error
-        Catch ex As Exception
-            'Lanza Error
-            Throw ex
-        End Try
-    End Sub
-
-
-    Private Sub txtDescripcion_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtDescripcion.KeyUp
-        Try
-            'Si el campo  es vacio
-            If Trim(txtDescripcion.Text) = String.Empty Then
-                'Manda a mostrar el label
-                FbMostrarValidaciones(True, CAMPOS.DESCRIPCION)
-            Else
-                'Oculta el label
-                FbMostrarValidaciones(False, CAMPOS.DESCRIPCION)
-            End If
-
-            'Si produce Error
-        Catch ex As Exception
-            'Lanza Error
-            Throw ex
-        End Try
-    End Sub
-
-    Private Sub txtCantEstudiantes_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtCantEstudiantes.KeyUp
-        Try
-            'Si el campo  es vacio
-            If Trim(txtCantEstudiantes.Text) = String.Empty Then
-                'Manda a mostrar el label
-                FbMostrarValidaciones(True, CAMPOS.CANTIDADEST)
-            Else
-                'Oculta el label
-                FbMostrarValidaciones(False, CAMPOS.CANTIDADEST)
-            End If
-
-            'Si produce Error
-        Catch ex As Exception
-            'Lanza Error
-            Throw ex
-        End Try
-    End Sub
-
-    ''' <summary>
-    ''' Evento del boton Buscar
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
-        ''Declaro una variable formulario del tipo buscar usuario
-        Dim vloFrmBuscarCurso As New frmBuscarGrupo
-        ''Abre el formulario
-        vloFrmBuscarCurso.ShowDialog()
-
-        PBloquearDesBloquearCamposTxt(True)
-        ''Cambia el estado del formulario a busqueda
-        PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
-    End Sub
-
-
-    ''' <summary>
-    ''' Evento del boton nuevo
-    ''' Al hacer nuevo la idea, es dejar el formulario apto para registrar un curso
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks>Diego Salas Arce</remarks>
-    Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
-        Try
-
-            'Desbloquea los campos de texto
-            PBloquearDesBloquearCamposTxt(True)
-            'Se le hace focus a la llave primaria
-            cboCursos.Focus()
-
-            'Cambia el estado del formulario a insercion
-            PCambiarEstadoFormlarios(ESTADO_MENU.INSERCION)
-
-        Catch ex As Exception
-            'Invoca mensaje de error
-        End Try
-    End Sub
-
-
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
-        If FbValidarCamposTotal() = True Then
-
-            PLimpiarCampos()
-            PCambiarEstadoFormlarios(ESTADO_MENU.GUARDAR)
-
-        Else
-            MsgBox("Digite los campos indicados")
-        End If
-    End Sub
-
-    ''' <summary>
-    ''' Evento del boton eliminar
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
-
-        PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
-    End Sub
-
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub btnModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificar.Click
-        If FbValidarCamposTotal() = True Then
-
-            PLimpiarCampos()
-            PCambiarEstadoFormlarios(ESTADO_MENU.EDICION)
-        Else
-            MsgBox("Digite los campos indicados")
-        End If
-    End Sub
-
-    Private Sub btnDeshacer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeshacer.Click
-        PLimpiarCampos()
-        PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
-    End Sub
-
-    Public Sub llenarFormularioAlModificar(ByVal pstr As StrGrupo)
-        Dim nombre, horario, descripcion As String
-        nombre = pstr.Nombre
-        horario = pstr.Horario
-        descripcion = pstr.Descripcion
-    End Sub
+    
+    
 End Class

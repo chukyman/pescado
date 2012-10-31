@@ -15,19 +15,21 @@ namespace LN.Estructuras
         private String _nombre;
         private String _horario;
         private String _descripcion;
-        private int _idCurso;
+        private int _cantEstudiantes;
+        private String _nomCurso;
 
-
+        
         //================================================================================
         // Constructores
         //================================================================================
-        public StrGrupo(int pidGrupo, String pnombre, String phorario, String pdescripcion, int pidCurso)
+        public StrGrupo(int pidGrupo, String pnombre, String phorario, String pdescripcion, int pcantEstudiantes ,String pnomCurso)
         {
             _idGrupo = pidGrupo;
             _nombre = pnombre;
             _horario = phorario;
             _descripcion = pdescripcion;
-            _idCurso = pidCurso;
+            _cantEstudiantes = pcantEstudiantes;
+            _nomCurso = pnomCurso;
         }
 
         public int IdGrupo
@@ -54,10 +56,16 @@ namespace LN.Estructuras
             set { _descripcion = value; }
         }
 
-        public int IdCurso
+        public int CantEstudiantes
         {
-            get { return _idCurso; }
-            set { _idCurso = value; }
+            get { return _cantEstudiantes; }
+            set { _cantEstudiantes = value; }
+        }
+
+        public String NomCurso
+        {
+            get { return _nomCurso; }
+            set { _nomCurso = value; }
         }
     }
 }
