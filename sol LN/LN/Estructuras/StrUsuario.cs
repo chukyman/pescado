@@ -21,7 +21,7 @@ namespace LN.Estructuras
             private string _apellido2;
             private string _correo;
             private string _genero;
-            private string _idRol;
+            private string _idUsuario;
             private string _pnombreRol;
             #endregion
 
@@ -61,9 +61,9 @@ namespace LN.Estructuras
             /// <param name="papellido2">Segundo Apellido</param>
             /// <param name="pcorreo">Correo Electronico</param>
             /// <param name="pgnero">Fenero</param>
-            /// <param name="pidRol">Identificador del Rol</param>
+            /// <param name="pidUsuario">Identificador del Rol</param>
             public StrUsuario(string pcedula, string pnombre, string papellido1, string papellido2,
-                           string pcorreo, string pgnero, string pidRol)
+                           string pcorreo, string pgnero, string pidUsuario)
             {
                 Cedula = pcedula;
                 Nombre = pnombre;
@@ -71,13 +71,13 @@ namespace LN.Estructuras
                 Apellido2 = papellido2;
                 Correo = pcorreo;
                 Genero = pgnero;
-                IdRol = pidRol;
+                IdUsuario = pidUsuario;
             }
 
-            public StrUsuario(string pidRol, string pnombre,   string papellido1, string papellido2,
+            public StrUsuario(string pidUsuario, string pnombre,   string papellido1, string papellido2,
                               string pcedula, string pcorreo, string pgnero, string pnombreRol)
             {
-                IdRol = pidRol;
+                IdUsuario = pidUsuario;
                 Nombre = pnombre;
                 Apellido1 = papellido1;
                 Apellido2 = papellido2;
@@ -96,10 +96,10 @@ namespace LN.Estructuras
             /// <summary>
             /// Obtiene y Establece el rol del usuario (Roles= "" , "" , "" ,"" ,"") 
             /// </summary>
-            public string IdRol
+            public string IdUsuario
             {
-                get { return _idRol; }
-                set { _idRol = value; }
+                get { return _idUsuario; }
+                set { _idUsuario = value; }
             }
 
             /// <summary>

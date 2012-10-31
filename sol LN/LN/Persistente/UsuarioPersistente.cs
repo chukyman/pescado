@@ -57,7 +57,7 @@ namespace LN.Persistente
                             " genero, iD_Rol)";
 
                 //Se ejecuta el sql, del Acceso Datos
-                AD.ejecutarSQL(sql, parametros);
+                AD.ejecutarSQL_NoRetorna(sql, parametros);
             }
             catch (Exception e)
             {
@@ -84,7 +84,7 @@ namespace LN.Persistente
                  while (reader.Read())
                  {
                      listaUsuarios.Add(new StrUsuario(
-                     tmpUsuario.IdRol = reader.GetValue(0).ToString(),
+                     tmpUsuario.IdUsuario = reader.GetValue(0).ToString(),
                      tmpUsuario.Cedula = reader.GetValue(1).ToString(),
                      tmpUsuario.Nombre = reader.GetValue(2).ToString(),
                      tmpUsuario.Apellido1 = reader.GetValue(3).ToString(),
@@ -144,7 +144,7 @@ namespace LN.Persistente
                                "WHERE Cedula = cedula ";
                                        
                  //ejecucion del sql
-                 AD.ejecutarSQL(sql, listaParametros);
+                 AD.ejecutarSQL_NoRetorna(sql, listaParametros);
              }
              catch (Exception e)
              {
@@ -170,7 +170,7 @@ namespace LN.Persistente
                  //Sentencia sql
                  String sql = "DELETE FROM TUsuario WHERE Cedula= cedula";
                  //Ejecución del sql
-                 AD.ejecutarSQL(sql, parametros);
+                 AD.ejecutarSQL_NoRetorna(sql, parametros);
              }
              catch (Exception e)
              {
@@ -206,22 +206,20 @@ namespace LN.Persistente
                  //Ejecuto el procedimiento y retorno los datos del usuario
                  drDatosUsuario = AD.ejecutarSP_Retorna(storeProced, listaParam);
 
-
-
+            
 
 
                  if (drDatosUsuario.Read())
                  {
                      objStrUsuario = new StrUsuario(
-                                         drDatosUsuario.GetInt64(0).ToString(),
+                                         drDatosUsuario.GetInt32(0).ToString(),
                                          drDatosUsuario.GetString(1).ToString(),
                                          drDatosUsuario.GetString(2).ToString(),
                                          drDatosUsuario.GetString(3).ToString(),
                                          drDatosUsuario.GetString(4).ToString(),
                                          drDatosUsuario.GetString(5).ToString(),
                                          drDatosUsuario.GetString(6).ToString(),
-                                         drDatosUsuario.GetString(7).ToString()
-                                         );
+                                         drDatosUsuario.GetString(7).ToString());
                  }
                 
                  return objStrUsuario;
@@ -233,28 +231,6 @@ namespace LN.Persistente
              }
 
          }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
 
     }
 }

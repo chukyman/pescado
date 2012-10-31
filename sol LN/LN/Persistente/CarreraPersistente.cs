@@ -50,7 +50,7 @@ namespace LN.Persistente
                                                "WHERE Id_carrera =id_director_academico";
 
                 //ejecucion del sql
-                AD.ejecutarSQL(sql, listaParametros);
+                AD.ejecutarSQL_NoRetorna(sql, listaParametros);
             }
             catch (Exception e)
             {
@@ -82,7 +82,7 @@ namespace LN.Persistente
                 String sql = "INSERT INTO TCarrera (Codigo, Nombre, Id_director_academico)  VALUES (codigo,nombre,id_director_academico) ";
 
                 //Se ejecuta el sql, del Acceso Datos
-                AD.ejecutarSQL(sql, parametros);
+                AD.ejecutarSQL_NoRetorna(sql, parametros);
             }
             catch (Exception e)
             {
@@ -140,7 +140,7 @@ namespace LN.Persistente
                 //Sentencia sql
                 String sql = "DELETE FROM TCarrera WHERE Id_carrera= id_carrera";
                 //Ejecución del sql
-                AD.ejecutarSQL(sql, parametros);
+                AD.ejecutarSQL_NoRetorna(sql, parametros);
             }
             catch (Exception e)
             {

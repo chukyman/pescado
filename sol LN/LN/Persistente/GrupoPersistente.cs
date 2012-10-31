@@ -41,7 +41,7 @@ namespace LN.Persistente
                 String sql = "INSERT INTO TGrupo (Nombre, Horario, Descripcion, Id_curso) VALUES(nombre, horario, descripcion,idcurso)";
                
                 //Se ejecuta el sql, del Acceso Datos
-                AD.ejecutarSQL(sql, parametros);
+                AD.ejecutarSQL_NoRetorna(sql, parametros);
             }catch(Exception e)
             {
                 throw new Exception(e.Message);
@@ -78,7 +78,7 @@ namespace LN.Persistente
                          "WHERE Id_grupo=(idgrupo)";
 
                 //ejecucion del sql
-                AD.ejecutarSQL(sql, listaParametros);
+                AD.ejecutarSQL_NoRetorna(sql, listaParametros);
             }
             catch (Exception e)
             {
@@ -104,7 +104,7 @@ namespace LN.Persistente
                 //Sentencia sql
                 String sql = "DELETE FROM TGrupo WHERE Id_grupo= idgrupo";
                 //Ejecución del sql
-                AD.ejecutarSQL(sql, parametros);
+                AD.ejecutarSQL_NoRetorna(sql, parametros);
             }
             catch (Exception e)
             {

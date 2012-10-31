@@ -1,6 +1,9 @@
 ﻿Imports LN
+Imports LN.Estructuras
 
 Public Class frmBuscarUsuario
+
+
 
     Enum CAMPOS_COLUNMAS
         IDROL = 0
@@ -119,7 +122,7 @@ Public Class frmBuscarUsuario
         'Valida que el grid tenga datos. o bien podria ser la lista de usuarios
         If Me.grdBuscarUsuarios.RowCount > 0 Then
             'Mensaje de confirmacion
-            vlcmensaje = "Desesa selecionar la linea: " + Me.grdBuscarUsuarios.CurrentRow.Index.ToString
+            vlcMensaje = "Desesa selecionar la linea: " + Me.grdBuscarUsuarios.CurrentRow.Index.ToString
 
             vloResultadoMensaje = MessageBox.Show(vlcMensaje, "Usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
             'Si el mensaje fue arfimativo
@@ -159,8 +162,18 @@ Public Class frmBuscarUsuario
 
     End Sub
 
-  
+
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Gestores.GestorUsuario.buscarUsuarioCedula(txtCedula.Text)
+
+
+        ''  Dim vloListaEstructurasUsuario As Array = Gestores.GestorUsuario.buscarUsuarioCedula(txtCedula.Text)
+
+        'For Each  In vloListaEstructurasUsuario
+        '    cboGrupos.Items.Add(StrGrupo.Nombre & "-" & StrGrupo.Horario)
+        'Next
+
+
+
+        grdBuscarUsuarios.DataSource = Gestores.GestorUsuario.buscarUsuarioCedula(txtCedula.Text)
     End Sub
 End Class

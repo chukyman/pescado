@@ -90,22 +90,28 @@ namespace LN.Gestores
 
             StrUsuario objStrUsuario = (new UsuarioPersistente().buscarUsuarioXCedula(pcedula));
 
-            String[] datosUsuario = new String[] {objStrUsuario.Nombre,
+
+
+         
+
+            String[] datosUsuario = new String[] {
+                                                 objStrUsuario.IdUsuario,
+                                                objStrUsuario.Nombre,
                                                 objStrUsuario.Apellido1, 
                                                 objStrUsuario.Apellido2, 
                                                 objStrUsuario.Cedula,
                                                 objStrUsuario.Correo, 
                                                 objStrUsuario.Genero,
                                                 objStrUsuario.NombreRol
+                                                
                                                 };
+
+        
 
             return datosUsuario;
         }
+    
 
 
-
-
-
-        
     }
 }

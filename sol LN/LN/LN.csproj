@@ -31,8 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AccesoDatos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="AccesoDatos">
       <HintPath>..\..\sol AD\AccesoDatos\bin\Debug\AccesoDatos.dll</HintPath>
     </Reference>
     <Reference Include="System" />
