@@ -144,12 +144,14 @@ namespace LN.Persistente
 
                 if (drDatosGrupo.Read())
                 {
-                    str=(new StrGrupo(drDatosGrupo.GetInt16(0),
-                                      drDatosGrupo.GetString(1).ToString(),
-                                      drDatosGrupo.GetString(2).ToString(),
-                                      drDatosGrupo.GetString(3).ToString(),
-                                      drDatosGrupo.GetInt16(4)));
-                   
+                    //Se crea la estructura de grupo con los datos que retorna el datareader
+                    str = (new StrGrupo(
+                                        drDatosGrupo.GetInt32(0),
+                                        drDatosGrupo.GetValue(1).ToString(),
+                                        drDatosGrupo.GetValue(2).ToString(),
+                                        drDatosGrupo.GetValue(3).ToString(),
+                                        drDatosGrupo.GetInt32(4)
+                                        ));
                 }
             }
             catch (Exception e)
