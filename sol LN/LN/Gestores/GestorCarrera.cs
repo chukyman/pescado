@@ -44,28 +44,20 @@ namespace LN.Gestores
                 throw e;
             }
         }
+        
 
 
 
 
-
-
-
-
-
-
-
-
-        public static void actualizarCarrera(string pcodigo, string pnombre, int pid_directoracademico)
+        public static void actualizarCarrera(int pidcarrera, string pcodigo, string pnombre, int pid_directoracademico)
         {
-
-
-            Carrera objCarrera = new Carrera(pcodigo, pnombre, pid_directoracademico);
+            
+            Carrera objCarrera = new Carrera(pidcarrera, pcodigo, pnombre, pid_directoracademico);
             CarreraPersistente objCarreraPersistente = new CarreraPersistente();
             objCarreraPersistente.updateCarrera(objCarrera);
         }
 
-        public static void eliminarCarrea(int pid_Carrera)
+        public static void eliminarCarrera(int pid_Carrera)
         {
 
             CarreraPersistente objCarreraPersistente = new CarreraPersistente();

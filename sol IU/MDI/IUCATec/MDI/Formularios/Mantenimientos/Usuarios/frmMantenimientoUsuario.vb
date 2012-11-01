@@ -792,5 +792,5 @@ Public Class frmMantenimientoUsuario
     End Sub
 
 
-    
+
 End Class

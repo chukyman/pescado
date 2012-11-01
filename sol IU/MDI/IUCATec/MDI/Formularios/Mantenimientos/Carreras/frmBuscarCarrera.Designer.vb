@@ -34,6 +34,11 @@ Partial Class frmBuscarCarrera
         Me.grpFiltros = New System.Windows.Forms.GroupBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.tlpContenedorBuscar = New System.Windows.Forms.TableLayoutPanel()
+        Me.vfoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoCodigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoIdDA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfonombreDA = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlContenedorTitulo.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.gpbBusqueda.SuspendLayout()
@@ -120,6 +125,7 @@ Partial Class frmBuscarCarrera
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver
         Me.grdBuscarCarreras.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdBuscarCarreras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdBuscarCarreras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.vfoId, Me.vfoCodigo, Me.vfoNombre, Me.vfoIdDA, Me.vfonombreDA})
         Me.grdBuscarCarreras.Location = New System.Drawing.Point(7, 20)
         Me.grdBuscarCarreras.Name = "grdBuscarCarreras"
         Me.grdBuscarCarreras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -162,6 +168,36 @@ Partial Class frmBuscarCarrera
         Me.tlpContenedorBuscar.Size = New System.Drawing.Size(672, 437)
         Me.tlpContenedorBuscar.TabIndex = 29
         '
+        'vfoId
+        '
+        Me.vfoId.HeaderText = "Id"
+        Me.vfoId.Name = "vfoId"
+        Me.vfoId.Visible = False
+        '
+        'vfoCodigo
+        '
+        Me.vfoCodigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.vfoCodigo.HeaderText = "Código"
+        Me.vfoCodigo.Name = "vfoCodigo"
+        '
+        'vfoNombre
+        '
+        Me.vfoNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.vfoNombre.HeaderText = "Nombre"
+        Me.vfoNombre.Name = "vfoNombre"
+        '
+        'vfoIdDA
+        '
+        Me.vfoIdDA.HeaderText = "Id Director Academico"
+        Me.vfoIdDA.Name = "vfoIdDA"
+        Me.vfoIdDA.Visible = False
+        '
+        'vfonombreDA
+        '
+        Me.vfonombreDA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.vfonombreDA.HeaderText = "Nombre Director"
+        Me.vfonombreDA.Name = "vfonombreDA"
+        '
         'frmBuscarCarrera
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -192,4 +228,9 @@ Partial Class frmBuscarCarrera
     Friend WithEvents grpFiltros As System.Windows.Forms.GroupBox
     Friend WithEvents txtNombre As System.Windows.Forms.TextBox
     Friend WithEvents tlpContenedorBuscar As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents vfoId As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoCodigo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoNombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoIdDA As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfonombreDA As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

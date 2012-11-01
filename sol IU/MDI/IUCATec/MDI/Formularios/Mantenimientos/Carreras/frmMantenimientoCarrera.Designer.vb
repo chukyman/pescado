@@ -28,7 +28,7 @@ Partial Class frmMantenimientoCarrera
         Me.txtNombre = New ControlesLeafSoft.rcTextBox()
         Me.txtCodigo = New ControlesLeafSoft.rcTextBox()
         Me.lblValidaDA = New System.Windows.Forms.Label()
-        Me.cboDA = New System.Windows.Forms.ComboBox()
+        Me.cboDa = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblApellido1 = New System.Windows.Forms.Label()
@@ -43,6 +43,7 @@ Partial Class frmMantenimientoCarrera
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.pnlContenedorTitulo = New System.Windows.Forms.Panel()
         Me.lblTituloMU = New System.Windows.Forms.Label()
+        Me.txtInvisible = New System.Windows.Forms.TextBox()
         Me.tlpContenedorPrincipal.SuspendLayout()
         Me.pnlContenedor.SuspendLayout()
         Me.s.SuspendLayout()
@@ -77,10 +78,11 @@ Partial Class frmMantenimientoCarrera
         '
         's
         '
+        Me.s.Controls.Add(Me.txtInvisible)
         Me.s.Controls.Add(Me.txtNombre)
         Me.s.Controls.Add(Me.txtCodigo)
         Me.s.Controls.Add(Me.lblValidaDA)
-        Me.s.Controls.Add(Me.cboDA)
+        Me.s.Controls.Add(Me.cboDa)
         Me.s.Controls.Add(Me.Label1)
         Me.s.Controls.Add(Me.lblNombre)
         Me.s.Controls.Add(Me.lblApellido1)
@@ -99,7 +101,7 @@ Partial Class frmMantenimientoCarrera
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombre.Location = New System.Drawing.Point(164, 100)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(124, 26)
+        Me.txtNombre.Size = New System.Drawing.Size(232, 26)
         Me.txtNombre.TabIndex = 28
         '
         'txtCodigo
@@ -107,25 +109,25 @@ Partial Class frmMantenimientoCarrera
         Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodigo.Location = New System.Drawing.Point(164, 50)
         Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(124, 26)
+        Me.txtCodigo.Size = New System.Drawing.Size(232, 26)
         Me.txtCodigo.TabIndex = 27
         '
         'lblValidaDA
         '
         Me.lblValidaDA.AutoSize = True
-        Me.lblValidaDA.Location = New System.Drawing.Point(330, 152)
+        Me.lblValidaDA.Location = New System.Drawing.Point(430, 155)
         Me.lblValidaDA.Name = "lblValidaDA"
         Me.lblValidaDA.Size = New System.Drawing.Size(197, 13)
         Me.lblValidaDA.TabIndex = 26
         Me.lblValidaDA.Text = "*Selecione el Director Academico"
         '
-        'cboDA
+        'cboDa
         '
-        Me.cboDA.FormattingEnabled = True
-        Me.cboDA.Location = New System.Drawing.Point(164, 152)
-        Me.cboDA.Name = "cboDA"
-        Me.cboDA.Size = New System.Drawing.Size(124, 21)
-        Me.cboDA.TabIndex = 25
+        Me.cboDa.FormattingEnabled = True
+        Me.cboDa.Location = New System.Drawing.Point(164, 152)
+        Me.cboDa.Name = "cboDa"
+        Me.cboDa.Size = New System.Drawing.Size(232, 21)
+        Me.cboDa.TabIndex = 25
         '
         'Label1
         '
@@ -160,7 +162,7 @@ Partial Class frmMantenimientoCarrera
         'lblValidaNombre
         '
         Me.lblValidaNombre.AutoSize = True
-        Me.lblValidaNombre.Location = New System.Drawing.Point(325, 106)
+        Me.lblValidaNombre.Location = New System.Drawing.Point(425, 109)
         Me.lblValidaNombre.Name = "lblValidaNombre"
         Me.lblValidaNombre.Size = New System.Drawing.Size(96, 13)
         Me.lblValidaNombre.TabIndex = 16
@@ -169,7 +171,7 @@ Partial Class frmMantenimientoCarrera
         'lblValidaCodigo
         '
         Me.lblValidaCodigo.AutoSize = True
-        Me.lblValidaCodigo.Location = New System.Drawing.Point(325, 58)
+        Me.lblValidaCodigo.Location = New System.Drawing.Point(425, 61)
         Me.lblValidaCodigo.Name = "lblValidaCodigo"
         Me.lblValidaCodigo.Size = New System.Drawing.Size(92, 13)
         Me.lblValidaCodigo.TabIndex = 15
@@ -281,6 +283,13 @@ Partial Class frmMantenimientoCarrera
         Me.lblTituloMU.TabIndex = 21
         Me.lblTituloMU.Text = "Manteniento Carreras"
         '
+        'txtInvisible
+        '
+        Me.txtInvisible.Location = New System.Drawing.Point(687, 47)
+        Me.txtInvisible.Name = "txtInvisible"
+        Me.txtInvisible.Size = New System.Drawing.Size(50, 20)
+        Me.txtInvisible.TabIndex = 29
+        '
         'frmMantenimientoCarrera
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -317,9 +326,10 @@ Partial Class frmMantenimientoCarrera
     Friend WithEvents lblApellido1 As System.Windows.Forms.Label
     Friend WithEvents lblValidaNombre As System.Windows.Forms.Label
     Friend WithEvents lblValidaCodigo As System.Windows.Forms.Label
-    Friend WithEvents cboDA As System.Windows.Forms.ComboBox
+    Friend WithEvents cboDa As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents lblValidaDA As System.Windows.Forms.Label
-    Friend WithEvents txtNombre As ControlesLeafSoft.rcTextBox
     Friend WithEvents txtCodigo As ControlesLeafSoft.rcTextBox
+    Friend WithEvents txtNombre As ControlesLeafSoft.rcTextBox
+    Friend WithEvents txtInvisible As System.Windows.Forms.TextBox
 End Class

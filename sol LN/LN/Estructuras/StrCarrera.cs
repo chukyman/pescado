@@ -17,18 +17,22 @@ namespace LN.Estructuras
         private String _Codigo;
         private String _Nombre;
         private int _Id_Director_academico;
-                
+        private String _nombre_DA;
+
+
+
         //================================================================================
-        // Constructores
+        // Constructoresm
         //================================================================================
 
 
-        public StrCarrera(int pid_carrera, String pcodigo, String pnombre, int pid_director_academico)
+        public StrCarrera(int pid_carrera, String pcodigo, String pnombre, int pid_director_academico, string pnombre_NA)
         {
             _Id_Carrera = pid_carrera;
             _Codigo = pcodigo;
             _Nombre = pnombre;
             _Id_Director_academico = pid_director_academico;
+            _nombre_DA = pnombre_NA;
 
         }
 
@@ -60,9 +64,17 @@ namespace LN.Estructuras
             set { _Id_Director_academico = value; }
         }
 
+        public String Nombre_DA
+        {
+            get { return _nombre_DA; }
+            set { _nombre_DA = value; }
+        }
+
+
+
+
     }
 
 
 
 }
-

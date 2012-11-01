@@ -119,7 +119,7 @@
   </resheader>
   <data name="PABuscarCarreraXId" xml:space="preserve">
     <value>PA_buscar_carrera_x_id</value>
-    <comment>Busca la carrera por ID</comment>
+    <comment>Busca la carrera por ID Julio Moreira</comment>
   </data>
   <data name="PABuscarCursoXCodigo" xml:space="preserve">
     <value>PA_buscar_curso_x_codigo</value>
@@ -140,6 +140,10 @@
   <data name="PAListarCarreras" xml:space="preserve">
     <value>PA_listar_carreras</value>
     <comment>Lista todas las carreras</comment>
+  </data>
+  <data name="PAListarDA" xml:space="preserve">
+    <value>PA_Listar_DA</value>
+    <comment>Lista todos los DA   Julio Moreira</comment>
   </data>
   <data name="PAListarGrupos" xml:space="preserve">
     <value>PA_listar_grupos</value>

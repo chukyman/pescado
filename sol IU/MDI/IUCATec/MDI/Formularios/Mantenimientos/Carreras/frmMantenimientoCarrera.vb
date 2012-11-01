@@ -39,9 +39,11 @@ Public Class frmMantenimientoCarrera
 
         txtCodigo.Text = CStr(vlrFila("Codigo"))
         txtNombre.Text = CStr(vlrFila("Nombre"))
-        '*****************************************************************************
-        'TENGO QUE VER COMO PASO EL ID DEL DIRECTOR
-        '*****************************************************************************
+        'cboDa.SelectedText = CStr(vlrFila("IdDA"))
+        cboDA.Text = " "
+        cboDA.Text = CStr(vlrFila("IdDA"))
+
+        txtInvisible.Text = (vlrFila("Id"))
 
         Return True
 
@@ -101,7 +103,7 @@ Public Class frmMantenimientoCarrera
         Try
             txtCodigo.Enabled = pvbBloquear
             txtNombre.Enabled = pvbBloquear
-            cboDA.Enabled = pvbBloquear
+            cboDa.Enabled = pvbBloquear
 
             'Si produce Error
         Catch ex As Exception
@@ -127,7 +129,7 @@ Public Class frmMantenimientoCarrera
 
             txtCodigo.Text() = String.Empty
             txtNombre.Text() = String.Empty
-            cboDA.Text = String.Empty
+            cboDa.Text = String.Empty
             'Si produce Error
         Catch ex As Exception
             'Lanza Error
@@ -247,9 +249,9 @@ Public Class frmMantenimientoCarrera
                     lblValidaCodigo.Visible = pvbMostrar
                     lblValidaNombre.Visible = pvbMostrar
                     lblValidaDA.Visible = pvbMostrar
-                    
 
-                 
+
+
 
                 Case CAMPOS.CODIGO
                     'Si muestra porque es verdadero.
@@ -301,33 +303,36 @@ Public Class frmMantenimientoCarrera
     ''' <param name="e"></param>
     ''' <remarks>Julio Moreira</remarks>
     Private Sub frmMantenimientoCarrera_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.WindowState = FormWindowState.Maximized
-        PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
-        FbMostrarValidaciones(False, CAMPOS.NOCAMPOS)
-        PBloquearDesBloquearCamposTxt(False)
-        llenarComboBoxDA()
+
+        Try
+
+            llenarComboBoxDA()
+            PBloquearDesBloquearCamposTxt(False)
+            Me.WindowState = FormWindowState.Maximized
+            PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
+            FbMostrarValidaciones(False, CAMPOS.NOCAMPOS)
+
+        Catch ex As Exception
+            'Lanza Error
+            Throw ex
+        End Try
 
     End Sub
 
     Private Sub llenarComboBoxDA()
 
-        Dim listaEstructurasUsuario As List(Of StrUsuario)
-        listaEstructurasUsuario = GestorUsuario.listarUsuario
-        For Each StrUsuario In listaEstructurasUsuario
 
-            If StrUsuario.NombreRol = "Director Academico" Then
-                cboDA.Items.Add(StrUsuario.Nombre + " " + StrUsuario.Apellido1)
+        Dim vloListaTemporalNombre As List(Of LN.Estructuras.StrUsuario)
 
-            End If
-        Next
+        vloListaTemporalNombre = GestorUsuario.listarDA()
+
+        cboDA.DisplayMember = "Nombre"
+        cboDA.ValueMember = "IdUsuario"
+
+        cboDA.DataSource = vloListaTemporalNombre
+
+
     End Sub
-
-
-
-
-
-
-
 
 
 
@@ -335,10 +340,10 @@ Public Class frmMantenimientoCarrera
 #End Region
 
 
-    Private Sub cboDA_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboDA.KeyUp
+    Private Sub cboDA_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboDa.KeyUp
         Try
             'Si el campo es vacío
-            If cboDA.SelectedIndex = -1 Then
+            If cboDa.SelectedIndex = -1 Then
                 'Muestra el label
                 FbMostrarValidaciones(True, CAMPOS.DA)
             Else
@@ -406,7 +411,7 @@ Public Class frmMantenimientoCarrera
             PBloquearDesBloquearCamposTxt(True)
             'Se le hace focus a la llave primaria
             txtCodigo.Focus()
-
+            llenarComboBoxDA()
             'Cambia el estado del formulario a insercion
             PCambiarEstadoFormlarios(ESTADO_MENU.INSERCION)
 
@@ -432,13 +437,13 @@ Public Class frmMantenimientoCarrera
             txtNombre.Focus()
 
 
-        ElseIf cboDA.SelectedIndex = -1 Then
+        ElseIf cboDa.SelectedIndex = -1 Then
             MsgBox("Debe escoger el director de la Carrera")
         End If
 
 
-
-        MsgBox("El Registro fue Exitoso")
+        MessageBox.Show("Se valida la información y se almacena")
+        MessageBox.Show("El Registro fue Exitoso")
 
 
         PRegistrarCarrera()
@@ -453,34 +458,80 @@ Public Class frmMantenimientoCarrera
 
         Dim vlcCodigo As String = txtCodigo.Text
         Dim vlcNombre As String = txtNombre.Text
-        Dim vlnNombre As String = cboDA.Text
+        Dim vlcIdDa As String = cboDa.SelectedValue
+        MsgBox(vlcIdDa)
 
-        ' GestorCarrera.registrarCarrera(vlcCodigo, vlcNombre, 6)
+        GestorCarrera.registrarCarrera(vlcCodigo, vlcNombre, vlcIdDa)
 
-        Dim listaEstructurasUsuario As List(Of StrUsuario)
-        listaEstructurasUsuario = GestorUsuario.listarUsuario
-        For Each StrUsuario In listaEstructurasUsuario
-
-            Dim fin As Integer
-            fin = InStr(vlnNombre, " ")
-
-
-            Dim nombre As String
-            nombre = Mid(vlnNombre, 1, fin)
-
-            If StrUsuario.Nombre = nombre Then
-                MsgBox("aqui esta menso")
-
-            End If
+    End Sub
 
 
 
-        Next
+
+
+    Private Sub btnModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificar.Click
+
+        PCambiarEstadoFormlarios(ESTADO_MENU.EDICION)
+        Dim vlcCodigo As String = txtCodigo.Text
+        Dim vlcNombre As String = txtNombre.Text
+        Dim vlcIdDa As String = cboDa.SelectedValue
+        Dim vlcIdCarrera = txtInvisible.Text
+
+        If vlcCodigo = "" Then
+            MsgBox("Debe ingresar el codigo de la Carrera")
+            txtCodigo.Focus()
+
+        ElseIf vlcNombre = "" Then
+            MsgBox("Debe ingresar el nombre de la Carrera")
+            txtNombre.Focus()
+
+
+        ElseIf cboDa.SelectedIndex = -1 Then
+            MsgBox("Debe escoger el director de la Carrera")
+        End If
+
+        Dim vlcMensaje
+        vlcMensaje = "¿Desea Modificar la carrera: " & txtNombre.Text + "?"
+        Dim button As DialogResult = MessageBox.Show(vlcMensaje, "Usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+        If button = DialogResult.Yes Then
+
+            GestorCarrera.actualizarCarrera(vlcIdCarrera, vlcCodigo, vlcNombre, vlcIdDa)
+
+            MsgBox("El Registro fue Exitoso")
+            MessageBox.Show("Se valida la información y se almacena")
+            PLimpiarCampos()
+            PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
+
+        End If
 
 
 
 
     End Sub
 
+    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
 
+
+
+        PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
+        Dim vlcCodigo As String = txtCodigo.Text
+        Dim vlcNombre As String = txtNombre.Text
+        Dim vlcIdCarrera = txtInvisible.Text
+
+
+        Dim vlcMensaje
+        vlcMensaje = "¿Desea Eliminar la carrera: " & txtNombre.Text + "?"
+        Dim button As DialogResult = MessageBox.Show(vlcMensaje, "Usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+        If button = DialogResult.Yes Then
+
+            GestorCarrera.eliminarCarrera(vlcIdCarrera)
+            PLimpiarCampos()
+            PCambiarEstadoFormlarios(ESTADO_MENU.CONSULTA)
+
+        End If
+
+
+
+
+    End Sub
 End Class

@@ -219,7 +219,7 @@ Partial Class frmMantenimientoCurso
         'lblValidaEstado
         '
         Me.lblValidaEstado.AutoSize = True
-        Me.lblValidaEstado.Location = New System.Drawing.Point(285, 190)
+        Me.lblValidaEstado.Location = New System.Drawing.Point(307, 187)
         Me.lblValidaEstado.Name = "lblValidaEstado"
         Me.lblValidaEstado.Size = New System.Drawing.Size(135, 13)
         Me.lblValidaEstado.TabIndex = 26
@@ -230,7 +230,7 @@ Partial Class frmMantenimientoCurso
         Me.cboEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboEstado.FormattingEnabled = True
         Me.cboEstado.Items.AddRange(New Object() {"Activo", "Inactivo"})
-        Me.cboEstado.Location = New System.Drawing.Point(136, 178)
+        Me.cboEstado.Location = New System.Drawing.Point(158, 175)
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(124, 28)
         Me.cboEstado.TabIndex = 25
@@ -240,7 +240,7 @@ Partial Class frmMantenimientoCurso
         '
         Me.lblEstado.AutoSize = True
         Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstado.Location = New System.Drawing.Point(10, 182)
+        Me.lblEstado.Location = New System.Drawing.Point(32, 179)
         Me.lblEstado.Name = "lblEstado"
         Me.lblEstado.Size = New System.Drawing.Size(73, 24)
         Me.lblEstado.TabIndex = 24
@@ -249,7 +249,7 @@ Partial Class frmMantenimientoCurso
         'txtNombre
         '
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(136, 97)
+        Me.txtNombre.Location = New System.Drawing.Point(162, 94)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(124, 26)
         Me.txtNombre.TabIndex = 23
@@ -257,7 +257,7 @@ Partial Class frmMantenimientoCurso
         'txtCodigo
         '
         Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.Location = New System.Drawing.Point(136, 65)
+        Me.txtCodigo.Location = New System.Drawing.Point(162, 62)
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.Size = New System.Drawing.Size(124, 26)
         Me.txtCodigo.TabIndex = 22
@@ -265,7 +265,7 @@ Partial Class frmMantenimientoCurso
         'lblValidaCodigo
         '
         Me.lblValidaCodigo.AutoSize = True
-        Me.lblValidaCodigo.Location = New System.Drawing.Point(283, 72)
+        Me.lblValidaCodigo.Location = New System.Drawing.Point(309, 69)
         Me.lblValidaCodigo.Name = "lblValidaCodigo"
         Me.lblValidaCodigo.Size = New System.Drawing.Size(96, 13)
         Me.lblValidaCodigo.TabIndex = 21
@@ -275,7 +275,7 @@ Partial Class frmMantenimientoCurso
         '
         Me.lblNombre.AutoSize = True
         Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre.Location = New System.Drawing.Point(6, 94)
+        Me.lblNombre.Location = New System.Drawing.Point(32, 91)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(84, 24)
         Me.lblNombre.TabIndex = 2
@@ -285,7 +285,7 @@ Partial Class frmMantenimientoCurso
         '
         Me.lblApellido1.AutoSize = True
         Me.lblApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido1.Location = New System.Drawing.Point(5, 133)
+        Me.lblApellido1.Location = New System.Drawing.Point(31, 130)
         Me.lblApellido1.Name = "lblApellido1"
         Me.lblApellido1.Size = New System.Drawing.Size(72, 24)
         Me.lblApellido1.TabIndex = 3
@@ -295,7 +295,7 @@ Partial Class frmMantenimientoCurso
         '
         Me.lblCedula.AutoSize = True
         Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(6, 61)
+        Me.lblCedula.Location = New System.Drawing.Point(32, 58)
         Me.lblCedula.Name = "lblCedula"
         Me.lblCedula.Size = New System.Drawing.Size(71, 24)
         Me.lblCedula.TabIndex = 1
@@ -304,7 +304,7 @@ Partial Class frmMantenimientoCurso
         'lblValidaCarrera
         '
         Me.lblValidaCarrera.AutoSize = True
-        Me.lblValidaCarrera.Location = New System.Drawing.Point(283, 137)
+        Me.lblValidaCarrera.Location = New System.Drawing.Point(309, 134)
         Me.lblValidaCarrera.Name = "lblValidaCarrera"
         Me.lblValidaCarrera.Size = New System.Drawing.Size(119, 13)
         Me.lblValidaCarrera.TabIndex = 16
@@ -313,7 +313,7 @@ Partial Class frmMantenimientoCurso
         'lblValidaNombre
         '
         Me.lblValidaNombre.AutoSize = True
-        Me.lblValidaNombre.Location = New System.Drawing.Point(283, 102)
+        Me.lblValidaNombre.Location = New System.Drawing.Point(309, 99)
         Me.lblValidaNombre.Name = "lblValidaNombre"
         Me.lblValidaNombre.Size = New System.Drawing.Size(96, 13)
         Me.lblValidaNombre.TabIndex = 15
@@ -323,7 +323,7 @@ Partial Class frmMantenimientoCurso
         '
         Me.cboCarrera.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCarrera.FormattingEnabled = True
-        Me.cboCarrera.Location = New System.Drawing.Point(136, 129)
+        Me.cboCarrera.Location = New System.Drawing.Point(162, 126)
         Me.cboCarrera.Name = "cboCarrera"
         Me.cboCarrera.Size = New System.Drawing.Size(124, 28)
         Me.cboCarrera.TabIndex = 0

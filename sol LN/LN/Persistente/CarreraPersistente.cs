@@ -30,25 +30,22 @@ namespace LN.Persistente
 
             //Creacion de objetos de tipo parametro para la lista de parametros
 
-            Parametro tmp01 = new Parametro("codigo", pobjCarrera.Codigo);
-            Parametro tmp02 = new Parametro("nombre", pobjCarrera.Nombre);
-            Parametro tmp03 = new Parametro("id_director_academico", Convert.ToString(pobjCarrera.Id_director_academico));
-
+            Parametro tmp01 = new Parametro("id_carrera", Convert.ToString(pobjCarrera.Id_carrera));
+            Parametro tmp02 = new Parametro("codigo", pobjCarrera.Codigo);
+            Parametro tmp03 = new Parametro("nombre", pobjCarrera.Nombre);
+            Parametro tmp04 = new Parametro("id_director_academico", Convert.ToString(pobjCarrera.Id_director_academico));
 
             //llenado de la lista
             listaParametros.Add(tmp01);
             listaParametros.Add(tmp02);
             listaParametros.Add(tmp03);
+            listaParametros.Add(tmp04);
+
 
             try
             {
                 //Sentencia sql
-                String sql = "UPDATE TCarrera SET " +
-                                               "Codigo = codigo, " +
-                                               "Nombre = nombre, " +
-                                               "Apellido2 = id_director_academico, " +
-                                               "WHERE Id_carrera =id_director_academico";
-
+                String sql = "UPDATE TCarrera SET Codigo = codigo, Nombre = nombre, Id_director_academico = id_director_academico WHERE Id_carrera = id_carrera ";
                 //ejecucion del sql
                 AD.ejecutarSQL_NoRetorna(sql, listaParametros);
             }
@@ -56,7 +53,6 @@ namespace LN.Persistente
             {
                 throw new Exception(e.Message);
             }
-
         }
 
 
@@ -111,9 +107,10 @@ namespace LN.Persistente
                     tmpCarrera.Id_Carrera = reader.GetInt32(0),
                     tmpCarrera.Codigo = reader.GetValue(1).ToString(),
                     tmpCarrera.Nombre = reader.GetValue(2).ToString(),
-                    tmpCarrera.Id_Director_academico = reader.GetInt32(3)
-
+                    tmpCarrera.Id_Director_academico = reader.GetInt32(3),
+                    tmpCarrera.Nombre_DA=reader.GetValue(4).ToString()
                     ));
+                   
                 }
                 reader.Close();
 

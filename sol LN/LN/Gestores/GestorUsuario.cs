@@ -110,8 +110,24 @@ namespace LN.Gestores
 
             return datosUsuario;
         }
-    
 
+
+
+
+
+        public static List<StrUsuario> listarDA()
+        {
+            try
+            {
+                UsuarioPersistente objUsuarioPersistente = new UsuarioPersistente();
+                List<StrUsuario> listado = objUsuarioPersistente.listarDA();
+                return listado;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
     }
 }

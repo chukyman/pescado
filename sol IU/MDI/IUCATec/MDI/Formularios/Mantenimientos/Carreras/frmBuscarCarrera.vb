@@ -2,6 +2,7 @@
 'Desarrollado: Julio Moreira
 
 Imports LN
+Imports LN.Gestores
 
 
 
@@ -13,7 +14,8 @@ Public Class frmBuscarCarrera
         IDCARRERA = 0
         CODIGO = 1
         NOMBRE = 2
-        IDDIRECTOR = 3
+        NOMBREDIRECTOR = 3
+        IDDIRECTOR = 4
     End Enum
 
 
@@ -36,13 +38,44 @@ Public Class frmBuscarCarrera
 
     Private Sub frmBuscarCarrera_load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'En caso de error
+        ' Lista todos las carerras de la base de datos
+        ' grdBuscarCarreras.DataSource = Gestores.GestorCarrera.listarCarrera()
+        'Lista temporal que almacena una lista de tipo estructura carrera
+        Dim vloListaTem As List(Of LN.Estructuras.StrCarrera)
+
+        'Variable de tipo dataGridView row que sirve para ingresar a las columnas del gird
+        Dim vldrRegistro As DataGridViewRow
+
+
+        'En caso de error
         Try
-            ' Lista todos las carerras de la base de datos
-            grdBuscarCarreras.DataSource = Gestores.GestorCarrera.listarCarrera()
+            Dim vlnIndice As Integer
+
+            vloListaTem = GestorCarrera.listarCarrera()
+
+            For vlnx As Integer = 0 To vloListaTem.Count - 1
+
+                vlnIndice = grdBuscarCarreras.Rows.Add
+
+                vldrRegistro = grdBuscarCarreras.Rows(vlnx)
+
+                vldrRegistro.Cells("vfoId").Value = vloListaTem.Item(vlnx).Id_Carrera
+                vldrRegistro.Cells("vfoCodigo").Value = vloListaTem.Item(vlnx).Codigo
+                vldrRegistro.Cells("vfoNombre").Value = vloListaTem.Item(vlnx).Nombre
+                vldrRegistro.Cells("vfoIdDA").Value = vloListaTem.Item(vlnx).Id_Director_academico
+                vldrRegistro.Cells("vfonombreDA").Value = vloListaTem.Item(vlnx).Nombre_DA
+
+            Next
+
+
+
+
+            'vloListaTem.GetEnumerator.Current.Id_Carrera
         Catch ex As Exception
             'Invoca mensaje de error
         End Try
     End Sub
+
 
     Private frmAlAbrir As frmInterfaceBuscarModificarEliminar
 
@@ -61,11 +94,12 @@ Public Class frmBuscarCarrera
 
         'Se construyen las columnas del DataTable (esos campos deberia ser los mismos que el grid
         'Luego Explico porq en este ejemplo no lo he hecho)
+        vldtTablaDatos.Columns.Add("Id")
         vldtTablaDatos.Columns.Add("Codigo")
         vldtTablaDatos.Columns.Add("Nombre")
-        vldtTablaDatos.Columns.Add("Director Id")
+        vldtTablaDatos.Columns.Add("IdDA")
+        vldtTablaDatos.Columns.Add("nombreDA")
 
-       
 
         'Podria ser otro tipo de ciclo, si en un futuro quieren cargar mas datos, 
         'Se utuliza otro este es por cuestion de tiempo y inutilidad de mi parte-
@@ -74,11 +108,11 @@ Public Class frmBuscarCarrera
             Dim row As DataRow = vldtTablaDatos.NewRow()
             'Para la fila 0, de la columna (nombre de columna q construimos) asigne el item
             'del grid, donde su columa (nombre de columana), y su fila, indice pasado por parametros
-
+            row("Id") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.IDCARRERA, pvnIndex).Value
             row("Codigo") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.CODIGO, pvnIndex).Value
             row("Nombre") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.NOMBRE, pvnIndex).Value
-
-
+            row("IdDA") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.IDDIRECTOR, pvnIndex).Value
+            row("nombreDA") = grdBuscarCarreras.Item(CAMPOS_COLUNMAS.NOMBREDIRECTOR, pvnIndex).Value
 
             'Agrege al datatable ese registro
             vldtTablaDatos.Rows.Add(row)
@@ -97,7 +131,7 @@ Public Class frmBuscarCarrera
         'Valida que el grid tenga datos. o bien podria ser la lista de usuarios
         If Me.grdBuscarCarreras.RowCount > 0 Then
             'Mensaje de confirmacion
-            vlcmensaje = "Desesa selecionar la linea: " + Me.grdBuscarCarreras.CurrentRow.Index.ToString
+            vlcMensaje = "Desea seleccionar la linea: " + Me.grdBuscarCarreras.CurrentRow.Index.ToString
 
             vloResultadoMensaje = MessageBox.Show(vlcMensaje, "Usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
             'Si el mensaje fue arfimativo
@@ -107,7 +141,7 @@ Public Class frmBuscarCarrera
 
         Else
             'No existen datos que selecionar
-            MessageBox.Show("No Existen registros para selecionar")
+            MessageBox.Show("No Existen registros para seleccionar")
 
         End If
 
