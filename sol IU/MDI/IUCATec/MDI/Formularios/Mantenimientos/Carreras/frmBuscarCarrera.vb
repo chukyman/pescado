@@ -7,7 +7,10 @@ Imports LN.Estructuras
 
 
 
-
+''' <summary>
+''' Campos del Formulario
+''' </summary>
+''' <remarks></remarks>
 Public Class frmBuscarCarrera
 
 
@@ -19,11 +22,21 @@ Public Class frmBuscarCarrera
         IDDIRECTOR = 4
     End Enum
 
+    ''' <summary>
+    ''' Maneja las acciones del boton salir
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
         Me.Close()
     End Sub
 
+    ''' <summary>
+    ''' Inicializa el componente
+    ''' </summary>
+    ''' <remarks></remarks>
 
     Sub New()
         ' Llamada necesaria para el diseñador.
@@ -32,10 +45,24 @@ Public Class frmBuscarCarrera
     End Sub
 
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub grpFiltros_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles grpFiltros.Enter
 
     End Sub
+
+
+    ''' <summary>
+    ''' Los eventos que carga el formulario
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub frmBuscarCarrera_load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'En caso de error

@@ -13,7 +13,12 @@ namespace LN.Gestores
 {
     public class GestorCarrera
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pcodigo"></param>
+        /// <param name="pnombre"></param>
+        /// <param name="pid_director_academico"></param>
         public static void registrarCarrera(string pcodigo, string pnombre, int pid_director_academico)
         {
 
@@ -30,7 +35,10 @@ namespace LN.Gestores
 
         }
         
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<StrCarrera> listarCarrera()
         {
             try
@@ -48,7 +56,13 @@ namespace LN.Gestores
 
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pidcarrera"></param>
+        /// <param name="pcodigo"></param>
+        /// <param name="pnombre"></param>
+        /// <param name="pid_directoracademico"></param>
         public static void actualizarCarrera(int pidcarrera, string pcodigo, string pnombre, int pid_directoracademico)
         {
             
@@ -57,6 +71,10 @@ namespace LN.Gestores
             objCarreraPersistente.updateCarrera(objCarrera);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pid_Carrera"></param>
         public static void eliminarCarrera(int pid_Carrera)
         {
 
@@ -65,6 +83,11 @@ namespace LN.Gestores
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pnombre"></param>
+        /// <returns></returns>
         public static StrCarrera buscarCarrera(String pnombre)
         {
             CarreraPersistente objCarreraPersistente = new CarreraPersistente();

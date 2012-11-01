@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 
 namespace LN.Clases
-{
+{    /// <summary>
+    /// Clase Usuario
+    /// </summary>
+    /// <remarks>LeafSoft Julio Moreira</remarks>
     
         public class Carrera
         {

@@ -25,6 +25,7 @@ Partial Class frmMantenimientoCarrera
         Me.tlpContenedorPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.s = New System.Windows.Forms.GroupBox()
+        Me.txtInvisible = New System.Windows.Forms.TextBox()
         Me.txtNombre = New ControlesLeafSoft.rcTextBox()
         Me.txtCodigo = New ControlesLeafSoft.rcTextBox()
         Me.lblValidaDA = New System.Windows.Forms.Label()
@@ -43,7 +44,6 @@ Partial Class frmMantenimientoCarrera
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.pnlContenedorTitulo = New System.Windows.Forms.Panel()
         Me.lblTituloMU = New System.Windows.Forms.Label()
-        Me.txtInvisible = New System.Windows.Forms.TextBox()
         Me.tlpContenedorPrincipal.SuspendLayout()
         Me.pnlContenedor.SuspendLayout()
         Me.s.SuspendLayout()
@@ -95,6 +95,14 @@ Partial Class frmMantenimientoCarrera
         Me.s.TabIndex = 20
         Me.s.TabStop = False
         Me.s.Text = "Datos Usuarios"
+        '
+        'txtInvisible
+        '
+        Me.txtInvisible.Location = New System.Drawing.Point(687, 47)
+        Me.txtInvisible.Name = "txtInvisible"
+        Me.txtInvisible.Size = New System.Drawing.Size(50, 20)
+        Me.txtInvisible.TabIndex = 29
+        Me.txtInvisible.Visible = False
         '
         'txtNombre
         '
@@ -282,13 +290,6 @@ Partial Class frmMantenimientoCarrera
         Me.lblTituloMU.Size = New System.Drawing.Size(296, 31)
         Me.lblTituloMU.TabIndex = 21
         Me.lblTituloMU.Text = "Manteniento Carreras"
-        '
-        'txtInvisible
-        '
-        Me.txtInvisible.Location = New System.Drawing.Point(687, 47)
-        Me.txtInvisible.Name = "txtInvisible"
-        Me.txtInvisible.Size = New System.Drawing.Size(50, 20)
-        Me.txtInvisible.TabIndex = 29
         '
         'frmMantenimientoCarrera
         '

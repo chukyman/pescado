@@ -8,7 +8,13 @@ Imports LN.Estructuras
 Public Class frmMantenimientoCarrera
     Implements frmInterfaceBuscarModificarEliminar
 
-
+  
+    ''' <summary>
+    ''' Boton Buscar
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
         'Declaro una variable formulario del tipo buscar usuario
         Dim vloFrmBuscarCarreras As New frmBuscarCarrera()
@@ -27,6 +33,15 @@ Public Class frmMantenimientoCarrera
         'Cambia el estado del formulario a busqueda
         PCambiarEstadoFormlarios(ESTADO_MENU.BUSQUEDA)
     End Sub
+
+
+
+    ''' <summary>
+    ''' Cargar Datos en el Grid 
+    ''' </summary>
+    ''' <param name="dataTableParam"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
 
     Public Function FbCargarDataGrid(ByVal dataTableParam As DataTable) As Boolean Implements frmInterfaceBuscarModificarEliminar.FbCargarDataGrid
         'Declaro y instancion la fila, para eso pregunto pro la ultima fila del datatable
@@ -49,6 +64,10 @@ Public Class frmMantenimientoCarrera
 
     End Function
 
+    ''' <summary>
+    ''' Llama e inicializa el componente
+    ''' </summary>
+    ''' <remarks></remarks>
 
     Sub New()
         ' Llamada necesaria para el diseñador.
@@ -97,6 +116,11 @@ Public Class frmMantenimientoCarrera
         DA = 2
     End Enum
 
+    ''' <summary>
+    ''' Bloquea y desbloquea Campos
+    ''' </summary>
+    ''' <param name="pvbBloquear"></param>
+    ''' <remarks></remarks>
 
     Public Sub PBloquearDesBloquearCamposTxt(ByVal pvbBloquear As Boolean)
         'En caso de error
@@ -319,6 +343,12 @@ Public Class frmMantenimientoCarrera
 
     End Sub
 
+
+    ''' <summary>
+    ''' LLena el Combo Box con una lista
+    ''' </summary>
+    ''' <remarks></remarks>
+
     Private Sub llenarComboBoxDA()
 
 
@@ -339,6 +369,12 @@ Public Class frmMantenimientoCarrera
 
 #End Region
 
+    ''' <summary>
+    ''' Maneja las etiquetas, si se muestran o no
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub cboDA_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboDa.KeyUp
         Try
@@ -357,6 +393,12 @@ Public Class frmMantenimientoCarrera
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Revisa si hay cambios en el textos de Nombre
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub txtNombre_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNombre.KeyUp
         Try
@@ -376,6 +418,12 @@ Public Class frmMantenimientoCarrera
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Revisa si hay cambios en el textos de Codigo
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub txtCodigo_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtCodigo.KeyUp
         Try
@@ -396,6 +444,12 @@ Public Class frmMantenimientoCarrera
     End Sub
 
 
+    ''' <summary>
+    ''' Boton de Deshacer
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub btnDeshacer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeshacer.Click
         PLimpiarCampos()
@@ -403,6 +457,12 @@ Public Class frmMantenimientoCarrera
     End Sub
 
 
+    ''' <summary>
+    ''' Maneja las acciones que desancadena Boton Nuevo 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
         Try
@@ -422,6 +482,14 @@ Public Class frmMantenimientoCarrera
             'Invoca mensaje de error
         End Try
     End Sub
+
+
+    ''' <summary>
+    ''' Maneja las acciones que desancadena Boton Guardar
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
 
@@ -453,6 +521,10 @@ Public Class frmMantenimientoCarrera
 
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento de registrar Carrera
+    ''' </summary>
+    ''' <remarks></remarks>
 
     Public Sub PRegistrarCarrera()
 
@@ -468,6 +540,12 @@ Public Class frmMantenimientoCarrera
 
 
 
+    ''' <summary>
+    ''' Maneja las acciones del boton  Modificar
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub btnModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificar.Click
 
@@ -508,6 +586,14 @@ Public Class frmMantenimientoCarrera
 
 
     End Sub
+
+
+    ''' <summary>
+    ''' Maneja las acciones del boton  Eliminar
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
 
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
 

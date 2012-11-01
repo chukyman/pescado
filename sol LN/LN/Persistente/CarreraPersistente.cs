@@ -23,7 +23,10 @@ namespace LN.Persistente
 
         AccesoBD AD = new AccesoBD();
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pobjCarrera"></param>
         public void updateCarrera(Carrera pobjCarrera)
         {
             List<Parametro> listaParametros = new List<Parametro>();
@@ -55,7 +58,10 @@ namespace LN.Persistente
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pobjCarrera"></param>
         public void insertarCarrera(Carrera pobjCarrera)
         {
             List<Parametro> parametros = new List<Parametro>();
@@ -87,7 +93,10 @@ namespace LN.Persistente
 
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<StrCarrera> listarCarreras()
         {
             StrCarrera tmpCarrera = new StrCarrera();
@@ -122,7 +131,10 @@ namespace LN.Persistente
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pid_Carrera"></param>
         public void eliminarCarrera(int pid_Carrera)
         {
             //Creacion de la lista de objetos de tipo parametro
@@ -145,7 +157,11 @@ namespace LN.Persistente
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pnombre"></param>
+        /// <returns></returns>
         public StrCarrera buscarCarreraXNombre(String pnombre)
         {
 
