@@ -31,6 +31,13 @@ Partial Class frmListarDirectorAcad
         Me.lblTituloBC = New System.Windows.Forms.Label()
         Me.tlpContenedorBuscar = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlContenedorTitulo = New System.Windows.Forms.Panel()
+        Me.vfoNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoApellido1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoApellido2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoNombreRol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoGenero = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoCedula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoCorreo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gpbBusqueda.SuspendLayout()
         CType(Me.grdBuscarUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -54,6 +61,7 @@ Partial Class frmListarDirectorAcad
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver
         Me.grdBuscarUsuarios.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdBuscarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdBuscarUsuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.vfoNombre, Me.vfoApellido1, Me.vfoApellido2, Me.vfoNombreRol, Me.vfoGenero, Me.vfoCedula, Me.vfoCorreo})
         Me.grdBuscarUsuarios.Location = New System.Drawing.Point(7, 20)
         Me.grdBuscarUsuarios.Name = "grdBuscarUsuarios"
         Me.grdBuscarUsuarios.Size = New System.Drawing.Size(613, 200)
@@ -123,6 +131,48 @@ Partial Class frmListarDirectorAcad
         Me.pnlContenedorTitulo.Size = New System.Drawing.Size(666, 37)
         Me.pnlContenedorTitulo.TabIndex = 22
         '
+        'vfoNombre
+        '
+        Me.vfoNombre.HeaderText = "Nombre"
+        Me.vfoNombre.Name = "vfoNombre"
+        Me.vfoNombre.Width = 82
+        '
+        'vfoApellido1
+        '
+        Me.vfoApellido1.HeaderText = "1er Apellido"
+        Me.vfoApellido1.Name = "vfoApellido1"
+        Me.vfoApellido1.Width = 81
+        '
+        'vfoApellido2
+        '
+        Me.vfoApellido2.HeaderText = "2do Apellido"
+        Me.vfoApellido2.Name = "vfoApellido2"
+        Me.vfoApellido2.Width = 82
+        '
+        'vfoNombreRol
+        '
+        Me.vfoNombreRol.HeaderText = "Puesto"
+        Me.vfoNombreRol.Name = "vfoNombreRol"
+        Me.vfoNombreRol.Width = 81
+        '
+        'vfoGenero
+        '
+        Me.vfoGenero.HeaderText = "Género"
+        Me.vfoGenero.Name = "vfoGenero"
+        Me.vfoGenero.Width = 82
+        '
+        'vfoCedula
+        '
+        Me.vfoCedula.HeaderText = "Cédula"
+        Me.vfoCedula.Name = "vfoCedula"
+        Me.vfoCedula.Width = 81
+        '
+        'vfoCorreo
+        '
+        Me.vfoCorreo.HeaderText = "Correo"
+        Me.vfoCorreo.Name = "vfoCorreo"
+        Me.vfoCorreo.Width = 81
+        '
         'frmListarDirectorAcad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -149,4 +199,11 @@ Partial Class frmListarDirectorAcad
     Friend WithEvents lblTituloBC As System.Windows.Forms.Label
     Friend WithEvents tlpContenedorBuscar As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents pnlContenedorTitulo As System.Windows.Forms.Panel
+    Friend WithEvents vfoNombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoApellido1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoApellido2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoNombreRol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoGenero As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoCedula As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoCorreo As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
