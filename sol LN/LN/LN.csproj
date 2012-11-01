@@ -44,15 +44,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Carrera.cs" />
+    <Compile Include="Clases\Curso.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Estructuras\StrCarrera.cs" />
+    <Compile Include="Estructuras\StrCurso.cs" />
     <Compile Include="Estructuras\StrGrupo.cs" />
     <Compile Include="Estructuras\StrUsuario.cs" />
     <Compile Include="Gestores\GestorCarrera.cs" />
+    <Compile Include="Gestores\GestorCurso.cs" />
     <Compile Include="Gestores\GestorGrupo.cs" />
     <Compile Include="Clases\Grupo.cs" />
     <Compile Include="Gestores\GestorUsuario.cs" />
     <Compile Include="Persistente\CarreraPersistente.cs" />
+    <Compile Include="Persistente\CursoPersistente.cs" />
     <Compile Include="Persistente\GrupoPersistente.cs" />
     <Compile Include="Persistente\UsuarioPersistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
