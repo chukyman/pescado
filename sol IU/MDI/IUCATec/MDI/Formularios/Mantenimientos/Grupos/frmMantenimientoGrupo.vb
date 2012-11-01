@@ -1,4 +1,5 @@
 ﻿Imports LN.Estructuras
+Imports LN.Gestores
 Public Class frmMantenimientoGrupo
     'Fecha: 20/10/2012
     'Desarrollador: Diego Salas Arce
@@ -171,9 +172,16 @@ Public Class frmMantenimientoGrupo
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
         If FbValidarCamposTotal() = True Then
 
+            Dim vlnNumCurso As Int16 = cboCursos.SelectedIndex
+            Dim vlcNombre As String = txtNombre.Text()
+            Dim vlcHorario As String = txtHorario.Text()
+            Dim vlcDescripcion As String = txtDescripcion.Text()
+
+            Dim vlcCantEstudiantes As Int32 = CInt(txtCantEstudiantes.Text)
+            MsgBox(txtCantEstudiantes.Text)
+            GestorGrupo.registrarGrupo(vlcNombre, vlcHorario, vlcDescripcion, vlcCantEstudiantes, vlnNumCurso)
             PLimpiarCampos()
             PCambiarEstadoFormlarios(ESTADO_MENU.GUARDAR)
-
         Else
             MsgBox("Digite los campos indicados")
         End If
@@ -198,6 +206,14 @@ Public Class frmMantenimientoGrupo
     ''' <remarks></remarks>
     Private Sub btnModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificar.Click
         If FbValidarCamposTotal() = True Then
+
+            Dim vlnNumCurso As Int16 = cboCursos.SelectedIndex
+            Dim vlcNombre As String = txtNombre.Text
+            Dim vlcHorario As String = txtHorario.Text
+            Dim vlcDescripcion As String = txtDescripcion.Text
+            Dim vlnCantEstudiantes As Int16 = txtCantEstudiantes.Text
+
+
 
             PLimpiarCampos()
             PCambiarEstadoFormlarios(ESTADO_MENU.EDICION)

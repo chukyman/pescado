@@ -17,7 +17,6 @@ namespace LN.Estructuras
         private String _descripcion;
         private int _cantEstudiantes;
         private String _nomCurso;
-
         
         //================================================================================
         // Constructores
@@ -66,6 +65,11 @@ namespace LN.Estructuras
         {
             get { return _nomCurso; }
             set { _nomCurso = value; }
+        }
+
+        public String NombreCompleto
+        {
+            get { return _nombre + " " + _horario;  }
         }
     }
 }

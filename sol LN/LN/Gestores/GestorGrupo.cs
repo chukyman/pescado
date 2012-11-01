@@ -14,35 +14,35 @@ namespace LN.Gestores
     {
 
         /// <summary>
-        /// 
+        /// Registra un grupo en el sistema
         /// </summary>
         /// <param name="pnombre"></param>
         /// <param name="phorario"></param>
         /// <param name="pdescripcion"></param>
         /// <param name="pidCurso"></param>
-        public static void registrarGrupo(String pnombre, String phorario, String pdescripcion, int pidCurso)
+        public static void registrarGrupo(String pnombre, String phorario, String pdescripcion, int pcantEstudiantes ,int pidCurso)
         {
             //Creacion del objeto grupo
             Grupo objGrupo;
 
             //instanciación del objeto grupo con los valores que me pasan por parámetros.
-            objGrupo = new Grupo(pnombre, phorario, pdescripcion, pidCurso);
+            objGrupo = new Grupo(pnombre, phorario, pdescripcion, pcantEstudiantes, pidCurso);
             GrupoPersistente objGrupoPersistente = new GrupoPersistente();
             objGrupoPersistente.insertGrupo(objGrupo);
         }
 
 
         /// <summary>
-        /// 
+        /// Modifica los datos de un grupo
         /// </summary>
         /// <param name="pnombre"></param>
         /// <param name="phorario"></param>
         /// <param name="pdescripcion"></param>
         /// <param name="pidCurso"></param>
-        public static void modificarGrupo(String pnombre, String phorario, String pdescripcion, int pidCurso)
+        public static void modificarGrupo(String pnombre, String phorario, String pdescripcion, int pcantEstudiantes ,int pidCurso)
         {
 
-            Grupo objGrupo = new Grupo(pnombre, phorario, pdescripcion, pidCurso);
+            Grupo objGrupo = new Grupo(pnombre, phorario, pdescripcion, pcantEstudiantes, pidCurso);
             GrupoPersistente grupoP = new GrupoPersistente();
             grupoP.updateGrupo(objGrupo);
         }
@@ -53,7 +53,7 @@ namespace LN.Gestores
 
         }
         /// <summary>
-        /// 
+        /// Obtiene un grupo determinado por medio del nombre del grupo
         /// </summary>
         /// <param name="pidCurso"></param>
         /// <returns></returns>
@@ -66,7 +66,7 @@ namespace LN.Gestores
         }
 
         /// <summary>
-        /// 
+        /// Lista los grupos almacenados en el sistema
         /// </summary>
         /// <returns></returns>
         public static List<StrGrupo> listarGrupos()

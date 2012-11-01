@@ -15,7 +15,7 @@ namespace LN.Persistente
         AccesoBD AD = new AccesoBD();
 
        /// <summary>
-       /// 
+       /// Registra un grupo al sistema
        /// </summary>
        /// <param name="pobjGrupo"></param>
         public void insertGrupo(Grupo pobjGrupo)
@@ -27,18 +27,20 @@ namespace LN.Persistente
             Parametro tmp01 = new Parametro("nombre",pobjGrupo.Nombre);
             Parametro tmp02 = new Parametro("horario", pobjGrupo.Horario);
             Parametro tmp03 = new Parametro("descripcion", pobjGrupo.Descripcion);
-            Parametro tmp04 = new Parametro("idcurso",Convert.ToString(pobjGrupo.IdCurso));
+            Parametro tmp04 = new Parametro("cantestudiantes", Convert.ToString(pobjGrupo.CantEstudiantes));
+            Parametro tmp05 = new Parametro("idcurso",Convert.ToString(pobjGrupo.IdCurso));
 
             //llenado de la lista
             parametros.Add(tmp01);
             parametros.Add(tmp02);
             parametros.Add(tmp03);
             parametros.Add(tmp04);
+            parametros.Add(tmp05);
          
             try
             {
                 //Sentencia sql
-                String sql = "INSERT INTO TGrupo (Nombre, Horario, Descripcion, Id_curso) VALUES(nombre, horario, descripcion,idcurso)";
+                String sql = "INSERT INTO TGrupo (Nombre, Horario, Descripcion, Cant_estudiantes ,Id_curso) VALUES(nombre, horario, descripcion, cantestudiantes, idcurso)";
                
                 //Se ejecuta el sql, del Acceso Datos
                 AD.ejecutarSQL_NoRetorna(sql, parametros);
@@ -50,7 +52,7 @@ namespace LN.Persistente
         }
 
        /// <summary>
-       /// 
+       /// Modifica un grupo
        /// </summary>
        /// <param name="pobjGrupo"></param>
         public void updateGrupo(Grupo pobjGrupo)
@@ -87,7 +89,7 @@ namespace LN.Persistente
         }
 
        /// <summary>
-       /// 
+       /// Borra un grupo del sistema
        /// </summary>
        /// <param name="pidGrupo"></param>
         public void deleteGrupo(int pidGrupo)

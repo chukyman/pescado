@@ -139,7 +139,7 @@ Partial Class frmMantenimientoGrupo
         Me.cboCursos.Items.AddRange(New Object() {"Programación I", "Programación II", "Bases de Datos I", "Bases de Datos II", "Proyecto de Ing I", "Proyecto de Ing II"})
         Me.cboCursos.Location = New System.Drawing.Point(130, 12)
         Me.cboCursos.Name = "cboCursos"
-        Me.cboCursos.Size = New System.Drawing.Size(121, 28)
+        Me.cboCursos.Size = New System.Drawing.Size(149, 28)
         Me.cboCursos.TabIndex = 30
         Me.cboCursos.Text = "--Seleccione--"
         '
@@ -156,7 +156,7 @@ Partial Class frmMantenimientoGrupo
         Me.txtHorario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtHorario.Location = New System.Drawing.Point(130, 81)
         Me.txtHorario.Name = "txtHorario"
-        Me.txtHorario.Size = New System.Drawing.Size(121, 26)
+        Me.txtHorario.Size = New System.Drawing.Size(149, 26)
         Me.txtHorario.TabIndex = 28
         '
         'txtNombre
@@ -164,7 +164,7 @@ Partial Class frmMantenimientoGrupo
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombre.Location = New System.Drawing.Point(130, 47)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(121, 26)
+        Me.txtNombre.Size = New System.Drawing.Size(149, 26)
         Me.txtNombre.TabIndex = 27
         '
         'lblValidaDescripcion
@@ -181,7 +181,7 @@ Partial Class frmMantenimientoGrupo
         '
         Me.lblValidaHorario.AutoSize = True
         Me.lblValidaHorario.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblValidaHorario.Location = New System.Drawing.Point(273, 86)
+        Me.lblValidaHorario.Location = New System.Drawing.Point(296, 86)
         Me.lblValidaHorario.Name = "lblValidaHorario"
         Me.lblValidaHorario.Size = New System.Drawing.Size(90, 13)
         Me.lblValidaHorario.TabIndex = 21
@@ -191,7 +191,7 @@ Partial Class frmMantenimientoGrupo
         '
         Me.lblValidaNombre.AutoSize = True
         Me.lblValidaNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblValidaNombre.Location = New System.Drawing.Point(273, 50)
+        Me.lblValidaNombre.Location = New System.Drawing.Point(296, 50)
         Me.lblValidaNombre.Name = "lblValidaNombre"
         Me.lblValidaNombre.Size = New System.Drawing.Size(92, 13)
         Me.lblValidaNombre.TabIndex = 20
@@ -201,7 +201,7 @@ Partial Class frmMantenimientoGrupo
         '
         Me.lblValidaCurso.AutoSize = True
         Me.lblValidaCurso.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblValidaCurso.Location = New System.Drawing.Point(273, 15)
+        Me.lblValidaCurso.Location = New System.Drawing.Point(296, 15)
         Me.lblValidaCurso.Name = "lblValidaCurso"
         Me.lblValidaCurso.Size = New System.Drawing.Size(111, 13)
         Me.lblValidaCurso.TabIndex = 19

@@ -4,11 +4,6 @@ Imports LN.Gestores
 Public Class frmAsignarProfesorXGrupo
     'Fecha: 20/10/2012
     'Desarrollador: Diego Salas Arce
-
-    'Lista de profesores
-    Dim vgolistaProfesores As List(Of StrUsuario) = GestorUsuario.listarProfesores
-    'Lista de grupos
-    Dim vgolistaGrupos As List(Of StrGrupo) = GestorGrupo.listarGrupos
 #Region "Eventos"
 
     ''' <summary>
@@ -21,8 +16,8 @@ Public Class frmAsignarProfesorXGrupo
         Me.WindowState = FormWindowState.Maximized
         btnAsignar.Enabled = False
         btnRemover.Enabled = False
-        llenarListaProfesores()
-        llenarListaGrupos()
+        PLLenarComboGrupo()
+        PLlenarComboProfesor()
     End Sub
 
     ''' <summary>
@@ -30,7 +25,7 @@ Public Class frmAsignarProfesorXGrupo
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    ''' <remarks>Diego Salas Arce</remarks>
+    ''' <remarks></remarks>
     Private Sub ltsProfesores_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ltsProfesores.SelectedIndexChanged
 
         If ltsProfesores.SelectedIndex = -1 Then
@@ -79,25 +74,23 @@ Public Class frmAsignarProfesorXGrupo
 #End Region
 
 #Region "Procedimientos"
-    ''' <summary>
-    ''' Llena la lista de profesores
-    ''' </summary>
-    ''' <remarks>Diego Salas Arce</remarks>
-    Private Sub llenarListaProfesores()
-
-        For Each StrUsuario In vgolistaProfesores
-            ltsProfesores.Items.Add(StrUsuario.Nombre & " " & StrUsuario.Apellido1)
-        Next
-    End Sub
 
     ''' <summary>
-    ''' Llena la lista de grupos
+    ''' Llena el comboBox de la lista de grupos
     ''' </summary>
-    ''' <remarks>Diego Salas Arce</remarks>
-    Private Sub llenarListaGrupos()
-        For Each StrGrupo In vgolistaGrupos
-            ltsGrupos.Items.Add(StrGrupo.Nombre & " " & StrGrupo.Horario)
-        Next
+    ''' <remarks></remarks>
+    Private Sub PLLenarComboGrupo()
+        'Se crea una lista temporal de estructuras tipo StrGrupo
+        Dim vloListaTemporal As List(Of LN.Estructuras.StrGrupo)
+        vloListaTemporal = GestorGrupo.listarGrupos()
+
+        'Indica cual es la llave primaria 
+        ltsGrupos.ValueMember = "Id_Carrera"
+        'Indica el valor a mostrar en la lista
+        ltsGrupos.DisplayMember = "NombreCompleto"
+        'Indica cual es su datasourse o fuente de datos, el cual es una lista de estructuras
+        ltsGrupos.DataSource = vloListaTemporal
+
     End Sub
 #End Region
 
