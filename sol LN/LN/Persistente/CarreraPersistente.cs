@@ -146,36 +146,68 @@ namespace LN.Persistente
         }
 
 
-        public Carrera buscarCarreraXid(int pid_carrera)
+        public StrCarrera buscarCarreraXNombre(String pnombre)
         {
-            String cmdText;
-            cmdText = Properties.Resources.PABuscarCarreraXId;
-            Carrera objCarrera = null;
+
+            SqlDataReader drDatosCarrera;
+
+
+            List<Parametro> parametros = new List<Parametro>();
+
+            StrCarrera str = new StrCarrera();
+
+
+            Parametro tmp01 = new Parametro("nombre", pnombre);
+
+
+            parametros.Add(tmp01);
+
+
+            String storeProced = Properties.Resources.PABuscarCarreraXNombre.ToString();
+
             try
             {
-                List<Parametro> parametros = new List<Parametro>();
-                Parametro tmp01 = new Parametro("id_carrera", Convert.ToString(pid_carrera));
-                parametros.Add(tmp01);
-                SqlDataReader reader = AD.ejecutarSP_Retorna(cmdText, parametros);
 
 
-                while (reader.Read())
+                drDatosCarrera = AD.ejecutarSP_Retorna(storeProced, parametros);
+
+                if (drDatosCarrera.Read())
                 {
-                    objCarrera= new Carrera(
-                    reader.GetInt16(0),
-                    reader.GetValue(1).ToString(),
-                    reader.GetValue(2).ToString(),
-                    reader.GetInt16(3));
+
+                    str = (new StrCarrera(
+
+
+                        /*
+                                        drDatosCarrera.GetInt16(0).ToString,
+                                        drDatosCarrera.GetValue(1).ToString(),
+                                        drDatosCarrera.GetValue(2).ToString(),
+                                        drDatosCarrera.GetInt16(3),
+                                        drDatosCarrera.GetValue(4).ToString()*/
+
+                        drDatosCarrera.GetInt32(0),
+                         drDatosCarrera.GetValue(1).ToString(),
+                         drDatosCarrera.GetValue(2).ToString(),
+                        drDatosCarrera.GetInt32(3),
+                       drDatosCarrera.GetValue(4).ToString()
+                        
+
+
+
+
+
+
+                                        ));
                 }
-
-                return objCarrera;
             }
-
-            catch (SqlException e)
+            catch (Exception e)
             {
-                throw e;
+                throw new Exception(e.Message);
             }
+            return str;
+            drDatosCarrera.Close();
         }
+
+
 
 
     }

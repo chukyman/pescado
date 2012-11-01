@@ -117,9 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PABuscarCarreraXId" xml:space="preserve">
-    <value>PA_buscar_carrera_x_id</value>
-    <comment>Busca la carrera por ID Julio Moreira</comment>
+  <data name="PABuscarCarreraXNombre" xml:space="preserve">
+    <value>PA_Buscar_Carrera_X_Nombre</value>
+    <comment>Busca la carrera por el nombre Julio Moreira</comment>
   </data>
   <data name="PABuscarCursoXCodigo" xml:space="preserve">
     <value>PA_buscar_curso_x_codigo</value>

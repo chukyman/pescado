@@ -61,11 +61,11 @@ namespace LN.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PA_buscar_carrera_x_id.
+        ///   Looks up a localized string similar to PA_Buscar_Carrera_X_Nombre.
         /// </summary>
-        internal static string PABuscarCarreraXId {
+        internal static string PABuscarCarreraXNombre {
             get {
-                return ResourceManager.GetString("PABuscarCarreraXId", resourceCulture);
+                return ResourceManager.GetString("PABuscarCarreraXNombre", resourceCulture);
             }
         }
         

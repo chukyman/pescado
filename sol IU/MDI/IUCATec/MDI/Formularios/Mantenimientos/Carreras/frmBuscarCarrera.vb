@@ -3,6 +3,7 @@
 
 Imports LN
 Imports LN.Gestores
+Imports LN.Estructuras
 
 
 
@@ -172,11 +173,17 @@ Public Class frmBuscarCarrera
     End Sub
 
 
+    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
 
+        Dim vlcNombre As String = txtNombre.Text
+        Dim vlostrDatosCarrera = GestorCarrera.buscarCarrera(vlcNombre)
+        MessageBox.Show("Información de la Carrera" & vbCrLf &
+                        "--------------------------------------" & vbCrLf &
+                        "Nombre de Carrera: " + vlostrDatosCarrera.Nombre + vbCrLf +
+                        "  " & vbCrLf +
+                        "Codigo: " + vlostrDatosCarrera.Codigo + vbCrLf +
+                            "  " & vbCrLf +
+                        "Director de la Carrera:  " + vlostrDatosCarrera.Nombre_DA)
 
-
-
-
-
-
+    End Sub
 End Class

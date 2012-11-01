@@ -65,19 +65,12 @@ namespace LN.Gestores
 
         }
 
-        public static StrCarrera buscarCarrera(int pid_carrera)
+        public static StrCarrera buscarCarrera(String pnombre)
         {
-
             CarreraPersistente objCarreraPersistente = new CarreraPersistente();
-            StrCarrera carrera = new StrCarrera();
-            Carrera objCarrera = objCarreraPersistente.buscarCarreraXid(pid_carrera);
-
-            carrera.Id_Carrera = objCarrera.Id_carrera;
-            carrera.Codigo = objCarrera.Codigo;
-            carrera.Nombre = objCarrera.Nombre;
-            carrera.Id_Director_academico = objCarrera.Id_director_academico;
-
+            StrCarrera carrera = objCarreraPersistente.buscarCarreraXNombre(pnombre);
             return carrera;
+
         }
     }
 
