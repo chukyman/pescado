@@ -124,6 +124,15 @@ namespace LN.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PA_Listar_Estudiante.
+        /// </summary>
+        internal static string PAListarEstudiantes {
+            get {
+                return ResourceManager.GetString("PAListarEstudiantes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PA_listar_grupos.
         /// </summary>
         internal static string PAListarGrupos {

@@ -263,5 +263,41 @@ namespace LN.Persistente
                  throw e;
              }
          }
+
+         public List<StrUsuario> listarEstudiantes()
+         {
+             StrUsuario tmpUsuario = new StrUsuario();
+             List<StrUsuario> listaUsuarios = new List<StrUsuario>();
+             try
+             {
+                 String cmdText;
+                 cmdText = Properties.Resources.PAListarEstudiantes;
+
+                 SqlDataReader reader = AD.ejecutarSPListar(cmdText);
+                 //recorror el data reader para ir creando las estructuras y agregarlas a la coleccion
+                 while (reader.Read())
+                 {
+                     listaUsuarios.Add(new StrUsuario(
+                     tmpUsuario.IdUsuario = reader.GetValue(0).ToString(),
+                     tmpUsuario.Cedula = reader.GetValue(1).ToString(),
+                     tmpUsuario.Nombre = reader.GetValue(2).ToString(),
+                     tmpUsuario.Apellido1 = reader.GetValue(3).ToString(),
+                     tmpUsuario.Apellido2 = reader.GetValue(4).ToString(),
+                     tmpUsuario.Correo = reader.GetValue(5).ToString(),
+                     tmpUsuario.Genero = reader.GetValue(6).ToString(),
+                     tmpUsuario.NombreRol = reader.GetValue(7).ToString()
+                     ));
+                 }
+                 reader.Close();
+                 return listaUsuarios;
+             }
+             catch (SqlException e)
+             {
+                 throw e;
+             }
+         }
+
+
+
     }
 }

@@ -129,5 +129,19 @@ namespace LN.Gestores
             }
         }
 
+        public static List<StrUsuario> listarEstudiantes()
+        {
+            try
+            {
+                UsuarioPersistente objUsuarioPersistente = new UsuarioPersistente();
+                List<StrUsuario> listado = objUsuarioPersistente.listarEstudiantes();
+                return listado;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
     }
 }

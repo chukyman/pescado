@@ -1,6 +1,7 @@
 ﻿'Fecha: 20/10/2012
 'Desarrollado: Julio Moreira
-
+Imports LN.Estructuras
+Imports LN.Gestores
 
 Public Class frmAsignarEstudianteXCarrera
 
@@ -16,6 +17,13 @@ Public Class frmAsignarEstudianteXCarrera
         Me.WindowState = FormWindowState.Maximized
         btnAsignar.Enabled = False
         btnRemover.Enabled = False
+        PLLenarComboEstudiantes()
+        PllenarComboCarrera()
+
+
+
+
+
     End Sub
 
     ''' <summary>
@@ -81,4 +89,40 @@ Public Class frmAsignarEstudianteXCarrera
     Private Sub pnlCuerpoAsignarProfGrupo_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnlCuerpoAsignarProfGrupo.Paint
 
     End Sub
+
+
+    Private Sub PLLenarComboEstudiantes()
+
+        Dim vloListaTemporalNombre As List(Of LN.Estructuras.StrUsuario)
+
+        vloListaTemporalNombre = GestorUsuario.listarEstudiantes()
+
+        ltsEstudiantes.DisplayMember = "Nombre"
+        ltsEstudiantes.ValueMember = "IdUsuario"
+
+        ltsEstudiantes.DataSource = vloListaTemporalNombre
+
+
+
+    End Sub
+
+
+    Private Sub PllenarComboCarrera()
+        Dim vloListaTemporal As List(Of LN.Estructuras.StrCarrera)
+        vloListaTemporal = GestorCarrera.listarCarrera()
+
+        'Indica cual es la llave primaria 
+        ltsCarreras.ValueMember = "Id_Carrera"
+        'Indica el valor a mostrar en la lista
+        ltsCarreras.DisplayMember = "Nombre"
+        'Indica cual es su datasourse o fuente de datos, el cual es una lista de estructuras
+        ltsCarreras.DataSource = vloListaTemporal
+    End Sub
+
+
+
+
+
+
+
 End Class

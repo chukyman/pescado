@@ -109,7 +109,6 @@ Partial Class frmAsignarEstudianteXCarrera
         '
         Me.ltsCarreras.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ltsCarreras.FormattingEnabled = True
-        Me.ltsCarreras.Items.AddRange(New Object() {"Desarrollo Web", "Telematica", "Desarrollo de Software", "Tecnologias de la Informacion", "Soporte Tecnico", "Ingles"})
         Me.ltsCarreras.Location = New System.Drawing.Point(18, 19)
         Me.ltsCarreras.Name = "ltsCarreras"
         Me.ltsCarreras.Size = New System.Drawing.Size(167, 199)
@@ -130,7 +129,6 @@ Partial Class frmAsignarEstudianteXCarrera
         '
         Me.ltsEstudiantes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ltsEstudiantes.FormattingEnabled = True
-        Me.ltsEstudiantes.Items.AddRange(New Object() {"Luis  Chanto Carvajal", "José  Jiménez Méndez", "Carlos Rodó Ortuño", "Casimiro Medrano Abellán", "Carlos Mora Bonilla", "Óscar Cantillo", " Mezerville Cantillos", "Francisco Medrano Abellán", "Familia Altman Echeverría", "Federico Macaya Bolaños", "Luis  Abellán Acevedo", "Anabella Díez Martín", "Óscar Cadet Fernández", "Roberto Massuh", "Víctor Gómez Artavia", "Alejandro Madrigal Benavides", "Guillermo Zúñiga Trejos", "Jorge Rodríguez Araya", "Jorge Johanning Mora", "Arlene Lutz Vargas"})
         Me.ltsEstudiantes.Location = New System.Drawing.Point(6, 19)
         Me.ltsEstudiantes.Name = "ltsEstudiantes"
         Me.ltsEstudiantes.Size = New System.Drawing.Size(148, 199)

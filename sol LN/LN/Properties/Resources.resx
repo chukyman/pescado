@@ -145,6 +145,10 @@
     <value>PA_Listar_DA</value>
     <comment>Lista todos los DA   Julio Moreira</comment>
   </data>
+  <data name="PAListarEstudiantes" xml:space="preserve">
+    <value>PA_Listar_Estudiante</value>
+    <comment>Lista todos los Estudiantes Julio Moreira</comment>
+  </data>
   <data name="PAListarGrupos" xml:space="preserve">
     <value>PA_listar_grupos</value>
     <comment>Lista todos los grupos DiegoSalas</comment>
