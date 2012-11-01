@@ -26,6 +26,7 @@ Partial Class frmBuscarUsuario
         Me.pnlContenedorTitulo = New System.Windows.Forms.Panel()
         Me.lblTituloBU = New System.Windows.Forms.Label()
         Me.grpFiltros = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.txtCedula = New System.Windows.Forms.TextBox()
@@ -36,7 +37,14 @@ Partial Class frmBuscarUsuario
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tlpContenedorBuscar = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.vfoIdUsuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoCedula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoApellido1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoApellido2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoCorreo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoGenero = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vfoNombreRol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlContenedorTitulo.SuspendLayout()
         Me.grpFiltros.SuspendLayout()
         Me.gpbBusqueda.SuspendLayout()
@@ -78,6 +86,15 @@ Partial Class frmBuscarUsuario
         Me.grpFiltros.TabStop = False
         Me.grpFiltros.Text = "Filtros"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(286, 14)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
@@ -118,22 +135,28 @@ Partial Class frmBuscarUsuario
         '
         Me.gpbBusqueda.Controls.Add(Me.grdBuscarUsuarios)
         Me.gpbBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gpbBusqueda.Location = New System.Drawing.Point(18, 18)
+        Me.gpbBusqueda.Location = New System.Drawing.Point(3, 3)
         Me.gpbBusqueda.Name = "gpbBusqueda"
-        Me.gpbBusqueda.Size = New System.Drawing.Size(626, 226)
+        Me.gpbBusqueda.Size = New System.Drawing.Size(659, 241)
         Me.gpbBusqueda.TabIndex = 24
         Me.gpbBusqueda.TabStop = False
         Me.gpbBusqueda.Text = "Busqueda"
         '
         'grdBuscarUsuarios
         '
+        Me.grdBuscarUsuarios.AllowUserToAddRows = False
+        Me.grdBuscarUsuarios.AllowUserToDeleteRows = False
+        Me.grdBuscarUsuarios.AllowUserToResizeColumns = False
+        Me.grdBuscarUsuarios.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver
         Me.grdBuscarUsuarios.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdBuscarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdBuscarUsuarios.Location = New System.Drawing.Point(7, 20)
+        Me.grdBuscarUsuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.vfoIdUsuario, Me.vfoCedula, Me.vfoNombre, Me.vfoApellido1, Me.vfoApellido2, Me.vfoCorreo, Me.vfoGenero, Me.vfoNombreRol})
+        Me.grdBuscarUsuarios.Location = New System.Drawing.Point(21, 20)
         Me.grdBuscarUsuarios.Name = "grdBuscarUsuarios"
+        Me.grdBuscarUsuarios.ReadOnly = True
         Me.grdBuscarUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grdBuscarUsuarios.Size = New System.Drawing.Size(613, 200)
+        Me.grdBuscarUsuarios.Size = New System.Drawing.Size(638, 215)
         Me.grdBuscarUsuarios.TabIndex = 0
         '
         'btnSelecionar
@@ -186,14 +209,62 @@ Partial Class frmBuscarUsuario
         Me.tlpContenedorBuscar.Size = New System.Drawing.Size(672, 437)
         Me.tlpContenedorBuscar.TabIndex = 28
         '
-        'Button1
+        'vfoIdUsuario
         '
-        Me.Button1.Location = New System.Drawing.Point(286, 14)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 13
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.vfoIdUsuario.Frozen = True
+        Me.vfoIdUsuario.HeaderText = "ID Usuario"
+        Me.vfoIdUsuario.Name = "vfoIdUsuario"
+        Me.vfoIdUsuario.ReadOnly = True
+        Me.vfoIdUsuario.Visible = False
+        '
+        'vfoCedula
+        '
+        Me.vfoCedula.Frozen = True
+        Me.vfoCedula.HeaderText = "Cédula"
+        Me.vfoCedula.Name = "vfoCedula"
+        Me.vfoCedula.ReadOnly = True
+        '
+        'vfoNombre
+        '
+        Me.vfoNombre.Frozen = True
+        Me.vfoNombre.HeaderText = "Nombre"
+        Me.vfoNombre.Name = "vfoNombre"
+        Me.vfoNombre.ReadOnly = True
+        '
+        'vfoApellido1
+        '
+        Me.vfoApellido1.Frozen = True
+        Me.vfoApellido1.HeaderText = "Primer Apellido"
+        Me.vfoApellido1.Name = "vfoApellido1"
+        Me.vfoApellido1.ReadOnly = True
+        '
+        'vfoApellido2
+        '
+        Me.vfoApellido2.Frozen = True
+        Me.vfoApellido2.HeaderText = "Segundo Apellido"
+        Me.vfoApellido2.Name = "vfoApellido2"
+        Me.vfoApellido2.ReadOnly = True
+        '
+        'vfoCorreo
+        '
+        Me.vfoCorreo.Frozen = True
+        Me.vfoCorreo.HeaderText = "Correo"
+        Me.vfoCorreo.Name = "vfoCorreo"
+        Me.vfoCorreo.ReadOnly = True
+        '
+        'vfoGenero
+        '
+        Me.vfoGenero.Frozen = True
+        Me.vfoGenero.HeaderText = "Genero"
+        Me.vfoGenero.Name = "vfoGenero"
+        Me.vfoGenero.ReadOnly = True
+        '
+        'vfoNombreRol
+        '
+        Me.vfoNombreRol.Frozen = True
+        Me.vfoNombreRol.HeaderText = "Nombre Rol"
+        Me.vfoNombreRol.Name = "vfoNombreRol"
+        Me.vfoNombreRol.ReadOnly = True
         '
         'frmBuscarUsuario
         '
@@ -229,4 +300,12 @@ Partial Class frmBuscarUsuario
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents tlpContenedorBuscar As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents vfoIdUsuario As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoCedula As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoNombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoApellido1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoApellido2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoCorreo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoGenero As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vfoNombreRol As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

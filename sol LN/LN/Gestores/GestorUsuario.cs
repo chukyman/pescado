@@ -89,6 +89,11 @@ namespace LN.Gestores
         {
 
             StrUsuario objStrUsuario = (new UsuarioPersistente().buscarUsuarioXCedula(pcedula));
+
+
+
+         
+
             String[] datosUsuario = new String[] {
                                                  objStrUsuario.IdUsuario,
                                                 objStrUsuario.Nombre,
@@ -101,21 +106,12 @@ namespace LN.Gestores
                                                 
                                                 };
 
+        
+
             return datosUsuario;
         }
+    
 
-        /// <summary>
-        /// Lista todos los profesores registrados en el sistema
-        /// </summary>
-        /// <returns>Lista de estructuras de usuario</returns>
-        public static List<StrUsuario> listarProfesores()
-        {
-
-            UsuarioPersistente usuarioP = new UsuarioPersistente();
-            List<StrUsuario> listaProf = usuarioP.obtenerListaProfesores();
-
-            return listaProf;
-        }
 
     }
 }

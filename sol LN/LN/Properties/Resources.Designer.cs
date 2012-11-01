@@ -115,7 +115,16 @@ namespace LN.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a PA_listar_usuarios.
+        ///   Busca una cadena traducida similar a PA_Listar_Rol.
+        /// </summary>
+        internal static string PAListarRol {
+            get {
+                return ResourceManager.GetString("PAListarRol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a PA_Listar_Usuarios.
         /// </summary>
         internal static string PAListarUsuarios {
             get {

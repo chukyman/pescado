@@ -165,11 +165,7 @@ namespace LN.Estructuras
                 set { _pnombreRol = value; }
             }
 
-            public String NombreCompleto
-            {
-                get { return _nombre + " " + _apellido1 + " " + _apellido2;  }
-
-            }
+      
 
             #endregion
 

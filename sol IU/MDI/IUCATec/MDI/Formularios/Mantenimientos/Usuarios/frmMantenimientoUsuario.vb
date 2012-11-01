@@ -70,7 +70,8 @@ Public Class frmMantenimientoUsuario
 
         End If
         'Pensar como manipular el idRol
-
+        cboTipoRol.Text = ""
+        cboTipoRol.Text = CStr(vlrFila("NombreRol"))
         'CStr(row("IdRol"))
         txtCedula.Enabled = False
 
@@ -360,6 +361,9 @@ Public Class frmMantenimientoUsuario
         'En caso de error
         Try
 
+
+            PLLenarCombo()
+
             chkF.Checked = True
             'Llama al procedimiento y bloque los campos.
             PBloquearDesBloquearCamposTxt(False)
@@ -634,7 +638,7 @@ Public Class frmMantenimientoUsuario
             Dim vlcApellido1 As String = txtApellido1.Text
             Dim vlcApellido2 As String = txtApellido2.Text
             Dim vlcCorreo As String = txtCorreoEletronico.Text
-            Dim vlnTipoRol As Integer = 1
+            Dim vlnTipoRol As Integer = cboTipoRol.SelectedValue
             Dim vlbGenero As Char
 
             If chkF.Checked = True Then
@@ -714,12 +718,12 @@ Public Class frmMantenimientoUsuario
                 FbMostrarValidaciones(False, CAMPOS.CORREO)
             End If
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            If cboTipoRol.SelectedItem = String.Empty Then
-                lblValidaTipoRol.Visible = True
-                vlbValidado = False
-            Else
-                lblValidaTipoRol.Visible = False
-            End If
+            'If cboTipoRol.SelectedItem = String.Empty Then
+            '    lblValidaTipoRol.Visible = True
+            '    vlbValidado = False
+            'Else
+            '    lblValidaTipoRol.Visible = False
+            'End If
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             'Valida si no se selciona algun check box, y valida que por lo menos se asigne alguno de los 2
             If chkM.Checked = False And chkF.Checked = False Then
@@ -767,5 +771,26 @@ Public Class frmMantenimientoUsuario
 
     End Sub
 
+    Private Sub PLLenarCombo()
 
+
+
+        Dim vloListaTemporal As List(Of LN.Estructuras.StrRol)
+
+        vloListaTemporal = GestorRol.listarRoles()
+
+
+        cboTipoRol.ValueMember = "IdRol"
+
+
+        cboTipoRol.DisplayMember = "NombreRol"
+
+
+        cboTipoRol.DataSource = vloListaTemporal
+
+
+    End Sub
+
+
+    
 End Class

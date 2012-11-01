@@ -24,7 +24,6 @@ Partial Class frmMantenimientoUsuario
     Private Sub InitializeComponent()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.gpbDatosUsuarios = New System.Windows.Forms.GroupBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.txtCorreoEletronico = New ControlesLeafSoft.rcTextBox()
         Me.lblValidaCorreoEletronico = New System.Windows.Forms.Label()
         Me.lblCorreo = New System.Windows.Forms.Label()
@@ -74,7 +73,6 @@ Partial Class frmMantenimientoUsuario
         '
         'gpbDatosUsuarios
         '
-        Me.gpbDatosUsuarios.Controls.Add(Me.DateTimePicker1)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtCorreoEletronico)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblValidaCorreoEletronico)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblCorreo)
@@ -104,13 +102,6 @@ Partial Class frmMantenimientoUsuario
         Me.gpbDatosUsuarios.TabIndex = 20
         Me.gpbDatosUsuarios.TabStop = False
         Me.gpbDatosUsuarios.Text = "Datos Usuarios"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(198, 351)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 28
         '
         'txtCorreoEletronico
         '
@@ -312,7 +303,6 @@ Partial Class frmMantenimientoUsuario
         '
         Me.cboTipoRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTipoRol.FormattingEnabled = True
-        Me.cboTipoRol.Items.AddRange(New Object() {"Profesor", "Director Academico"})
         Me.cboTipoRol.Location = New System.Drawing.Point(188, 246)
         Me.cboTipoRol.Name = "cboTipoRol"
         Me.cboTipoRol.Size = New System.Drawing.Size(124, 28)
@@ -493,7 +483,6 @@ Partial Class frmMantenimientoUsuario
     Friend WithEvents txtApellido2 As ControlesLeafSoft.rcTextBox
     Friend WithEvents txtApellido1 As ControlesLeafSoft.rcTextBox
     Friend WithEvents txtNombre As ControlesLeafSoft.rcTextBox
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtCorreoEletronico As ControlesLeafSoft.rcTextBox
     Friend WithEvents lblValidaCorreoEletronico As System.Windows.Forms.Label
     Friend WithEvents lblCorreo As System.Windows.Forms.Label

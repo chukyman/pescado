@@ -17,7 +17,7 @@ Public Class frmAsignarProfesorXGrupo
         btnAsignar.Enabled = False
         btnRemover.Enabled = False
         PLLenarComboGrupo()
-        PLlenarComboProfesor()
+        ' PLlenarComboProfesor()
     End Sub
 
     ''' <summary>

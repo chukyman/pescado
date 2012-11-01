@@ -141,8 +141,11 @@
     <value>PA_listar_profesores</value>
     <comment>Lista los profesores DiegoSalas</comment>
   </data>
+  <data name="PAListarRol" xml:space="preserve">
+    <value>PA_Listar_Rol</value>
+  </data>
   <data name="PAListarUsuarios" xml:space="preserve">
-    <value>PA_listar_usuarios</value>
+    <value>PA_Listar_Usuarios</value>
     <comment>Lista todos los usuariso Robert Cordero</comment>
   </data>
   <data name="PAlistarUsuariosCedula" xml:space="preserve">
