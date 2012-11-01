@@ -95,6 +95,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\Formularios\Interfaces\frmInterfaceBuscarModificarEliminar.vb" />
+    <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.Designer.vb">
+      <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.Designer.vb">
       <DependentUpon>frmBuscarUsuario.vb</DependentUpon>
     </Compile>
@@ -129,12 +135,6 @@
       <DependentUpon>frmCargarCursos.vb</DependentUpon>
     </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmCargarCursos.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.Designer.vb">
-      <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.Designer.vb">
@@ -202,6 +202,9 @@
     <EmbeddedResource Include="MDI\Formularios\Asignaciones\frmAsignarProfesorXGrupo.resx">
       <DependentUpon>frmAsignarProfesorXGrupo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.resx">
+      <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Usuarios\frmBuscarUsuario.resx">
       <DependentUpon>frmBuscarUsuario.vb</DependentUpon>
     </EmbeddedResource>
@@ -219,9 +222,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmCargarCursos.resx">
       <DependentUpon>frmCargarCursos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Cursos\frmMantenimientoCurso.resx">
-      <DependentUpon>frmMantenimientoCurso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\Formularios\Mantenimientos\Grupos\frmBuscarGrupo.resx">
       <DependentUpon>frmBuscarGrupo.vb</DependentUpon>

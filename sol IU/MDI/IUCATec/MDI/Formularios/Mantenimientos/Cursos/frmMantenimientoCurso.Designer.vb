@@ -35,6 +35,9 @@ Partial Class frmMantenimientoCurso
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.pnlDatos = New System.Windows.Forms.Panel()
         Me.gpbDatosUsuarios = New System.Windows.Forms.GroupBox()
+        Me.lblValidaEstado = New System.Windows.Forms.Label()
+        Me.cboEstado = New System.Windows.Forms.ComboBox()
+        Me.lblEstado = New System.Windows.Forms.Label()
         Me.txtNombre = New ControlesLeafSoft.rcTextBox()
         Me.txtCodigo = New ControlesLeafSoft.rcTextBox()
         Me.lblValidaCodigo = New System.Windows.Forms.Label()
@@ -193,6 +196,9 @@ Partial Class frmMantenimientoCurso
         '
         'gpbDatosUsuarios
         '
+        Me.gpbDatosUsuarios.Controls.Add(Me.lblValidaEstado)
+        Me.gpbDatosUsuarios.Controls.Add(Me.cboEstado)
+        Me.gpbDatosUsuarios.Controls.Add(Me.lblEstado)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtNombre)
         Me.gpbDatosUsuarios.Controls.Add(Me.txtCodigo)
         Me.gpbDatosUsuarios.Controls.Add(Me.lblValidaCodigo)
@@ -205,10 +211,40 @@ Partial Class frmMantenimientoCurso
         Me.gpbDatosUsuarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gpbDatosUsuarios.Location = New System.Drawing.Point(0, 3)
         Me.gpbDatosUsuarios.Name = "gpbDatosUsuarios"
-        Me.gpbDatosUsuarios.Size = New System.Drawing.Size(471, 183)
+        Me.gpbDatosUsuarios.Size = New System.Drawing.Size(502, 229)
         Me.gpbDatosUsuarios.TabIndex = 21
         Me.gpbDatosUsuarios.TabStop = False
         Me.gpbDatosUsuarios.Text = "Datos Usuarios"
+        '
+        'lblValidaEstado
+        '
+        Me.lblValidaEstado.AutoSize = True
+        Me.lblValidaEstado.Location = New System.Drawing.Point(283, 190)
+        Me.lblValidaEstado.Name = "lblValidaEstado"
+        Me.lblValidaEstado.Size = New System.Drawing.Size(135, 13)
+        Me.lblValidaEstado.TabIndex = 26
+        Me.lblValidaEstado.Text = "* Seleccione el estado"
+        '
+        'cboEstado
+        '
+        Me.cboEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboEstado.FormattingEnabled = True
+        Me.cboEstado.Items.AddRange(New Object() {"Activo", "Inactivo"})
+        Me.cboEstado.Location = New System.Drawing.Point(136, 178)
+        Me.cboEstado.Name = "cboEstado"
+        Me.cboEstado.Size = New System.Drawing.Size(124, 28)
+        Me.cboEstado.TabIndex = 25
+        Me.cboEstado.Text = "--Seleccione--"
+        '
+        'lblEstado
+        '
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstado.Location = New System.Drawing.Point(10, 182)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(73, 24)
+        Me.lblEstado.TabIndex = 24
+        Me.lblEstado.Text = "Estado:"
         '
         'txtNombre
         '
@@ -249,7 +285,7 @@ Partial Class frmMantenimientoCurso
         '
         Me.lblApellido1.AutoSize = True
         Me.lblApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido1.Location = New System.Drawing.Point(6, 127)
+        Me.lblApellido1.Location = New System.Drawing.Point(5, 133)
         Me.lblApellido1.Name = "lblApellido1"
         Me.lblApellido1.Size = New System.Drawing.Size(72, 24)
         Me.lblApellido1.TabIndex = 3
@@ -268,7 +304,7 @@ Partial Class frmMantenimientoCurso
         'lblValidaCarrera
         '
         Me.lblValidaCarrera.AutoSize = True
-        Me.lblValidaCarrera.Location = New System.Drawing.Point(283, 138)
+        Me.lblValidaCarrera.Location = New System.Drawing.Point(283, 144)
         Me.lblValidaCarrera.Name = "lblValidaCarrera"
         Me.lblValidaCarrera.Size = New System.Drawing.Size(119, 13)
         Me.lblValidaCarrera.TabIndex = 16
@@ -288,7 +324,7 @@ Partial Class frmMantenimientoCurso
         Me.cboCarrera.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCarrera.FormattingEnabled = True
         Me.cboCarrera.Items.AddRange(New Object() {"Profesor", "Director Academico"})
-        Me.cboCarrera.Location = New System.Drawing.Point(136, 130)
+        Me.cboCarrera.Location = New System.Drawing.Point(136, 129)
         Me.cboCarrera.Name = "cboCarrera"
         Me.cboCarrera.Size = New System.Drawing.Size(124, 28)
         Me.cboCarrera.TabIndex = 0
@@ -336,4 +372,7 @@ Partial Class frmMantenimientoCurso
     Friend WithEvents lblValidaCodigo As System.Windows.Forms.Label
     Friend WithEvents txtNombre As ControlesLeafSoft.rcTextBox
     Friend WithEvents txtCodigo As ControlesLeafSoft.rcTextBox
+    Friend WithEvents lblValidaEstado As System.Windows.Forms.Label
+    Friend WithEvents cboEstado As System.Windows.Forms.ComboBox
+    Friend WithEvents lblEstado As System.Windows.Forms.Label
 End Class

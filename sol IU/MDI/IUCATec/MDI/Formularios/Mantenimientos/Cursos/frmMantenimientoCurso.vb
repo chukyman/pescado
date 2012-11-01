@@ -1,5 +1,9 @@
-﻿
+﻿Imports LN.Gestores
 Public Class frmMantenimientoCurso
+
+
+
+
 #Region "Eventos"
 
     ''' <summary>
@@ -126,13 +130,41 @@ Public Class frmMantenimientoCurso
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
         If FbValidarCamposTotal() = True Then
 
+
+            PRegistrarCurso()
             PLimpiarCampos()
             PCambiarEstadoFormlarios(ESTADO_MENU.GUARDAR)
+
 
         Else
             MsgBox("Digite los campos indicados")
         End If
+
+
+
+
     End Sub
+
+    Private Sub PRegistrarCurso()
+        Dim vblEstado As Boolean
+        If cboEstado.SelectedIndex = 1 Then
+            vblEstado = True
+        End If
+        If cboEstado.SelectedIndex = 2 Then
+            vblEstado = False
+        End If
+       
+        Try
+            GestorCurso.registrarCurso(txtCodigo.Text, txtNombre.Text, 1, vblEstado)
+            MsgBox("Los datos se han registrado correctamente")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+
+
 
     ''' <summary>
     ''' Evento del boton eliminar
@@ -141,9 +173,20 @@ Public Class frmMantenimientoCurso
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
-
+        PEliminarCurso()
         PCambiarEstadoFormlarios(ESTADO_MENU.ELIMINAR)
     End Sub
+
+
+    Private Sub PEliminarCurso()
+        Try
+            GestorCurso.eliminarCurso(txtCodigo.Text)
+            MsgBox("Los datos han sido eliminados")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
 
     ''' <summary>
     ''' 
@@ -155,6 +198,7 @@ Public Class frmMantenimientoCurso
         txtCodigo.Enabled = False
         If FbValidarCamposTotal() = True Then
 
+            PModificarCurso()
             PLimpiarCampos()
             PCambiarEstadoFormlarios(ESTADO_MENU.EDICION)
 
@@ -162,6 +206,26 @@ Public Class frmMantenimientoCurso
         Else
             MsgBox("Digite los campos indicados")
         End If
+
+
+
+    End Sub
+
+    Private Sub PModificarCurso()
+        Dim vblEstado As Boolean
+        If cboEstado.SelectedIndex = 1 Then
+            vblEstado = True
+        End If
+        If cboEstado.SelectedIndex = 2 Then
+            vblEstado = False
+        End If
+
+        Try
+            GestorCurso.modificarCurso(txtCodigo.Text, txtNombre.Text, 1, vblEstado)
+            MsgBox("Los datos se modificado registrado correctamente")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub btnDeshacer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeshacer.Click
@@ -206,6 +270,7 @@ Public Class frmMantenimientoCurso
         CODIGO = 0
         NOMBRE = 1
         CARRERA = 2
+        ESTADO = 3
     End Enum
 #End Region
 
@@ -261,7 +326,13 @@ Public Class frmMantenimientoCurso
                         lblValidaCarrera.Visible = pvbMostrar
                         vlbEsValida = pvbMostrar
                     End If
-
+                Case CAMPOS.ESTADO
+                    If pvbMostrar = True Then
+                        lblValidaEstado.Visible = pvbMostrar
+                    Else
+                        lblValidaEstado.Visible = pvbMostrar
+                        vlbEsValida = pvbMostrar
+                    End If
             End Select
 
             Return vlbEsValida
@@ -305,7 +376,13 @@ Public Class frmMantenimientoCurso
             Else
                 FbMostrarValidaciones(False, CAMPOS.CARRERA)
             End If
-
+            ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            If cboEstado.SelectedIndex = 0 Then
+                FbMostrarValidaciones(True, CAMPOS.ESTADO)
+                vlbValidado = False
+            Else
+                FbMostrarValidaciones(False, CAMPOS.ESTADO)
+            End If
             'Retorna si esta validado, si retorna false es porq no esta validado
             Return vlbValidado
             'Si produce Error
@@ -330,6 +407,7 @@ Public Class frmMantenimientoCurso
             txtCodigo.Text() = String.Empty
             txtNombre.Text() = String.Empty
             cboCarrera.SelectedIndex = -1
+            cboEstado.SelectedIndex = -1
             '   cboTipoRol.Text = String.Empty
             'Si produce Error
         Catch ex As Exception
@@ -435,5 +513,6 @@ Public Class frmMantenimientoCurso
 
     End Sub
 #End Region
+
 
 End Class
