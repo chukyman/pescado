@@ -14,6 +14,8 @@ Public Class frmMantenimientoCurso
     ''' <remarks>Diego Salas Arce</remarks>
     Private Sub frmMantenimientoCurso_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
+            '
+            PLLenarCombo()
 
             'Llama al procedimiento y bloque los campos.
             PBloquearDesBloquearCamposTxt(False)
@@ -515,4 +517,38 @@ Public Class frmMantenimientoCurso
 #End Region
 
 
+    'Private Sub cboCarrera_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCarrera.SelectedIndexChanged
+    '    GestorCarrera.listarCarrera()
+
+    '    cboCarrera.DataSource = GestorCarrera.listarCarrera()
+
+    'End Sub
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private Sub PLLenarCombo()
+        Dim vloListaTemporal As List(Of LN.Estructuras.StrCarrera)
+
+        vloListaTemporal = GestorCarrera.listarCarrera()
+
+        '  For vln As Integer = 0 To vloListaTemporal.Count - 1
+        ' cboCarrera.Items.Add(vln)
+
+        'cboCarrera.ValueMember(vloListaTemporal.Item(vln).Nombre)
+
+
+        'cboCarrera.SelectedValue = vloListaTemporal.Item(vln).Id_Carrera
+        cboCarrera.ValueMember = "Id_Carrera"
+
+        cboCarrera.DisplayMember = "Nombre"
+
+        cboCarrera.DataSource = vloListaTemporal
+
+
+        ' Next
+
+
+    End Sub
 End Class

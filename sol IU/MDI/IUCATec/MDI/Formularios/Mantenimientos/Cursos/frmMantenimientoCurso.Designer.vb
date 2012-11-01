@@ -323,7 +323,6 @@ Partial Class frmMantenimientoCurso
         '
         Me.cboCarrera.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCarrera.FormattingEnabled = True
-        Me.cboCarrera.Items.AddRange(New Object() {"Profesor", "Director Academico"})
         Me.cboCarrera.Location = New System.Drawing.Point(136, 129)
         Me.cboCarrera.Name = "cboCarrera"
         Me.cboCarrera.Size = New System.Drawing.Size(124, 28)
