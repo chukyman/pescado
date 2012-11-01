@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LN.Estructuras
 {
-    class StrCurso
+   public struct StrCurso
     {
         //Atributos
         private string _codigo;

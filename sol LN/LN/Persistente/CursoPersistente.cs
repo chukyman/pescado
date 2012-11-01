@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using LN.Clases;
 using AccesoDatos;
+using LN.Estructuras;
+using System.Data.SqlClient;
 
 namespace LN.Persistente
 {
@@ -87,6 +89,97 @@ namespace LN.Persistente
                 throw new Exception(e.Message);
             }
 
+        }
+
+
+
+        public StrCurso buscarCodigo(String pcodigo)
+        {
+            
+            SqlDataReader drDatosCurso;
+
+            
+            List<Parametro> parametros = new List<Parametro>();
+
+            StrCurso str = new StrCurso();
+
+            
+            Parametro tmp01 = new Parametro("Codigo", pcodigo);
+
+            
+            parametros.Add(tmp01);
+
+            
+            String storeProced = Properties.Resources.PABuscarCursoXCodigo.ToString();
+
+            try
+            {
+
+                
+                drDatosCurso = acceso.ejecutarSP_Retorna(storeProced, parametros);
+
+                if (drDatosCurso.Read())
+                {
+                   
+                    str = (new StrCurso(
+                                     
+                                        drDatosCurso.GetValue(0).ToString(),
+                                        drDatosCurso.GetValue(1).ToString(),
+                                        drDatosCurso.GetValue(2).ToString()
+                                        ));
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return str;
+            drDatosCurso.Close();
+        }
+
+
+        public StrCurso buscarNombre(String pnombre)
+        {
+
+            SqlDataReader drDatosCurso;
+
+
+            List<Parametro> parametros = new List<Parametro>();
+
+            StrCurso str = new StrCurso();
+
+
+            Parametro tmp01 = new Parametro("Nombre", pnombre);
+
+
+            parametros.Add(tmp01);
+
+
+            String storeProced = Properties.Resources.PABuscarCursoXNombre.ToString();
+
+            try
+            {
+
+
+                drDatosCurso = acceso.ejecutarSP_Retorna(storeProced, parametros);
+
+                if (drDatosCurso.Read())
+                {
+
+                    str = (new StrCurso(
+
+                                        drDatosCurso.GetValue(0).ToString(),
+                                        drDatosCurso.GetValue(1).ToString(),
+                                        drDatosCurso.GetValue(2).ToString()
+                                        ));
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return str;
+            drDatosCurso.Close();
         }
 
 

@@ -121,6 +121,14 @@
     <value>PA_buscar_carrera_x_id</value>
     <comment>Busca la carrera por ID</comment>
   </data>
+  <data name="PABuscarCursoXCodigo" xml:space="preserve">
+    <value>PA_buscar_curso_x_codigo</value>
+    <comment>Buscar un curso determinado</comment>
+  </data>
+  <data name="PABuscarCursoXNombre" xml:space="preserve">
+    <value>PA_buscar_curso_x_nombre</value>
+    <comment>Busca un curso determinado dado el nombre</comment>
+  </data>
   <data name="PABuscarGrupoXNombre" xml:space="preserve">
     <value>PA_buscar_grupo_x_nombre</value>
     <comment>Busca un grupo determinado por el nombre Diego Salas</comment>

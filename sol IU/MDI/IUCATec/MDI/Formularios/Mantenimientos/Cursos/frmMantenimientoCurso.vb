@@ -157,7 +157,7 @@ Public Class frmMantenimientoCurso
         End If
        
         Try
-            GestorCurso.registrarCurso(txtCodigo.Text, txtNombre.Text, 1, vblEstado)
+            GestorCurso.registrarCurso(txtCodigo.Text, txtNombre.Text, cboCarrera.SelectedValue, vblEstado)
             MsgBox("Los datos se han registrado correctamente")
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -299,6 +299,7 @@ Public Class frmMantenimientoCurso
                     lblValidaCodigo.Visible = pvbMostrar
                     lblValidaNombre.Visible = pvbMostrar
                     lblValidaCarrera.Visible = pvbMostrar
+                    lblValidaEstado.Visible = pvbMostrar
                     vlbEsValida = pvbMostrar
 
                     vlbEsValida = pvbMostrar
@@ -507,6 +508,7 @@ Public Class frmMantenimientoCurso
             txtCodigo.Enabled = pvbBloquear
             txtNombre.Enabled = pvbBloquear
             cboCarrera.Enabled = pvbBloquear
+            cboEstado.Enabled = pvbBloquear
             'Si produce Error
         Catch ex As Exception
             'Lanza Error
@@ -517,13 +519,6 @@ Public Class frmMantenimientoCurso
 #End Region
 
 
-    'Private Sub cboCarrera_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCarrera.SelectedIndexChanged
-    '    GestorCarrera.listarCarrera()
-
-    '    cboCarrera.DataSource = GestorCarrera.listarCarrera()
-
-    'End Sub
-
     ''' <summary>
     ''' 
     ''' </summary>
@@ -533,22 +528,11 @@ Public Class frmMantenimientoCurso
 
         vloListaTemporal = GestorCarrera.listarCarrera()
 
-        '  For vln As Integer = 0 To vloListaTemporal.Count - 1
-        ' cboCarrera.Items.Add(vln)
-
-        'cboCarrera.ValueMember(vloListaTemporal.Item(vln).Nombre)
-
-
-        'cboCarrera.SelectedValue = vloListaTemporal.Item(vln).Id_Carrera
         cboCarrera.ValueMember = "Id_Carrera"
 
         cboCarrera.DisplayMember = "Nombre"
 
         cboCarrera.DataSource = vloListaTemporal
-
-
-        ' Next
-
 
     End Sub
 End Class

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using LN.Clases;
 using LN.Persistente;
-
+using LN.Estructuras;
 
 namespace LN.Gestores
 {
@@ -41,6 +41,26 @@ namespace LN.Gestores
 
         }
 
+        public static StrCurso buscarXCodigo(String pcodigo)
+        {
+
+            CursoPersistente objCursoPersistente = new CursoPersistente();
+            StrCurso strC = objCursoPersistente.buscarCodigo(pcodigo);
+
+            return strC;
+
+        }
+
+
+        public static StrCurso buscarXNombre(String pnombre)
+        {
+
+            CursoPersistente objCursoPersistente = new CursoPersistente();
+            StrCurso strC = objCursoPersistente.buscarNombre(pnombre);
+
+            return strC;
+
+        }
        
 
 

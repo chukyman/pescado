@@ -1,4 +1,8 @@
-﻿Public Class frmBuscarCurso
+﻿Imports LN.Gestores
+Imports LN.Estructuras
+
+
+Public Class frmBuscarCurso
 
 #Region "Eventos"
 
@@ -52,6 +56,8 @@
         If Trim(txtBuscCursoCodigo.Text) = String.Empty Then
             MessageBox.Show(vlcMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtBuscCursoCodigo.Focus()
+        Else
+            BusquedaXCodigoCurso()
         End If
     End Sub
 
@@ -66,22 +72,12 @@
         If Trim(txtBuscCursoNombre.Text) = String.Empty Then
             MessageBox.Show(vlcMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtBuscCursoCodigo.Focus()
+        Else
+            BusquedaXNombreCurso()
         End If
     End Sub
 
-    ''' <summary>
-    ''' Accion del boton de buscar curso por combo
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks>Diego Salas Arce</remarks>
-    Private Sub btnBuscarListCurso_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarListCurso.Click
-        vlcMensaje = "Debe seleccionar el curso a buscar"
-        If cboCursos.SelectedIndex = -1 Then
-            MessageBox.Show(vlcMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            cboCursos.Focus()
-        End If
-    End Sub
+    
 
     ''' <summary>
     ''' Cierra la ventana de búsqueda de cursos
@@ -103,11 +99,37 @@
 #End Region
 
 #Region "Procedimientos"
+    Private Sub BusquedaXCodigoCurso()
+        'Obtengo el codigo del curso digitado por el usuario
+        Dim codigoCurso As String = txtBuscCursoCodigo.Text()
+        'Obtengo la estructura de cursos haciendo un llamado al gestor
+        Dim vlostrDatosCurso As StrCurso = GestorCurso.buscarXCodigo(codigoCurso)
+
+        MessageBox.Show("Información del curso" & vbCrLf &
+                        "ID: " & vlostrDatosCurso.Codigo & vbCrLf &
+                        "Código: " & vlostrDatosCurso.Nombre & vbCrLf &
+                        "Nombre: " & vlostrDatosCurso.Estado)
+    End Sub
+
+
+    Private Sub BusquedaXNombreCurso()
+
+        'Obtengo el nombre del curso digitado por el usuario
+        Dim nombreCurso As String = txtBuscCursoNombre.Text()
+        'Obtengo la estructura de cursos haciendo un llamado al gestor
+        Dim vlostrDatosCurso As StrCurso = GestorCurso.buscarXNombre(nombreCurso)
+
+        MessageBox.Show("Información del curso" & vbCrLf &
+                        "Código de curso: " & vlostrDatosCurso.Codigo & vbCrLf &
+                        "Curso: " & vlostrDatosCurso.Nombre & vbCrLf &
+                        "Estado: " & vlostrDatosCurso.Estado)
+    End Sub
+
 
 #End Region
 
 #Region "Funciones"
 
 #End Region
-    
+
 End Class

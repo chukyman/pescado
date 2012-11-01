@@ -219,7 +219,7 @@ Partial Class frmMantenimientoCurso
         'lblValidaEstado
         '
         Me.lblValidaEstado.AutoSize = True
-        Me.lblValidaEstado.Location = New System.Drawing.Point(283, 190)
+        Me.lblValidaEstado.Location = New System.Drawing.Point(285, 190)
         Me.lblValidaEstado.Name = "lblValidaEstado"
         Me.lblValidaEstado.Size = New System.Drawing.Size(135, 13)
         Me.lblValidaEstado.TabIndex = 26
@@ -304,7 +304,7 @@ Partial Class frmMantenimientoCurso
         'lblValidaCarrera
         '
         Me.lblValidaCarrera.AutoSize = True
-        Me.lblValidaCarrera.Location = New System.Drawing.Point(283, 144)
+        Me.lblValidaCarrera.Location = New System.Drawing.Point(283, 137)
         Me.lblValidaCarrera.Name = "lblValidaCarrera"
         Me.lblValidaCarrera.Size = New System.Drawing.Size(119, 13)
         Me.lblValidaCarrera.TabIndex = 16
